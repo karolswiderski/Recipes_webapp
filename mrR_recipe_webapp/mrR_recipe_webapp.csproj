@@ -103,6 +103,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DTO\CategoriesDTO.cs" />
+    <Compile Include="Models\DTO\Db.cs" />
+    <Compile Include="Models\DTO\DirectionsDTO.cs" />
+    <Compile Include="Models\DTO\DishesDTO.cs" />
+    <Compile Include="Models\DTO\GalleryDTO.cs" />
+    <Compile Include="Models\DTO\IngredientsDTO.cs" />
+    <Compile Include="Models\DTO\UsersDTO.cs" />
+    <Compile Include="Models\ViewModels\Account\LoginUserVM.cs" />
+    <Compile Include="Models\ViewModels\Dishes\CategoriesVM.cs" />
+    <Compile Include="Models\ViewModels\Dishes\DirectionsVM.cs" />
+    <Compile Include="Models\ViewModels\Dishes\DishesVM.cs" />
+    <Compile Include="Models\ViewModels\Dishes\GalleryVM.cs" />
+    <Compile Include="Models\ViewModels\Dishes\IngredientsVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,8 +133,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Models\DTO\" />
-    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
