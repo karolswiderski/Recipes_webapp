@@ -17,7 +17,7 @@ namespace recipes_webapp.Controllers
 
             using (Db db = new Db())
             {
-                DishesList = db.Dishes.ToArray().Select(x => new DishesVM()).ToList();
+                DishesList = db.Dishes.ToArray().Select(x => new DishesVM(x)).ToList();
             }
 
             return View(DishesList);

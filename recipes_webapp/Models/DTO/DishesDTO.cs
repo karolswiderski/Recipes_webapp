@@ -24,5 +24,20 @@ namespace recipes_webapp.Models.DTO
         public int Servings { get; set; }
         public int Rating { get; set; }
         public DateTime Date_Added { get; set; }
+
+        [ForeignKey("Id_Category")]
+        public virtual CategoriesDTO Categories { get; set; }
+
+        [ForeignKey("Id_Direction")]
+        public virtual DirectionsDTO Directions { get; set; }
+
+        [ForeignKey("Id_Ingredient")]
+        public virtual IngredientsDTO Ingredients { get; set; }
+
+        [ForeignKey("Id_Gallery")]
+        public virtual GalleryDTO Gallery { get; set; }
+
+        [ForeignKey("Id_Author")]
+        public virtual UsersDTO User { get; set; }
     }
 }

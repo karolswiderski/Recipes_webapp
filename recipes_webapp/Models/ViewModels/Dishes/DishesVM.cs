@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace recipes_webapp.Models.ViewModels.Dishes
 {
@@ -42,5 +43,11 @@ namespace recipes_webapp.Models.ViewModels.Dishes
         public int Servings { get; set; }
         public int Rating { get; set; }
         public DateTime Date_Added { get; set; }
+
+        public IEnumerable<SelectListItem> Categories { get; set; }
+        public int Directions { get; set; }
+        public int Ingredients { get; set; }
+        public int Gallery { get; set; }
+        public int User { get; set; }
     }
 }
