@@ -15,15 +15,34 @@ namespace recipes_webapp.Controllers
         {
             List<DishesVM> DishesList;
 
-            using (Db db = new Db())
+            if (string.IsNullOrEmpty(searching))
             {
-                DishesList = db.Dishes.ToArray().Select(x => new DishesVM(x)).ToList();
+                using (Db db = new Db())
+                {
+                    DishesList = db.Dishes.ToArray().Select(x => new DishesVM(x)).ToList();
+                }
+            }
+            else {
+                using (Db db = new Db())
+                {
+                    DishesList = db.Dishes.ToArray().Where(x => x.Name.StartsWith(searching) || searching == null).Select(x => new DishesVM(x)).ToList();
+                }
             }
 
-            // DishesList = db.Dishes.ToArray().Select(x => new DishesVM(x)).Where(x => x.Name.Contains(searching) || searching == null).ToList();
-        
             return View(DishesList);
-            //return View(db.Dishes.Where(x => x.Name.Contains(searching) || searching == null).ToList());
+        }
+
+        // GET: recipes/aa
+        public ActionResult aa()
+        {
+            List<CategoriesVM> l;
+
+            using (Db db = new Db())
+            {
+                l = db.Categories.ToArray().Select(x => new CategoriesVM(x)).ToList();
+            }
+
+            return View(l);
         }
 
     }

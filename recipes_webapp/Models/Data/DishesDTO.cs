@@ -38,6 +38,6 @@ namespace recipes_webapp.Models.Data
         public virtual GalleryDTO Gallery { get; set; }
 
         [ForeignKey("Id_Author")]
-        public virtual UsersDTO User { get; set; }
+        public virtual UsersDTO Users { get; set; }
     }
 }

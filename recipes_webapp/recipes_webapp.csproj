@@ -181,6 +181,7 @@
     <Content Include="Views\SearchBar\SearchBarPartialLayout.cshtml" />
     <Content Include="Views\SearchBar\SearchBarPartialPage.cshtml" />
     <Content Include="Views\Recipes\Index.cshtml" />
+    <Content Include="Views\Recipes\aa.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
