@@ -59,6 +59,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -127,19 +129,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\SearchBarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DTO\CategoriesDTO.cs" />
-    <Compile Include="Models\DTO\Db.cs" />
-    <Compile Include="Models\DTO\DirectionsDTO.cs" />
-    <Compile Include="Models\DTO\DishesDTO.cs" />
-    <Compile Include="Models\DTO\GalleryDTO.cs" />
-    <Compile Include="Models\DTO\IngredientsDTO.cs" />
-    <Compile Include="Models\DTO\UsersDTO.cs" />
+    <Compile Include="Models\Data\CategoriesDTO.cs" />
+    <Compile Include="Models\Data\Db.cs" />
+    <Compile Include="Models\Data\DirectionsDTO.cs" />
+    <Compile Include="Models\Data\DishesDTO.cs" />
+    <Compile Include="Models\Data\GalleryDTO.cs" />
+    <Compile Include="Models\Data\IngredientsDTO.cs" />
+    <Compile Include="Models\Data\UsersDTO.cs" />
     <Compile Include="Models\ViewModels\Account\LoginUserVM.cs" />
     <Compile Include="Models\ViewModels\Dishes\CategoriesVM.cs" />
     <Compile Include="Models\ViewModels\Dishes\DirectionsVM.cs" />
@@ -154,10 +155,13 @@
       <DependentUpon>RecipesDB.mdf</DependentUpon>
     </Content>
     <Content Include="Content\LayoutCSS.css" />
+    <Content Include="Content\Recipes\IndexCSS.css" />
     <Content Include="Content\SearchBarCSS.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -168,12 +172,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Views\SearchBar\SearchBarPartial.cshtml" />
+    <Content Include="Views\SearchBar\SearchBarPartialLayout.cshtml" />
+    <Content Include="Views\SearchBar\SearchBarPartialPage.cshtml" />
     <Content Include="Views\Recipes\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>

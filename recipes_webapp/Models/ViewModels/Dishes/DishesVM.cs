@@ -1,4 +1,4 @@
-﻿using recipes_webapp.Models.DTO;
+﻿using recipes_webapp.Models.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

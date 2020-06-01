@@ -8,8 +8,12 @@ namespace recipes_webapp.Controllers
 {
     public class SearchBarController : Controller
     {
-        // GET: SearchBar
-        public ActionResult SearchBarPartial()
+        public ActionResult SearchBarPartialLayout()
+        {
+            return PartialView();
+        }
+        
+        public ActionResult SearchBarPartialPage()
         {
             return PartialView();
         }

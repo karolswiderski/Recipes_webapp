@@ -1,4 +1,5 @@
-﻿using recipes_webapp.Models.DTO;
+﻿using recipes_webapp.Models.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace recipes_webapp.Models.ViewModels.Dishes
 {
@@ -11,6 +12,7 @@ namespace recipes_webapp.Models.ViewModels.Dishes
             Name = row.Name;
         }
 
+        [Key]
         public int Id_Category { get; set; }
         public string Name { get; set; }
     }

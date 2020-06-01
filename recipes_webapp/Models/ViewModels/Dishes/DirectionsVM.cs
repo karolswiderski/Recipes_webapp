@@ -1,4 +1,4 @@
-﻿using recipes_webapp.Models.DTO;
+﻿using recipes_webapp.Models.Data;
 
 namespace recipes_webapp.Models.ViewModels.Dishes
 {
