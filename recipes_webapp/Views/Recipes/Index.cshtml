@@ -4,18 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-@using (Html.BeginForm("Index", "Recipes", FormMethod.Get))
-{
-    @Html.TextBox("searching")<input type="submit" value="Search" />
+<input type="text" id="search" placeholder="search" />
 
-
-}
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -41,41 +31,55 @@
         </th>
     </tr>
 
-    @if (Model.Count() == 0)
+    @foreach (var item in Model)
     {
-        <tr>
-            <td colspan="7" style="background-color:red;"></td>
+        <tr class="tr-table">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Servings)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Added)
+            </td>
         </tr>
     }
-    else
-    {
-        foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Time)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Level)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Servings)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rating)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date_Added)
-                </td>
-            </tr>
-        }
-    }
-
-
 </table>
+
+
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+         
+            $("#search").keyup(function () {
+                var searchText = $(this).val();
+
+                $(".tr-table").each(function () {
+
+                    if ($(this).text().search(new RegExp(searchText, "i")) < 0) {
+                        $(this).fadeOut();
+                    } else {
+                        $(this).show();
+                    }
+
+                });
+            });
+        });
+    </script>
+
+
+}
