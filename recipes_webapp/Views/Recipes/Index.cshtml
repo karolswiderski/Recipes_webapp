@@ -4,67 +4,48 @@
     ViewBag.Title = "Index";
 }
 
-<input type="text" id="search" placeholder="search" />
+<link href="~/Content/Recipes/IndexCSS.css" rel="stylesheet" />
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Time)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Level)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Servings)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date_Added)
-        </th>
-    </tr>
+<div id="index-body">
 
-    @foreach (var item in Model)
-    {
-        <tr class="tr-table">
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Level)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Servings)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date_Added)
-            </td>
-        </tr>
-    }
-</table>
+    <div id="text-before-search">
+        <p>Wyszukaj najlepszy przepis!</p>
+    </div>
+    <div id="search-box">
+        <input type="text" id="search" placeholder="na co masz dzisiaj ochotę?" />
+    </div>
 
+    <div id="recipes-box">
+        <ul>
+            @if (Model.Count() == 0)
+            {
+                <li class="tr-table"></li>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <li class="tr-table recipe">
+                        <div class="recipe-photo">
+                            <img src="~/Content/Images/przykladowe-zdjecie-potrawy.jpg" />
+                        </div>
+                        <div class="recipe-information">   </div>
+                        <div class="recipe-text">   </div>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+    <div id="menu-box">
+        ww
+    </div>
 
+</div>
 @section scripts{
 
     <script>
         $(document).ready(function () {
-         
+
             $("#search").keyup(function () {
                 var searchText = $(this).val();
 

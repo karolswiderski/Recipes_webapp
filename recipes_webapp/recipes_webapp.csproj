@@ -154,6 +154,7 @@
     <Content Include="App_Data\RecipesDB_log.ldf">
       <DependentUpon>RecipesDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\Images\przykladowe-zdjecie-potrawy.jpg" />
     <Content Include="Content\LayoutCSS.css" />
     <Content Include="Content\Recipes\IndexCSS.css" />
     <Content Include="Content\SearchBarCSS.css" />
