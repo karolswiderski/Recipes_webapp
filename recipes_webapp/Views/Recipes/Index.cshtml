@@ -12,7 +12,7 @@
 <div id="index-body">
 
     <div id="text-before-search">
-        <p>Wyszukaj najlepszy przepis!</p>
+        <p>Wyszukaj najlepszy przepis! @TempData["categoryName"]</p>
     </div>
     <div id="search-box">
         <input type="text" id="search" placeholder="na co masz dzisiaj ochotę?" />
@@ -64,7 +64,8 @@
         </ul>
     </div>
     <div id="menu-box">
-        
+        @Html.Action("ListOfCategories", "Recipes", new { area = "" })
+
     </div>
 
 </div>

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<recipes_webapp.Models.ViewModels.Dishes.DishesVM>
+
+<link href="~/Content/Recipes/IndexCSS.css" rel="stylesheet" />
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+
+        $("#search").keyup(function () {
+            var searchText = $(this).val();
+
+            $(".tr-table").each(function () {
+
+                if ($(this).text().search(new RegExp(searchText, "i")) < 0) {
+                    $(this).fadeOut();
+                } else {
+                    $(this).show();
+                }
+
+            });
+        });
+    });
+</script>
+
+
+<div id="search-box">
+    <input type="text" id="search" placeholder="na co masz dzisiaj ochotę?" />
+</div>
+
+<div id="recipes-box">
+    <ul>
+        @if (Model.Count() == 0)
+        {
+            <li class="tr-table"></li>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+
+                <li class="tr-table recipe">
+                    <div class="recipe-photo">
+                        <img src="~/Content/Images/przykladowe-zdjecie-potrawy.jpg" />
+                    </div>
+                    <div class="recipe-information">
+                        <div> <i class="far fa-heart"></i> 	&nbsp; @Html.DisplayFor(modelItem => item.Rating) </div>
+                        <div>  <i class="glyphicon glyphicon-cutlery"></i> 	&nbsp; @Html.DisplayFor(modelItem => item.Servings) </div>
+                        <div>  <i class="far fa-clock"></i> &nbsp; @Html.DisplayFor(modelItem => item.Time) </div>
+                        <div class="last">
+                            <i class="glyphicon glyphicon-stats"></i> &nbsp;
+                            @if (Convert.ToInt32(Html.DisplayFor(modelItem => item.Level).ToString()) == 1)
+                            {
+                                <p>łatwy</p>
+                            }
+                            else if (Convert.ToInt32(Html.DisplayFor(modelItem => item.Level).ToString()) == 2)
+                            {
+                                <p>średni</p>
+                            }
+                            else if (Convert.ToInt32(Html.DisplayFor(modelItem => item.Level).ToString()) == 3)
+                            {
+                                <p>trudny</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="recipe-text">
+                        <div class="text-title"><b>@Html.DisplayFor(modelItem => item.Name)</b></div>
+                        <div class="text-content"><i>@Html.DisplayFor(modelItem => item.Description)</i></div>
+                        <div class="text-author">przepis autorstwa: <b>Tomasz Nowak</b>, dodany: @Html.DisplayFor(modelItem => item.Date_Added)</div>
+                    </div>
+                </li>
+            }
+        }
+    </ul>
+</div>
+
+
+
+
+

@@ -129,6 +129,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\SearchBarController.cs" />
     <Compile Include="Global.asax.cs">
@@ -182,8 +183,11 @@
     <Content Include="Views\SearchBar\SearchBarPartialLayout.cshtml" />
     <Content Include="Views\SearchBar\SearchBarPartialPage.cshtml" />
     <Content Include="Views\Recipes\Index.cshtml" />
-    <Content Include="Views\Recipes\aa.cshtml" />
+    <Content Include="Views\Recipes\ListOfCategories.cshtml" />
+    <Content Include="Views\Categories\All.cshtml" />
+    <Content Include="Views\Categories\Recipes.cshtml" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
