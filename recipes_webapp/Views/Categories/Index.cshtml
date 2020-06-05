@@ -11,7 +11,14 @@
 <div id="index-body">
 
     <div id="text-before-search">
-        <p>Wyszukaj najlepszy przepis!</p>
+        @if (TempData["categoryName"].ToString() == "all")
+        {
+            <p>Wyszukaj najlepszy przepis!</p>
+        }
+        else
+        {
+            <p>@TempData["categoryName"]</p>
+        }
     </div>
 
     @Html.Action("Recipes", "Categories", new { name = TempData["categoryName"] })
@@ -20,20 +27,26 @@
 
         <table class="table">
             <tr>
-                <th style="text-align:center;">
+                <th class="heading">
                     Kategorie:
                 </th>
+            </tr>
+            <tr>
+                <td class="category">
+                    <a href="@Url.Action("Index", "Categories", new { categoryName = ""})"> Wszystkie kategorie </a><i class="fas fa-caret-right"></i>
+                </td>
             </tr>
 
             @foreach (var item in Model)
             {
                 <tr>
-                    <td style="text-align:center;">
-                        <a href="/Categories?categoryName=@item.Name&flag=true">@Html.DisplayFor(modelItem => item.Name)</a>
-                        <a href="@Url.Action("Index", "Categories", new { categoryName = item.Name, flag = true })">@Html.DisplayFor(modelItem => item.Name)</a>
+                    <td class="category">
+                        <a href="@Url.Action("Index", "Categories", new { categoryName = item.Name, flag = true })">@Html.DisplayFor(modelItem => item.Name) </a><i class="fas fa-caret-right"></i>
                     </td>
                 </tr>
             }
+
+
 
         </table>
 

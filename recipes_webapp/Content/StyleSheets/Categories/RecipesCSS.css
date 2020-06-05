@@ -1,7 +1,7 @@
 ﻿#search-box {
     width: 100%;
-    height: 5em;
-    margin: 1em 0 2em 0;
+    height: auto;
+    margin: 1em 0 1em 0;
     font-size: 1.8vw;
 }
 
@@ -24,6 +24,7 @@
     float: left;
     width: 80%;
     height: auto;
+    margin-top: 5em;
 }
 
     #recipes-box ul {

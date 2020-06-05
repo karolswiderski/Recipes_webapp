@@ -18,5 +18,28 @@
     width: 100%;
     height: 100%;
 }
+#menu-box {
+    margin-top: 1em;
+}
+.heading {
+    text-align: center;
+    font-size: 125%;
+}
 
+.category {
+    text-align: center;
+}
 
+    .category i {
+        font-size: 80%;
+        color: RGB(136, 176, 75);
+    }
+
+    .category a:hover {
+        text-decoration: none;
+        color: #011e37;
+    }
+
+.categories {
+    margin-top: 0.5em;
+}
