@@ -10,9 +10,9 @@ namespace recipes_webapp.Controllers
 {
     public class CategoriesController : Controller
     {
-        // GET: Categories/All/
+        // GET: Categories/
         [HttpGet]
-        public ActionResult All(string categoryName, bool flag = false)
+        public ActionResult Index(string categoryName, bool flag = false)
         {
             List<CategoriesVM> CategoriesList;
             if (flag == false)
@@ -23,42 +23,27 @@ namespace recipes_webapp.Controllers
             {
                 TempData["categoryName"] = categoryName;
             }
-            
-            using(Db db = new Db())
+
+            using (Db db = new Db())
             {
                 CategoriesList = db.Categories.ToArray().Select(x => new CategoriesVM(x)).ToList();
             }
             return View(CategoriesList);
         }
-        
 
         [HttpGet]
-        public ActionResult Recipes(string searching, string name)
+        public ActionResult Recipes(string name)
         {
             List<DishesVM> DishesList;
 
-            if (string.IsNullOrEmpty(searching))
+            using (Db db = new Db())
             {
-                using (Db db = new Db())
+                if (name == "all") DishesList = db.Dishes.ToArray().Select(x => new DishesVM(x)).ToList();
+                else
                 {
-                    if (name == "all") DishesList = db.Dishes.ToArray().Select(x => new DishesVM(x)).ToList();
-                    else
-                    {
-                        CategoriesDTO category = db.Categories.FirstOrDefault(x => x.Name == name);
-                        DishesList = db.Dishes.Where(x => x.Id_Category == category.Id_Category).ToArray().Select(x => new DishesVM(x)).ToList();
-                    }
-                }
-            }
-            else
-            {
-                using (Db db = new Db())
-                {
-                    if (name == "all") DishesList = db.Dishes.ToArray().Where(x => x.Name.StartsWith(searching) || searching == null).Select(x => new DishesVM(x)).ToList();
-                    else
-                    {
-                        CategoriesDTO category = db.Categories.FirstOrDefault(x => x.Name == name);
-                        DishesList = db.Dishes.ToArray().Where(x => x.Name.StartsWith(searching) || searching == null && x.Id_Category == category.Id_Category).Select(x => new DishesVM(x)).ToList();
-                    }
+                    CategoriesDTO category = db.Categories.FirstOrDefault(x => x.Name == name);
+                    TempData["test"] = "test";
+                    DishesList = db.Dishes.Where(x => x.Id_Category == category.Id_Category).ToArray().Select(x => new DishesVM(x)).ToList();
                 }
             }
 

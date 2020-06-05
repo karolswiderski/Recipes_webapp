@@ -130,7 +130,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\SearchBarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -155,10 +154,11 @@
     <Content Include="App_Data\RecipesDB_log.ldf">
       <DependentUpon>RecipesDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\StyleSheets\Categories\IndexCSS.css" />
     <Content Include="Content\Images\przykladowe-zdjecie-potrawy.jpg" />
-    <Content Include="Content\LayoutCSS.css" />
-    <Content Include="Content\Recipes\IndexCSS.css" />
-    <Content Include="Content\SearchBarCSS.css" />
+    <Content Include="Content\StyleSheets\_Layout\LayoutCSS.css" />
+    <Content Include="Content\StyleSheets\Categories\RecipesCSS.css" />
+    <Content Include="Content\StyleSheets\_Layout\SearchBarCSS.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
@@ -181,11 +181,8 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Views\SearchBar\SearchBarPartialLayout.cshtml" />
-    <Content Include="Views\SearchBar\SearchBarPartialPage.cshtml" />
-    <Content Include="Views\Recipes\Index.cshtml" />
-    <Content Include="Views\Recipes\ListOfCategories.cshtml" />
-    <Content Include="Views\Categories\All.cshtml" />
     <Content Include="Views\Categories\Recipes.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

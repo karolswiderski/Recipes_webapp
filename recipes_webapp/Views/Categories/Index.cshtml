@@ -1,0 +1,42 @@
+﻿@model IEnumerable<recipes_webapp.Models.ViewModels.Dishes.CategoriesVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/StyleSheets/Categories/IndexCSS.css" rel="stylesheet" />
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<div id="index-body">
+
+    <div id="text-before-search">
+        <p>Wyszukaj najlepszy przepis!</p>
+    </div>
+
+    @Html.Action("Recipes", "Categories", new { name = TempData["categoryName"] })
+
+    <div id="menu-box">
+
+        <table class="table">
+            <tr>
+                <th style="text-align:center;">
+                    Kategorie:
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="text-align:center;">
+                        <a href="/Categories?categoryName=@item.Name&flag=true">@Html.DisplayFor(modelItem => item.Name)</a>
+                        <a href="@Url.Action("Index", "Categories", new { categoryName = item.Name, flag = true })">@Html.DisplayFor(modelItem => item.Name)</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+
+</div>

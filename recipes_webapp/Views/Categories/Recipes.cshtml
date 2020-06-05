@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<recipes_webapp.Models.ViewModels.Dishes.DishesVM>
 
-<link href="~/Content/Recipes/IndexCSS.css" rel="stylesheet" />
+<link href="~/Content/StyleSheets/Categories/RecipesCSS.css" rel="stylesheet" />
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
@@ -33,7 +33,9 @@
     <ul>
         @if (Model.Count() == 0)
         {
-            <li class="tr-table"></li>
+            <li class="tr-table">
+                <b id="count-0">nie znalazłeś niczego ciekawego? Sprawdź przepisy polecane przez nas: </b>
+            </li>
         }
         else
         {
@@ -71,7 +73,9 @@
                     </div>
                 </li>
             }
+            @TempData["test"]
         }
+        &nbsp;
     </ul>
 </div>
 
