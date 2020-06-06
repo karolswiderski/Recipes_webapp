@@ -49,5 +49,23 @@ namespace recipes_webapp.Controllers
 
             return PartialView(DishesList);
         }
+
+        [HttpGet]
+        public ActionResult BestRating(string name) {
+            List<DishesVM> DishesList;
+
+            using (Db db = new Db())
+            {
+                if (name == "all") DishesList = db.Dishes.ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
+                else
+                {
+                    CategoriesDTO category = db.Categories.FirstOrDefault(x => x.Name == name);
+                    TempData["test"] = "test";
+                    DishesList = db.Dishes.Where(x => x.Id_Category == category.Id_Category).ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
+                }
+            }
+
+            return PartialView(DishesList);
+        }
     }
 }

@@ -154,6 +154,7 @@
     <Content Include="App_Data\RecipesDB_log.ldf">
       <DependentUpon>RecipesDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\StyleSheets\Categories\BestRatingCSS.css" />
     <Content Include="Content\StyleSheets\Categories\IndexCSS.css" />
     <Content Include="Content\Images\przykladowe-zdjecie-potrawy.jpg" />
     <Content Include="Content\StyleSheets\_Layout\LayoutCSS.css" />
@@ -183,6 +184,7 @@
     <Content Include="Views\SearchBar\SearchBarPartialLayout.cshtml" />
     <Content Include="Views\Categories\Recipes.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Categories\BestRating.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

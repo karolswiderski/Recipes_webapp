@@ -1,0 +1,47 @@
+﻿#rating {
+    width: 100%;
+    height: auto;
+    margin-top: auto;
+
+}
+
+#rating-list {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    list-style: none;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.rating-recipe {
+    display: inline-block;
+    position: relative;
+    width: 25em;
+    height: 32em;
+    margin: 2em;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.rating-recipe-photo {
+    width: 100%;
+    height: 50%;
+}
+
+    .rating-recipe-photo img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+.rating-recipe-information {
+    width: 100%;
+    height: 10%;
+}
+
+.rating-recipe-text {
+    width: 100%;
+    height: 40%;
+}
