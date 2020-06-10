@@ -37,15 +37,6 @@
 
 
 
-#menu-box {
-    float: left;
-    width: 17%;
-    height: auto;
-    margin-right: 3%;
-    border: 2px solid RGB(136, 176, 75);
-    box-shadow: -5px 5px 10px 0 rgba(0, 0, 0, 0.2);
-}
-
 #count-0 {
     font-size: 150%;
     text-align: center;

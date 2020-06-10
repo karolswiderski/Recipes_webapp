@@ -18,26 +18,57 @@
     width: 100%;
     height: 100%;
 }
+
 #menu-box {
-    margin-top: 1em;
+    float: left;
+    width: 17%;
+    height: auto;
+    margin-right: 3%;
+    box-shadow: -5px 5px 10px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
-.heading {
+
+#heading {
+    width: 100%;
+    height: 2em;
+    line-height: 2em;
     text-align: center;
     font-size: 125%;
+    background-color: #A76571;
+    color: white;
+    letter-spacing: 0.1em;
+}
+
+    #heading b {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+    }
+
+.table {
+    border-left: 1px solid RGB(136, 176, 75);
+    border-right: 1px solid RGB(136, 176, 75);
+    border-bottom: 1px solid RGB(136, 176, 75);
+    margin: 0;
+    padding:0;
 }
 
 .category {
     text-align: center;
 }
 
+    .category a {
+        color: rgba(118, 154, 66, 1);
+    }
+
     .category i {
         font-size: 80%;
-        color: RGB(136, 176, 75);
+        color: rgba(118, 154, 66, 1);
     }
 
     .category a:hover {
         text-decoration: none;
-        color: #011e37;
+        color: rgba(43, 68, 8, 1);
     }
 
 .categories {

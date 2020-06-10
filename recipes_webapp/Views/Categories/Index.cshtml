@@ -1,9 +1,10 @@
 ﻿@model IEnumerable<recipes_webapp.Models.ViewModels.Dishes.CategoriesVM>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Wyszukaj najlepszy przepis!";
 }
 <link href="~/Content/StyleSheets/Categories/IndexCSS.css" rel="stylesheet" />
+
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,13 +25,10 @@
     @Html.Action("Recipes", "Categories", new { name = TempData["categoryName"] })
 
     <div id="menu-box">
-
+        <div id="heading">
+            <b>KATEGORIE</b>
+        </div>
         <table class="table">
-            <tr>
-                <th class="heading">
-                    Kategorie:
-                </th>
-            </tr>
             <tr>
                 <td class="category">
                     <a href="@Url.Action("Index", "Categories", new { categoryName = ""})"> Wszystkie kategorie </a><i class="fas fa-caret-right"></i>
@@ -45,11 +43,9 @@
                     </td>
                 </tr>
             }
-
-
-
         </table>
-
     </div>
+
+
     @Html.Action("BestRating", "Categories", new { name = TempData["categoryName"] })
 </div>
