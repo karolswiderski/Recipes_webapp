@@ -57,7 +57,6 @@
     width: 100%;
     height: 20em;
     margin-bottom: 3em;
-    background-color: RGB(136, 176, 75);
     box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
     -moz-transition: -moz-transform 0.15s linear;
     -o-transition: -o-transform 0.15s linear;
@@ -110,18 +109,22 @@
     float: left;
     width: 52%;
     height: 100%;
-    color: white;
+    color: rgba(58, 64, 64, 1);
+   
     position: relative;
+    border-top: 1px solid rgba(58, 64, 64, 1);
+    border-right: 1px solid rgba(58, 64, 64, 1);
+    border-bottom: 1px solid rgba(58, 64, 64, 1);
 }
 
 .text-title {
     width: 100%;
     height: auto;
     max-height: 50%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding: 5% 3%;
     font-size: 2vw;
     text-align: center;
+    color: rgba(106, 139, 60, 1);
 }
 
 .text-content {
@@ -141,4 +144,9 @@
     font-size: 0.8vw;
     text-align: right;
     padding-right: 2%;
+    color: rgba(58, 64, 64, 1);
 }
+
+    .text-author b {
+        color: rgba(106, 139, 60, 1);
+    }
