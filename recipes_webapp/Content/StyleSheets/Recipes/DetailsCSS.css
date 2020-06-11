@@ -1,0 +1,32 @@
+﻿#details-body {
+    width: 100%;
+    height: 100%;
+}
+
+#image-box {
+    float: left;
+    width: 70%;
+    height: 45vw;
+}
+
+#image {
+    width: 100%;
+    height: 40vw;
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 50px red;
+}
+
+
+#icon-box {
+    width: 100%;
+    height: 5vw;
+    background-color: #63A669;
+}
+
+#information-box {
+    float: left;
+    width: 30%;
+    height: auto;
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 50px #000000;
+}

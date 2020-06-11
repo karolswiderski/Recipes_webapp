@@ -158,6 +158,7 @@
     <Content Include="Content\StyleSheets\Categories\BestRatingCSS.css" />
     <Content Include="Content\StyleSheets\Categories\IndexCSS.css" />
     <Content Include="Content\Images\przykladowe-zdjecie-potrawy.jpg" />
+    <Content Include="Content\StyleSheets\Recipes\DetailsCSS.css" />
     <Content Include="Content\StyleSheets\_Layout\LayoutCSS.css" />
     <Content Include="Content\StyleSheets\Categories\RecipesCSS.css" />
     <Content Include="Content\StyleSheets\_Layout\SearchBarCSS.css" />

@@ -4,144 +4,21 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Content/StyleSheets/Recipes/DetailsCSS.css" rel="stylesheet" />
 
-<h2>Details</h2>
+<div id="details-body">
+    <div id="image-box">
+        <img id="image" src="~/Content/Images/przykladowe-zdjecie-potrawy.jpg" alt=""/>
+        <div id="icon-box">
 
-<div>
-    <h4>DishesVM</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Id_Category)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Id_Category)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Id_Direction)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Id_Direction)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Id_Ingredient)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Id_Ingredient)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Id_Gallery)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Id_Gallery)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Id_Author)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Id_Author)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Time)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Time)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Level)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Level)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Servings)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Servings)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Date_Added)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Date_Added)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Directions)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Directions)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ingredients)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ingredients)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Gallery)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Gallery)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.User)
-        </dd>
-
-    </dl>
+        </div>
+    </div>
+    <div id="information-box">
+        <div></div>
+        <div>Tomasz Nowak </div>
+        <div>@Html.DisplayFor(model => model.Name)</div>
+        <div>@Html.DisplayFor(model => model.Description)</div>
+        <div></div>
+        <div></div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Dish }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

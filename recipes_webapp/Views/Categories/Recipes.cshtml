@@ -41,9 +41,11 @@
             foreach (var item in Model)
             {
                 <li class="tr-table recipe">
+                    <a href="@Url.Action("Details", "Recipes", new { id = item.Id_Dish})">
                         <div class="recipe-photo">
                             <img src="~/Content/Images/przykladowe-zdjecie-potrawy.jpg" />
                         </div>
+                    </a>
                         <div class="recipe-information">
                             <div> <i class="far fa-heart"></i> 	&nbsp; @Html.DisplayFor(modelItem => item.Rating) </div>
                             <div>  <i class="glyphicon glyphicon-cutlery"></i> 	&nbsp; @Html.DisplayFor(modelItem => item.Servings) </div>
@@ -69,6 +71,7 @@
                             <div class="text-content"><i>@Html.DisplayFor(modelItem => item.Description)</i></div>
                             <div class="text-author">przepis autorstwa: <b>Tomasz Nowak</b>, dodany: @item.Date_Added.ToString("dd/MM/yyyy")</div>
                         </div>
+                    
                 </li>
             }
             @TempData["test"]
