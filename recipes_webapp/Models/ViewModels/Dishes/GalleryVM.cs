@@ -1,4 +1,5 @@
 ﻿using recipes_webapp.Models.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace recipes_webapp.Models.ViewModels.Dishes
 {
@@ -16,6 +17,7 @@ namespace recipes_webapp.Models.ViewModels.Dishes
             Img_Path_5 = row.Img_Path_5;
         }
 
+        [Key]
         public int Id_Gallery { get; set; }
         public string Img_Path_Main { get; set; }
         public string Img_Path_1 { get; set; }

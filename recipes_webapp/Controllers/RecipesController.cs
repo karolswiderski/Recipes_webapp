@@ -31,5 +31,23 @@ namespace recipes_webapp.Controllers
 
            return View(recipeVM);
         }
+
+        [HttpGet]
+        public ActionResult Ingredients(int id)
+        {
+            //List<string> ingredientsList;
+            IngredientsVM ingredientsVM;
+            IngredientsDTO ingredientsDTO;
+
+            using (Db db = new Db())
+            {
+                ingredientsDTO = db.Ingredients.Where(x => x.Id_Ingredient == id).FirstOrDefault();
+                ingredientsVM = new IngredientsVM(ingredientsDTO);
+
+                
+            }
+
+            return PartialView(ingredientsVM);
+        }
     }
 }

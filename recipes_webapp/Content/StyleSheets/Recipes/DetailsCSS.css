@@ -7,6 +7,7 @@
     float: left;
     width: 70%;
     height: 45vw;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 #image {
@@ -20,13 +21,86 @@
 #icon-box {
     width: 100%;
     height: 5vw;
+    line-height: 5vw;
     background-color: #63A669;
+    font-family: 'Quicksand', sans-serif;
 }
 
 #information-box {
     float: left;
     width: 30%;
+    height: 45vw;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#dish-box {
+    width: 100%;
     height: auto;
-    -moz-box-shadow: inset 0 0 10px #000000;
-    -webkit-box-shadow: inset 0 0 50px #000000;
+}
+
+#path {
+    width: auto;
+    height: auto;
+    margin: 5% 5%;
+    font-size: 1.2em;
+}
+
+    #path b {
+        color: rgba(106, 139, 60, 1);
+        font-family: 'Poppins', sans-serif;
+    }
+
+#author {
+    width: 94%;
+    height: auto;
+    font-size: 1.5em;
+    margin: 8% 4% 0 2%;
+    color: rgba(106, 139, 60, 1);
+    padding: 2% 2% 0 2%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#name {
+    width: 94%;
+    height: auto;
+    margin: 0 4% 1% 2%;
+    font-size: 2.5em;
+    padding: 1% 2% 1% 2%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#description {
+    width: 94%;
+    height: auto;
+    margin: 5% 4% 1% 2%;
+    font-size: 1.4em;
+    color: black;
+    padding: 0 2% 2% 2%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#ingredients-box {
+    width: 100%;
+    height: auto;
+    background-color: #f5f9f5;
+    padding-bottom: 5%;
+}
+
+
+.icon {
+    float: left;
+    width: 22%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 2vw;
+}
+
+.icon-last {
+    float: left;
+    width: 34%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 2vw;
 }

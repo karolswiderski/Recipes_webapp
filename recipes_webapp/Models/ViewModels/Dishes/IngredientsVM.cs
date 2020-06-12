@@ -1,4 +1,5 @@
 ﻿using recipes_webapp.Models.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace recipes_webapp.Models.ViewModels.Dishes
 {
@@ -25,6 +26,7 @@ namespace recipes_webapp.Models.ViewModels.Dishes
             Ingredient_15 = row.Ingredient_15;
         }
 
+        [Key]
         public int Id_Ingredient { get; set; }
         public string Ingredient_1 { get; set; }
         public string Ingredient_2 { get; set; }

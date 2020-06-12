@@ -5,20 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/Content/StyleSheets/Recipes/DetailsCSS.css" rel="stylesheet" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 <div id="details-body">
     <div id="image-box">
-        <img id="image" src="~/Content/Images/przykladowe-zdjecie-potrawy.jpg" alt=""/>
+        <img id="image" src="~/Content/Images/przykladowe-zdjecie-potrawy.jpg" alt="" />
         <div id="icon-box">
-
+            <div class="icon"> <i class="far fa-heart"></i> 	&nbsp; @Html.DisplayFor(model => model.Rating) </div>
+            <div class="icon">  <i class="glyphicon glyphicon-cutlery"></i> 	&nbsp; @Html.DisplayFor(model => model.Servings) </div>
+            <div class="icon">  <i class="far fa-clock"></i> &nbsp; @Html.DisplayFor(model => model.Time) </div>
+            <div class="icon-last ">
+                <i class="glyphicon glyphicon-stats"></i> &nbsp;
+                @if (Convert.ToInt32(Html.DisplayFor(model => model.Level).ToString()) == 1)
+                {
+                    <a>łatwy</a>
+                }
+                else if (Convert.ToInt32(Html.DisplayFor(model => model.Level).ToString()) == 2)
+                {
+                    <a>średni</a>
+                }
+                else if (Convert.ToInt32(Html.DisplayFor(model => model.Level).ToString()) == 3)
+                {
+                    <a>trudny</a>
+                }
+            </div>
         </div>
     </div>
     <div id="information-box">
-        <div></div>
-        <div>Tomasz Nowak </div>
-        <div>@Html.DisplayFor(model => model.Name)</div>
-        <div>@Html.DisplayFor(model => model.Description)</div>
-        <div></div>
-        <div></div>
+        <div id="dish-box">
+            <div id="path"><i class="fas fa-caret-right"></i> kategoria: <b>Dania główne</b>, danie: <b>@Html.DisplayFor(model => model.Name)</b> </div>
+            <div id="author"><b>TOMASZ NOWAK</b></div>
+            <div id="name"><b>@Html.DisplayFor(model => model.Name)</b></div>
+            <div id="description">@Html.DisplayFor(model => model.Description)</div>
+        </div>
+        <div id="ingredients-box">
+            @Html.Action("Ingredients", "Recipes", new { id = Model.Id_Dish })
+        </div>
     </div>
 </div>

@@ -1,4 +1,5 @@
 ﻿using recipes_webapp.Models.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace recipes_webapp.Models.ViewModels.Dishes
 {
@@ -21,6 +22,7 @@ namespace recipes_webapp.Models.ViewModels.Dishes
             Step_10_Content = row.Step_10_Content;
         }
 
+        [Key]
         public int Id_Direction { get; set; }
         public string Step_1_Content { get; set; }
         public string Step_2_Content { get; set; }

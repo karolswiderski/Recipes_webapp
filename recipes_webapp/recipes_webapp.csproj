@@ -159,6 +159,7 @@
     <Content Include="Content\StyleSheets\Categories\IndexCSS.css" />
     <Content Include="Content\Images\przykladowe-zdjecie-potrawy.jpg" />
     <Content Include="Content\StyleSheets\Recipes\DetailsCSS.css" />
+    <Content Include="Content\StyleSheets\Recipes\IngredientsCSS.css" />
     <Content Include="Content\StyleSheets\_Layout\LayoutCSS.css" />
     <Content Include="Content\StyleSheets\Categories\RecipesCSS.css" />
     <Content Include="Content\StyleSheets\_Layout\SearchBarCSS.css" />
@@ -188,6 +189,7 @@
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Categories\BestRating.cshtml" />
     <Content Include="Views\Recipes\Details.cshtml" />
+    <Content Include="Views\Recipes\Ingredients.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
