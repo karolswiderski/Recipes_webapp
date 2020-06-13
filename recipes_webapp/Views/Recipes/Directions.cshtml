@@ -1,0 +1,117 @@
+﻿@model recipes_webapp.Models.ViewModels.Dishes.DirectionsVM
+<link href="~/Content/StyleSheets/Recipes/DirectionsCSS.css" rel="stylesheet" />
+
+
+<p id="text-dir" class="underline--magical">SPOSÓB PRZYGOTOWANIA</p>
+<div id="dir-box">
+    @if (Model.Step_1_Content != null)
+    {
+        <b class="first underline--magical">
+            KROK 1
+        </b>
+        <br />
+        <p class="second">
+            @Html.DisplayFor(model => model.Step_1_Content)
+        </p>
+    }
+
+    @if (Model.Step_2_Content != null)
+    {
+        <b class="first underline--magical">
+            KROK 2
+        </b>
+        <br />
+        <p class="second">
+            @Html.DisplayFor(model => model.Step_2_Content)
+        </p>
+    }
+
+    @if (Model.Step_3_Content != null)
+    {
+        <b class="first underline--magical">
+            KROK 3
+        </b>
+        <br />
+        <p class="second">
+            @Html.DisplayFor(model => model.Step_3_Content)
+        </p>
+    }
+
+    @if (Model.Step_4_Content != null)
+    {
+        <b class="first underline--magical">
+            KROK 4
+        </b>
+        <br />
+        <p class="second">
+            @Html.DisplayFor(model => model.Step_4_Content)
+        </p>
+    }
+
+    @if (Model.Step_5_Content != null)
+    {
+        <b class="first underline--magical">
+            KROK 5
+        </b>
+        <br />
+        <p class="second">
+            @Html.DisplayFor(model => model.Step_5_Content)
+        </p>
+    }
+
+    @if (Model.Step_6_Content != null)
+    {
+        <b class="first underline--magical">
+            KROK 6
+        </b>
+        <br />
+        <p class="second">
+            @Html.DisplayFor(model => model.Step_6_Content)
+        </p>
+    }
+
+    @if (Model.Step_7_Content != null)
+    {
+        <b class="first underline--magical">
+            KROK 7
+        </b>
+        <br />
+        <p class="second">
+            @Html.DisplayFor(model => model.Step_7_Content)
+        </p>
+    }
+
+    @if (Model.Step_8_Content != null)
+    {
+        <b class="first underline--magical">
+            KROK 8
+        </b>
+        <br />
+        <p class="second">
+            @Html.DisplayFor(model => model.Step_8_Content)
+        </p>
+    }
+
+    @if (Model.Step_9_Content != null)
+    {
+        <b class="first underline--magical">
+            KROK 9
+        </b>
+        <br />
+        <p class="second">
+            @Html.DisplayFor(model => model.Step_9_Content)
+        </p>
+    }
+
+    @if (Model.Step_10_Content != null)
+    {
+        <b class="first underline--magical">
+            KROK 10
+        </b>
+        <br />
+        <p class="second">
+            @Html.DisplayFor(model => model.Step_10_Content)
+        </p>
+    }
+
+</div>

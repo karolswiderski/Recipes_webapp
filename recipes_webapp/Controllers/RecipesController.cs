@@ -49,5 +49,20 @@ namespace recipes_webapp.Controllers
 
             return PartialView(ingredientsVM);
         }
+
+        [HttpGet]
+        public ActionResult Directions(int id)
+        {
+            DirectionsVM directionsVM;
+            DirectionsDTO directionsDTO;
+
+            using (Db db = new Db())
+            {
+                directionsDTO = db.Directions.Where(x => x.Id_Direction == id).FirstOrDefault();
+                directionsVM = new DirectionsVM(directionsDTO);
+            }
+
+                return PartialView(directionsVM);
+        }
     }
 }

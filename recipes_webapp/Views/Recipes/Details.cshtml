@@ -33,6 +33,7 @@
                     <a>trudny</a>
                 }
             </div>
+            <div class="icon">  <i class="far fa-file-pdf"></i> &nbsp; PDF </div>
         </div>
     </div>
     <div id="information-box">
@@ -43,7 +44,11 @@
             <div id="description">@Html.DisplayFor(model => model.Description)</div>
         </div>
         <div id="ingredients-box">
-            @Html.Action("Ingredients", "Recipes", new { id = Model.Id_Dish })
+            @Html.Action("Ingredients", "Recipes", new { id = Model.Id_Ingredient })
         </div>
+    </div>
+
+    <div id="steps-box">
+        @Html.Action("Directions", "Recipes", new { id = Model.Id_Direction })
     </div>
 </div>
