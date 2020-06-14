@@ -43,35 +43,36 @@
                 <li class="tr-table recipe">
                     <a href="@Url.Action("Details", "Recipes", new { id = item.Id_Dish})">
                         <div class="recipe-photo">
-                            <img src="~/Content/Images/przykladowe-zdjecie-potrawy.jpg" />
+                            <img class="imagee" src="~/Content/Images/przykladowe-zdjecie-potrawy.jpg" />
+                            <div id="text-img"><p>kliknij tutaj po więcej</p></div>
                         </div>
                     </a>
-                        <div class="recipe-information">
-                            <div> <i class="far fa-heart"></i> 	&nbsp; @Html.DisplayFor(modelItem => item.Rating) </div>
-                            <div>  <i class="glyphicon glyphicon-cutlery"></i> 	&nbsp; @Html.DisplayFor(modelItem => item.Servings) </div>
-                            <div>  <i class="far fa-clock"></i> &nbsp; @Html.DisplayFor(modelItem => item.Time) </div>
-                            <div class="last">
-                                <i class="glyphicon glyphicon-stats"></i> &nbsp;
-                                @if (Convert.ToInt32(Html.DisplayFor(modelItem => item.Level).ToString()) == 1)
-                                {
-                                    <p>łatwy</p>
-                                }
-                                else if (Convert.ToInt32(Html.DisplayFor(modelItem => item.Level).ToString()) == 2)
-                                {
-                                    <p>średni</p>
-                                }
-                                else if (Convert.ToInt32(Html.DisplayFor(modelItem => item.Level).ToString()) == 3)
-                                {
-                                    <p>trudny</p>
-                                }
-                            </div>
+                    <div class="recipe-information">
+                        <div> <i class="far fa-heart"></i> 	&nbsp; @Html.DisplayFor(modelItem => item.Rating) </div>
+                        <div>  <i class="glyphicon glyphicon-cutlery"></i> 	&nbsp; @Html.DisplayFor(modelItem => item.Servings) </div>
+                        <div>  <i class="far fa-clock"></i> &nbsp; @Html.DisplayFor(modelItem => item.Time) </div>
+                        <div class="last">
+                            <i class="glyphicon glyphicon-stats"></i> &nbsp;
+                            @if (Convert.ToInt32(Html.DisplayFor(modelItem => item.Level).ToString()) == 1)
+                            {
+                                <p>łatwy</p>
+                            }
+                            else if (Convert.ToInt32(Html.DisplayFor(modelItem => item.Level).ToString()) == 2)
+                            {
+                                <p>średni</p>
+                            }
+                            else if (Convert.ToInt32(Html.DisplayFor(modelItem => item.Level).ToString()) == 3)
+                            {
+                                <p>trudny</p>
+                            }
                         </div>
-                        <div class="recipe-text">
-                            <div class="text-title"><b>@Html.DisplayFor(modelItem => item.Name)</b></div>
-                            <div class="text-content"><i>@Html.DisplayFor(modelItem => item.Description)</i></div>
-                            <div class="text-author">przepis autorstwa: <b>Tomasz Nowak</b>, dodany: @item.Date_Added.ToString("dd/MM/yyyy")</div>
-                        </div>
-                    
+                    </div>
+                    <div class="recipe-text">
+                        <div class="text-title"><b>@Html.DisplayFor(modelItem => item.Name)</b></div>
+                        <div class="text-content"><i>@Html.DisplayFor(modelItem => item.Description)</i></div>
+                        <div class="text-author">przepis autorstwa: <b>Tomasz Nowak</b>, dodany: @item.Date_Added.ToString("dd/MM/yyyy")</div>
+                    </div>
+
                 </li>
             }
             @TempData["test"]

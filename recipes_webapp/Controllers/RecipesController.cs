@@ -21,12 +21,13 @@ namespace recipes_webapp.Controllers
         {
             DishesVM recipeVM;
             TempData["categoryName"] = "";
+            TempData["userName"] = "";
 
             using (Db db = new Db())
             {
                 DishesDTO recipeDTO = db.Dishes.Find(id);
                 recipeVM = new DishesVM(recipeDTO);
-                if(recipeVM != null) TempData["categoryName"] = db.Categories.Where(x => x.Id_Category == recipeVM.Id_Category).Select(x => x.Name).SingleOrDefault();
+                TempData["categoryName"] = db.Categories.Where(x => x.Id_Category == recipeVM.Id_Category).Select(x => x.Name).SingleOrDefault();
             }
 
 
