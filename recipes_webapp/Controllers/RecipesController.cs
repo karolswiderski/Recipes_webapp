@@ -19,13 +19,14 @@ namespace recipes_webapp.Controllers
         // GET: Recipes/Details
         public ActionResult Details(int id)
         {
-            DishesDTO recipeDTO;
             DishesVM recipeVM;
+            TempData["categoryName"] = "";
 
             using (Db db = new Db())
             {
-                recipeDTO = db.Dishes.Where(x => x.Id_Dish == id).FirstOrDefault();
+                DishesDTO recipeDTO = db.Dishes.Find(id);
                 recipeVM = new DishesVM(recipeDTO);
+                if(recipeVM != null) TempData["categoryName"] = db.Categories.Where(x => x.Id_Category == recipeVM.Id_Category).Select(x => x.Name).SingleOrDefault();
             }
 
 
@@ -43,8 +44,6 @@ namespace recipes_webapp.Controllers
             {
                 ingredientsDTO = db.Ingredients.Where(x => x.Id_Ingredient == id).FirstOrDefault();
                 ingredientsVM = new IngredientsVM(ingredientsDTO);
-
-                
             }
 
             return PartialView(ingredientsVM);
@@ -58,7 +57,7 @@ namespace recipes_webapp.Controllers
 
             using (Db db = new Db())
             {
-                directionsDTO = db.Directions.Where(x => x.Id_Direction == id).FirstOrDefault();
+                directionsDTO = db.Directions.Find(id);
                 directionsVM = new DirectionsVM(directionsDTO);
             }
 

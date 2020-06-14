@@ -4,6 +4,11 @@ namespace recipes_webapp.Models.Data
 {
     public class Db : DbContext
     {
+        public Db() : base("RecipesDB")
+        {
+            this.Configuration.LazyLoadingEnabled = true;
+        }
+
         public DbSet<DishesDTO> Dishes { get; set; }
         public DbSet<CategoriesDTO> Categories { get; set; }
         public DbSet<DirectionsDTO> Directions { get; set; }

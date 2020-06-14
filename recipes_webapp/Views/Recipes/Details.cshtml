@@ -38,7 +38,7 @@
     </div>
     <div id="information-box">
         <div id="dish-box">
-            <div id="path"><i class="fas fa-caret-right"></i> kategoria: <b>Dania główne</b>, danie: <b>@Html.DisplayFor(model => model.Name)</b> </div>
+            <div id="path"><i class="fas fa-caret-right"></i> kategoria: <b>@TempData["categoryName"].ToString()</b>, danie: <b>@Html.DisplayFor(model => model.Name)</b> </div>
             <div id="author"><b>TOMASZ NOWAK</b></div>
             <div id="name"><b>@Html.DisplayFor(model => model.Name)</b></div>
             <div id="description">@Html.DisplayFor(model => model.Description)</div>
