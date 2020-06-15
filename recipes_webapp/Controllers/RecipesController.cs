@@ -35,6 +35,20 @@ namespace recipes_webapp.Controllers
         }
 
         [HttpGet]
+        public ActionResult PhotoSlider(int id) {
+
+            GalleryVM galleryVM;
+
+            using (Db db = new Db())
+            {
+                GalleryDTO galleryDTO = db.Gallery.Find(id);
+                galleryVM = new GalleryVM(galleryDTO);
+            }
+
+                return PartialView(galleryVM);
+        }
+
+        [HttpGet]
         public ActionResult Ingredients(int id)
         {
             //List<string> ingredientsList;

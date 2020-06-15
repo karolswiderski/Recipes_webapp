@@ -249,13 +249,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Images\przykladowe-zdjecie-potrawy.jpg" />
+    <Content Include="Content\Images\img1.jpg" />
+    <Content Include="Content\Images\img2.jpg" />
+    <Content Include="Content\Images\img3.jpg" />
+    <Content Include="Content\Images\img5.jpg" />
+    <Content Include="Content\Images\img4.jpg" />
     <Content Include="Content\StyleSheets\Categories\BestRatingCSS.css" />
     <Content Include="Content\StyleSheets\Categories\IndexCSS.css" />
     <Content Include="Content\StyleSheets\Categories\RecipesCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\DetailsCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\DirectionsCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\IngredientsCSS.css" />
+    <Content Include="Content\StyleSheets\Recipes\PhotoSliderCSS.css" />
     <Content Include="Content\StyleSheets\_Layout\LayoutCSS.css" />
     <Content Include="Content\StyleSheets\_Layout\SearchBarCSS.css" />
     <Content Include="favicon.ico" />
@@ -285,6 +290,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Views\Recipes\Index.cshtml" />
+    <Content Include="Views\Recipes\PhotoSlider.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

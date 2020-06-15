@@ -14,7 +14,11 @@
 <div id="details-body">
     <div id="about-this">
         <div id="image-box">
-            <img id="image" src="~/Content/Images/przykladowe-zdjecie-potrawy.jpg" alt="" />
+
+            
+            @Html.Action("PhotoSlider", "Recipes", new { id = Model.Id_Gallery })
+
+
             <div id="icon-box">
                 <div class="icon"> <i class="far fa-heart"></i> 	&nbsp; @Html.DisplayFor(model => model.Rating) </div>
                 <div class="icon">  <i class="glyphicon glyphicon-cutlery"></i> 	&nbsp; @Html.DisplayFor(model => model.Servings) </div>
@@ -40,7 +44,7 @@
         <div id="information-box">
             <div id="dish-box">
                 <div id="path"><i class="fas fa-caret-right"></i> kategoria: <a href="@Url.Action("Index", "Categories", new { categoryName = @TempData["categoryName"].ToString() , flag = true})">@TempData["categoryName"].ToString()</a>, danie: <b>@Html.DisplayFor(model => model.Name)</b> </div>
-                <div id="author"><a href="#">@TempData("userName").toString()</a></div>
+                <div id="author"><a href="#">Tomasz Nowak</a></div>
                 <div id="name"><b>@Html.DisplayFor(model => model.Name)</b></div>
                 <div id="description">@Html.DisplayFor(model => model.Description)</div>
             </div>

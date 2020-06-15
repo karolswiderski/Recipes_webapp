@@ -23,6 +23,8 @@ namespace recipes_webapp.Models.Data
         public System.Data.Entity.DbSet<recipes_webapp.Models.ViewModels.Dishes.IngredientsVM> IngredientsVMs { get; set; }
 
         public System.Data.Entity.DbSet<recipes_webapp.Models.ViewModels.Dishes.DirectionsVM> DirectionsVMs { get; set; }
+
+        public System.Data.Entity.DbSet<recipes_webapp.Models.ViewModels.Dishes.GalleryVM> GalleryVMs { get; set; }
     }
 }
 
