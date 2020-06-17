@@ -1,75 +1,48 @@
-﻿* {
-    box-sizing: border-box;
+﻿
+#big-photos {
+    width:100%;
+    height:100%;
 }
 
-.container {
-    position: relative;
+.big {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
-.mySlides {
+    .big img {
+        width: 100%;
+        height: 100%;
+    }
+
+#photo1 {
+    display: block;
+}
+
+#photo2, #photo3, #photo4, #photo5 {
     display: none;
 }
 
-.cursor {
-    cursor: pointer;
-}
 
 .prev,
 .next {
     cursor: pointer;
-    position: absolute;
-    top: 40%;
+    position: fixed;
+    top: 50%;
     width: auto;
     padding: 16px;
     margin-top: -50px;
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 2em;
     border-radius: 0 3px 3px 0;
-    user-select: none;
-    -webkit-user-select: none;
 }
 
 .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+    right: 30%;
 }
+
     .prev:hover,
     .next:hover {
         background-color: rgba(0, 0, 0, 0.8);
-    }
-
-.numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-}
-
-.caption-container {
-    text-align: center;
-    background-color: #222;
-    padding: 2px 16px;
-    color: white;
-}
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.column {
-    float: left;
-    width: 16.66%;
-}
-
-.demo {
-    opacity: 0.6;
-}
-
-    .active,
-    .demo:hover {
-        opacity: 1;
     }

@@ -15,8 +15,9 @@
     <div id="about-this">
         <div id="image-box">
 
-            
-            @Html.Action("PhotoSlider", "Recipes", new { id = Model.Id_Gallery })
+            <div id="image">
+                @Html.Action("PhotoSlider", "Recipes", new { id = Model.Id_Gallery })
+            </div>
 
 
             <div id="icon-box">
