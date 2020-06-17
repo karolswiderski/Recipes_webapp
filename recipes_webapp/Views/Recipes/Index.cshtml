@@ -3,5 +3,46 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<link href="~/Content/StyleSheets/Recipes/IndexCSS.css" rel="stylesheet" />
+
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@300&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<div id="content">
+
+    <div id="slide-image">
+        <div class="photo" id="photo1">
+            <img src="~/Content/Images/img1.jpg" alt="photo 1" />
+        </div>
+        <div class="photo" id="photo2">
+            <img src="~/Content/Images/img2.jpg" alt="photo 2" />
+        </div>
+        <div class="photo" id="photo3">
+            <img src="~/Content/Images/img3.jpg" alt="photo 3" />
+        </div>
+        <div class="photo" id="photo4">
+            <p class="para">Królewski sernik skąpany w kremie toffi</p>
+            <img src="~/Content/Images/img4.jpg" alt="photo 4" />
+        </div>
+        <div class="photo" id="photo5">
+            <img src="~/Content/Images/img5.jpg" alt="photo 5" />
+        </div>
+    </div>
+
+    <div id="text">
+        <p id="header">Najlepsze przepisy na każdą okazję..</p>
+    </div>
+
+
+
+    <div style="text-align:left; margin-left: 30%;">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</div>
+
 

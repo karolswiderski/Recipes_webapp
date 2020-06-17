@@ -259,12 +259,14 @@
     <Content Include="Content\StyleSheets\Categories\RecipesCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\DetailsCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\DirectionsCSS.css" />
+    <Content Include="Content\StyleSheets\Recipes\IndexCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\IngredientsCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\PhotoSliderCSS.css" />
     <Content Include="Content\StyleSheets\_Layout\LayoutCSS.css" />
     <Content Include="Content\StyleSheets\_Layout\SearchBarCSS.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\MyScripts\Recipes\Photo-Slider.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -286,7 +288,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
