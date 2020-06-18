@@ -1,42 +1,79 @@
 ﻿#content {
     width: 100%;
     height: 100%;
-    font-family: 'Changa', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#left-side {
+    float: left;
+    height: auto;
+    width: 75%;
+}
+
+#right-side {
+    float: left;
+    height: auto;
+    width: 25%;
 }
 
 #slide-image {
-    width: 68%;
-    height: 40vw;
+    width: 78%;
+    height: 32vw;
     margin: 0 auto;
     float: left;
-    margin:1em 1em;
+    margin: 0 11%;
+    position: relative;
 
 }
 
-
-#text {
-    width: 28%;
-    height: 40vw;
-    float: left;
-    background-color: lightblue;
-    margin: 1em 1em;
-}
-
-#header {
-    font-family: 'Dancing Script', cursive;
+#text1 {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #3e4444;
     font-size: 2.5em;
-    margin-left: 1em;
+    color: white;
+    padding-left: 11%;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    border-radius: 0 0.5em 0.5em 0;
+    width: 100%;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.header {
+    font-family: 'Changa', sans-serif;
+    font-size: 2.5em;
+    text-align: right;
+    color: white;
+    margin-bottom: 2em;
+}
+
+.header2 {
+    font-family: 'Changa', sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    color: black;
+}
+
+.text-blod {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color: white;
+    color: rgba(106, 139, 60, 1);
 }
 
 .para {
-    position: fixed;
+    position: absolute;
     background-color: rgba(81, 86, 72, 0.45);
     font-size: 2.5em;
     text-align: center;
-    width: 68%;
+    width: 100%;
     margin-top: 37vw;
     font-family: 'Quicksand', sans-serif;
     color: white;
+    bottom: 0;
+    left: 0;
 }
 
 .photo {
@@ -52,6 +89,7 @@
 
 #photo4 {
     display: block;
+
 }
 
 #photo1, #photo2, #photo3, #photo5 {
