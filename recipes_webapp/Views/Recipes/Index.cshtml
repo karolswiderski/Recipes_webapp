@@ -11,18 +11,23 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <div id="content">
 
     <div id="left-side">
         <div id="slide-image">
             <div class="photo" id="photo1">
                 <img src="~/Content/Images/img1.jpg" alt="photo 1" />
+                <div class="para">Ciasto przekładane masą z cukru</div>
             </div>
             <div class="photo" id="photo2">
                 <img src="~/Content/Images/img2.jpg" alt="photo 2" />
+                <div class="para">Rumiany placem z borówkami i rumem</div>
             </div>
             <div class="photo" id="photo3">
                 <img src="~/Content/Images/img3.jpg" alt="photo 3" />
+                <div class="para">Galaretkowy szałot ciastany z żółtą wiśnią</div>
             </div>
             <div class="photo" id="photo4">
                 <img src="~/Content/Images/img4.jpg" alt="photo 4" />
@@ -30,7 +35,17 @@
             </div>
             <div class="photo" id="photo5">
                 <img src="~/Content/Images/img5.jpg" alt="photo 5" />
+                <div class="para">Ciemne ciasto o kształcie wyspy i smaku kokosa</div>
             </div>
+            <script src="~/Scripts/MyScripts/Recipes/Automatic-Photo-Slider.js"></script>
+        </div>
+
+        <div style="text-align:center">
+            <span class="dot active" id="d1"></span>
+            <span class="dot" id="d2"></span>
+            <span class="dot" id="d3"></span>
+            <span class="dot" id="d4"></span>
+            <span class="dot" id="d5"></span>
         </div>
 
         <div id="text1">
@@ -61,9 +76,16 @@
         </div>
 
         <div id="thebest">
+            <div id="authors">
+                POLECANE ARTYKUŁY
+            </div>
+            <div id="authors2">
+                (zobacz wszystkie)
+            </div>
+            <div id="articles">
 
-            
-
+                @Html.Action("BestArticle", "Articles", new { area = "" })
+            </div>
         </div>
     </div>
 

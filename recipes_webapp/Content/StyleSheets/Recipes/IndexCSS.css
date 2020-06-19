@@ -64,9 +64,32 @@
 }
 
 #thebest {
-    background-color: #3e4444;
-    margin-top: 1em;
-    font-size: 2.5em;
+    margin: 5em auto;
+    width: 90%;
+    height: 1000px;
+}
+
+#authors {
+    width: 100%;
+    height: auto;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    background-color: #63A669;
+    color: white;
+    border-radius: 0.5em 0.5em 0 0;
+    letter-spacing: 0.3em;
+    font-size: 1.5em;
+}
+
+#authors2 {
+    width: 100%;
+    height: auto;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    background-color: #63A669;
+    color: white;
+    font-size: 1em;
+    padding-bottom: 0.3em;
 }
 
 #slide-image {
@@ -136,12 +159,12 @@
         height: 100%;
     }
 
-#photo4 {
+#photo1 {
     display: block;
 
 }
 
-#photo1, #photo2, #photo3, #photo5 {
+#photo4, #photo2, #photo3, #photo5 {
     display: none;
 }
 
@@ -154,3 +177,17 @@
     display: inline-block;
     transition: background-color 0.6s ease;
 }
+
+.active {
+    background-color: #717171;
+}
+
+
+#articles {
+    width: 100%;
+    height: auto;
+    border-right: 2px solid rgba(181, 185, 172, 0.25);
+    border-left: 2px solid rgba(181, 185, 172, 0.25);
+    padding-top: 0.5em;
+}
+

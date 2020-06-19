@@ -227,6 +227,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\SearchBarController.cs" />
@@ -255,6 +256,7 @@
     <Content Include="Content\Images\img3.jpg" />
     <Content Include="Content\Images\img5.jpg" />
     <Content Include="Content\Images\img4.jpg" />
+    <Content Include="Content\StyleSheets\Articles\BestArticlesPartialCSS.css" />
     <Content Include="Content\StyleSheets\Categories\BestRatingCSS.css" />
     <Content Include="Content\StyleSheets\Categories\IndexCSS.css" />
     <Content Include="Content\StyleSheets\Categories\RecipesCSS.css" />
@@ -267,6 +269,7 @@
     <Content Include="Content\StyleSheets\_Layout\SearchBarCSS.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\MyScripts\Recipes\Automatic-Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Recipes\Photo-Slider.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -294,6 +297,7 @@
     <None Include="packages.config" />
     <Content Include="Views\Recipes\Index.cshtml" />
     <Content Include="Views\Recipes\PhotoSlider.cshtml" />
+    <Content Include="Views\Articles\BestArticle.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
