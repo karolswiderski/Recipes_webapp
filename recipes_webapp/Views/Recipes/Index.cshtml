@@ -14,12 +14,6 @@
 <div id="content">
 
     <div id="left-side">
-        <div id="text1">NAJCZĘŚCIEJ WYBIERANE DANIA: </div>
-
-
-        @Html.Action("BestRating", "Categories", new { name = "all" })
-
-
         <div id="slide-image">
             <div class="photo" id="photo1">
                 <img src="~/Content/Images/img1.jpg" alt="photo 1" />
@@ -38,10 +32,39 @@
                 <img src="~/Content/Images/img5.jpg" alt="photo 5" />
             </div>
         </div>
+
+        <div id="text1">
+            NAJCZĘŚCIEJ WYBIERANE DANIA:
+            <i class="fa-chef-hat"></i>
+        </div>
+
+
+        @Html.Action("BestRating", "Categories", new { name = "all" })
+
+
+
     </div>
 
     <div id="right-side">
-        
+
+        <div id="log">
+            <div id="log-box">
+                <div class="log-text">ZALOGUJ SIĘ</div><div></div>
+            </div>
+            <div id="logout-box">
+                <div class="log-text">WYLOGUJ SIĘ</div><div></div>
+            </div>
+            <div id="reg-box">
+                <div class="log-text">ZAREJESTRUJ SIĘ</div><div></div>
+            </div>
+            <div id=""></div>
+        </div>
+
+        <div id="thebest">
+
+            
+
+        </div>
     </div>
 
 

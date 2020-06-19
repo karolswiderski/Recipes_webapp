@@ -249,6 +249,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\1.jpg" />
     <Content Include="Content\Images\img1.jpg" />
     <Content Include="Content\Images\img2.jpg" />
     <Content Include="Content\Images\img3.jpg" />
