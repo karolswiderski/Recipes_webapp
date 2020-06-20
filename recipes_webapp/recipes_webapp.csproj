@@ -260,6 +260,7 @@
     <Content Include="Content\StyleSheets\Categories\BestRatingCSS.css" />
     <Content Include="Content\StyleSheets\Categories\IndexCSS.css" />
     <Content Include="Content\StyleSheets\Categories\RecipesCSS.css" />
+    <Content Include="Content\StyleSheets\Categories\TopNavBarCategoriesCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\DetailsCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\DirectionsCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\IndexCSS.css" />
@@ -271,6 +272,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\MyScripts\Recipes\Automatic-Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Recipes\Photo-Slider.js" />
+    <Content Include="Scripts\MyScripts\Layout\Show-Categories.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -298,6 +300,7 @@
     <Content Include="Views\Recipes\Index.cshtml" />
     <Content Include="Views\Recipes\PhotoSlider.cshtml" />
     <Content Include="Views\Articles\BestArticle.cshtml" />
+    <Content Include="Views\Categories\TopNavBarCategories.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,98 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+#catbody {
+    width: 100%;
+    height: 100%;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#div1 {
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+
+    #div1 p {
+        clear: both;
+        margin-top: 15%;
+        font-size: 1.8em;
+        color: RGB(136, 176, 75);
+        text-align: center;
+        width: 100%;
+        font-weight: bold;
+    }
+
+#div2 {
+    float: left;
+    width: 80%;
+    height: 100%;
+    border-left: 1px solid black;
+}
+
+        #div2 p {
+            clear: both;
+            margin-top: 3%;
+            font-size: 1.8em;
+            color: RGB(136, 176, 75);
+            text-align: center;
+            width: 100%;
+            font-weight: bold;
+        }
+
+#listgen, #list {
+    clear: both;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    list-style: none;
+}
+
+#list {
+    margin-top: 15%;
+}
+
+#listgen {
+    margin-top: 2%;
+}
+
+    #listgen li, #list li {
+        font-size: 1.5em;
+        color: white;
+        height: auto;
+        text-align: center;
+    }
+
+        #listgen li a, #list li a {
+            color: white;
+        }
+
+            #listgen li a:hover, #listgen li a:focus, #list li a:hover, #list li a:focus {
+                color: RGB(136, 176, 75);
+            }
+
+            #listgen li {
+                width: 33%;
+                margin-top: 1%;
+                margin-bottom: 1%;
+                display: inline-block;
+            }
+
+
+#list li {
+    width: 100%;
+    margin-top: 8%;
+    margin-bottom: 8%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+    a:hover {
+        color: RGB(136, 176, 75);
+    }

@@ -75,16 +75,24 @@
             <div id=""></div>
         </div>
 
-        <div id="thebest">
-            <div id="authors">
+        <div class="thebest">
+            <div class="authors">
                 POLECANE ARTYKUŁY
             </div>
-            <div id="authors2">
-                (zobacz wszystkie)
-            </div>
-            <div id="articles">
+            <div class="articles">
 
                 @Html.Action("BestArticle", "Articles", new { area = "" })
+            </div>
+        </div>
+
+        <div class="thebest">
+            <div class="authors">
+                NASI NAJLEPSI KUCHARZE
+            </div>
+            <div class="articles">
+                KUCHARZ #1 <br/>
+                KUCHARZ #2 <br/>
+                KUCHARZ #3 <br/>
             </div>
         </div>
     </div>

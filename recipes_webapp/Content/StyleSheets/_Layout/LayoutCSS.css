@@ -39,6 +39,7 @@
     display: table-cell;
     vertical-align: middle;
     letter-spacing: 0.08em;
+    color: white;
 }
 
 .top-menu-icon {
@@ -83,7 +84,19 @@ text-decoration: none;
 color: white;
 }
 
-    a:hover {
-        color: RGB(136, 176, 75);
+.vertical-text:hover, .vertical-text:focus {
+    color: RGB(136, 176, 75);
+    text-decoration: none;
+}
 
-    }
+#categories-box {
+    width: 75%;
+    height: auto;
+    background-color: #3e4444;
+    position: fixed;
+    z-index: 1;
+    position: absolute;
+    top: 5em;
+    left: 0;
+    display: none;
+}

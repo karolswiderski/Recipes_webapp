@@ -22,6 +22,7 @@
     width: 100%;
     height: auto;
     margin-top: 3em;
+    margin-bottom: 8em;
 }
 
 #log-box {
@@ -63,18 +64,18 @@
     font-size: 1.2em;
 }
 
-#thebest {
-    margin: 5em auto;
+.thebest {
+    margin: 1em auto 2em auto;
     width: 90%;
     height: 1000px;
 }
 
-#authors {
+.authors {
     width: 100%;
     height: auto;
     font-family: 'Quicksand', sans-serif;
     text-align: center;
-    background-color: #63A669;
+    background-color: #3e4444;
     color: white;
     border-radius: 0.5em 0.5em 0 0;
     letter-spacing: 0.3em;
@@ -96,7 +97,7 @@
     width: 78%;
     height: 32vw;
     margin: 0 auto;
-    margin: 2em 11%;
+    margin: 2em 11% 1em 11%;
     position: relative;
 }
 
@@ -183,11 +184,14 @@
 }
 
 
-#articles {
+.articles {
     width: 100%;
     height: auto;
     border-right: 2px solid rgba(181, 185, 172, 0.25);
     border-left: 2px solid rgba(181, 185, 172, 0.25);
+    border-bottom: 2px solid rgba(181, 185, 172, 0.25);
     padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-radius: 0 0 0.5em 0.5em;
 }
 

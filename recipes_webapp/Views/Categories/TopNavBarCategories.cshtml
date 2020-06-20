@@ -1,0 +1,28 @@
+﻿@model IEnumerable<recipes_webapp.Models.ViewModels.Dishes.CategoriesVM>
+<link href="~/Content/StyleSheets/Categories/TopNavBarCategoriesCSS.css" rel="stylesheet" />
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
+<div id="catbody">
+
+    <div id="div1">
+        <p>POLECANE</p>
+        <ul id="list">
+            <li><a href="@Url.Action("Index", "Categories", new { categoryName = "Dania Główne", flag = true})">Dania główne</a></li>
+            <li><a href="@Url.Action("Index", "Categories", new { categoryName = "Zupy", flag = true})">Zupy</a></li>
+            <li><a href="@Url.Action("Index", "Categories", new { categoryName = "Desery", flag = true})">Desery</a></li>
+        </ul>
+    </div>
+
+    <div id="div2">
+        <p>KATEGORIE</p>
+        <ul id="listgen">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="@Url.Action("Index", "Categories", new { categoryName = item.Name, flag = true})">@Html.DisplayFor(modelItem => item.Name)</a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

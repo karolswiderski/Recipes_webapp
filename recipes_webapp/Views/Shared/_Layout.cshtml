@@ -17,12 +17,15 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"
             integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
             crossorigin="anonymous"></script>
+
+    <script src="~/Scripts/MyScripts/Layout/Show-Categories.js"></script>
+
 </head>
 <body>
     <div id="top-menu">
         <div id="top-menu-logo"><a href="@Url.Action("Index", "Recipes", new { area = ""})">to home</a></div>
         <div id="top-menu-options">
-            <a class="vertical-text" href="@Url.Action("Index", "Categories", new { categoryName = "all", flag = true})">PRZEPISY <i class="fas fa-caret-down top-menu-icon"></i></a>
+            <a  onmouseover="openCategories();" class="vertical-text cat" href="@Url.Action("Index", "Categories", new { categoryName = "all", flag = true})">PRZEPISY <i class="fas fa-caret-down top-menu-icon"></i></a>
         </div>
         <div id="top-menu-account">
             <i class="fab fa-ello vertical-text"></i>
@@ -31,9 +34,12 @@
             @Html.Action("SearchBarPartialLayout", "SearchBar", new { area = "" })
         </div>
     </div>
-
+    <div id="categories-box">
+        @Html.Action("TopNavBarCategories", "Categories", new { area = "" })
+    </div>
+    <div onmouseover="closeCategories();">
     @RenderBody()
-
+        </div>
    
     @RenderSection("scripts", required: false)
 </body>

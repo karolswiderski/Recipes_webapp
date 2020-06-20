@@ -67,5 +67,17 @@ namespace recipes_webapp.Controllers
 
             return PartialView(DishesList);
         }
+
+        [HttpGet]
+        public ActionResult TopNavBarCategories() {
+
+            List<CategoriesVM> CategoriesList;
+            using (Db db = new Db())
+            {
+                CategoriesList = db.Categories.ToArray().Select(x => new CategoriesVM(x)).ToList();
+            }
+
+            return PartialView(CategoriesList);
+        }
     }
 }
