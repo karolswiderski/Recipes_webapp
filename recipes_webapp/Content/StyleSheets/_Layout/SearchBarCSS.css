@@ -8,7 +8,7 @@
     width: 75%;
     min-height: 100%;
     padding: 0;
-    margin: 0;
+    margin: 0; 
     border: none;
     outline: none;
     padding-left: 0.5em;
@@ -18,11 +18,23 @@
     float: left;
     width: 25%;
     height: 100%;
+    line-height: 100%;
     padding: 0;
     margin: 0;
     border: none;
     background-color: #63A669;
     font-size: 150%;
     color: white;
+    transition: font-size 0.3s;
 }
 
+    .button-input:hover {
+        font-size: 2.5em;
+    }
+
+
+    .parag {
+        display: none;
+        font-size: 80%;
+        width: auto;
+    }
