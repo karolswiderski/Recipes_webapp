@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="~/Scripts/MyScripts/Recipes/Show-Log-Buttons.js"></script>
 
 <div id="content">
 
@@ -19,7 +20,7 @@
         <div id="slide-image">
             <div class="photo" id="photo1">
                 <img src="~/Content/Images/img1.jpg" alt="photo 1" />
-                <div class="para">Ciasto przekładane masą z cukru</div>
+                <div class="para">Ciasto przekładane masą z cukru</div> 
             </div>
             <div class="photo" id="photo2">
                 <img src="~/Content/Images/img2.jpg" alt="photo 2" />
@@ -63,19 +64,19 @@
     <div id="right-side">
 
         <div id="log">
-            <div id="log-box">
-                <div class="log-text">ZALOGUJ SIĘ</div><div></div>
+            <div id="log-box" onmouseenter="showTxt(1)" onmouseleave="hideTxt(1)">
+                <div class="log-text"><i class="fas fa-sign-in-alt left-icon icn1"></i><a class="text1 log2">	&nbsp; ZALOGUJ SIĘ</a></div>
             </div>
-            <div id="logout-box">
-                <div class="log-text">WYLOGUJ SIĘ</div><div></div>
+            <div id="logout-box" onmouseenter="showTxt(2)" onmouseleave="hideTxt(2)">
+                <div class="log-text"><i class="fas fa-sign-out-alt left-icon icn2"></i><a class="text2 log2">	&nbsp; WYLOGUJ SIĘ</a></div>
             </div>
-            <div id="reg-box">
-                <div class="log-text">ZAREJESTRUJ SIĘ</div><div></div>
+            <div id="reg-box" onmouseenter="showTxt(3)" onmouseleave="hideTxt(3)">
+                <div class="log-text"><i class="fa fa-user-plus left-icon icn3"></i><a class="text3 log2">	&nbsp; ZAREJESTRUJ SIĘ</a></div>
             </div>
             <div id=""></div>
         </div>
 
-        <div class="thebest">
+        <div class="thebest" >
             <div class="authors">
                 POLECANE ARTYKUŁY
             </div>

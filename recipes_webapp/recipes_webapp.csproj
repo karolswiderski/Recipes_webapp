@@ -273,6 +273,7 @@
     <Content Include="Scripts\MyScripts\Recipes\Automatic-Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Recipes\Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Layout\Show-Categories.js" />
+    <Content Include="Scripts\MyScripts\Recipes\Show-Log-Buttons.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

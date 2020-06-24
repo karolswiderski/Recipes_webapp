@@ -26,48 +26,93 @@
 }
 
 #log-box {
-    width: 60%;
-    margin-left: 40%;
+    float: right;
+    width: 25%;
+    margin-right: 0%;
     background-color: white;
     height: 5em;
     margin-bottom: 1.5em;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
     line-height: 5em;
+    transition: width 0.3s;
+    overflow: hidden;
 }
+
+    #log-box:hover {
+        width: 65%;
+        background-color: #63A669;
+        color: white;
+    }
+
+.text1, .text2, .text3 {
+    display: none;
+    font-size: 80%;
+}
+
+
+
 
 #logout-box {
-    width: 60%;
-    margin-left: 40%;
+    clear: both;
+    float: right;
+    width: 25%;
     background-color: white;
     height: 5em;
     margin-bottom: 1.5em;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
     line-height: 5em;
+    transition: width 0.3s;
+    overflow: hidden;
 }
 
+    #logout-box:hover {
+        width: 70%;
+        background-color: #63A669;
+        color: white;
+    }
+
+
 #reg-box {
-    width: 60%;
-    margin-left: 40%;
+    clear: both;
+    float: right;
+    width: 25%;
     background-color: white;
     height: 5em;
+    line-height: 5em;
     margin-bottom: 1.5em;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
     line-height: 5em;
+    transition: width 0.3s;
+    overflow: hidden;
+}
+
+    #reg-box:hover {
+        width: 75%;
+        background-color: #63A669;
+        color: white;
+    }
+
+
+.left-icon {
+    color: #3e4444;
 }
 
 .log-text {
     width: 100%;
     height: 100%;
-    text-align: right;
-    padding-right: 10%;
+    text-align: center;
     font-family: 'Quicksand', sans-serif;
-    font-size: 1.2em;
+    font-size: 2.2em;
 }
 
+
+
 .thebest {
+    clear: both;
     margin: 1em auto 2em auto;
     width: 90%;
     height: 1000px;
+    padding-top: 5em;
 }
 
 .authors {
@@ -162,7 +207,6 @@
 
 #photo1 {
     display: block;
-
 }
 
 #photo4, #photo2, #photo3, #photo5 {
@@ -194,4 +238,3 @@
     padding-bottom: 0.5em;
     border-radius: 0 0 0.5em 0.5em;
 }
-
