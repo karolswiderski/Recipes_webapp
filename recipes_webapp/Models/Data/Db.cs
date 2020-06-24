@@ -15,6 +15,7 @@ namespace recipes_webapp.Models.Data
         public DbSet<IngredientsDTO> Ingredients { get; set; }
         public DbSet<GalleryDTO> Gallery { get; set; }
         public DbSet<UsersDTO> Users { get; set; }
+        public DbSet<ArticlesDTO> Articles { get; set; }
 
         public System.Data.Entity.DbSet<recipes_webapp.Models.ViewModels.Dishes.DishesVM> DishesVMs { get; set; }
 

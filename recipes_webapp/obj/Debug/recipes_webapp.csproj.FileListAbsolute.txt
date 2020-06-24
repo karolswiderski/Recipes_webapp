@@ -317,3 +317,7 @@ C:\Users\kswid\source\projects\recipes_webapp\recipes_webapp\obj\Debug\recipes_w
 C:\Users\kswid\source\projects\recipes_webapp\recipes_webapp\obj\Debug\recipes_webapp.csproj.CopyComplete
 C:\Users\kswid\source\projects\recipes_webapp\recipes_webapp\obj\Debug\recipes_webapp.dll
 C:\Users\kswid\source\projects\recipes_webapp\recipes_webapp\obj\Debug\recipes_webapp.pdb
+C:\Users\kswid\source\projects\recipes_webapp\recipes_webapp\bin\PagedList.dll
+C:\Users\kswid\source\projects\recipes_webapp\recipes_webapp\bin\PagedList.Mvc.dll
+C:\Users\kswid\source\projects\recipes_webapp\recipes_webapp\bin\PagedList.xml
+C:\Users\kswid\source\projects\recipes_webapp\recipes_webapp\bin\PagedList.Mvc.xml

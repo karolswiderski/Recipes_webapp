@@ -2,7 +2,16 @@
     width: 80%;
     margin: 1.5em auto;
     height: 13vw;
+    -moz-transition: -moz-transform 0.15s linear;
+    -o-transition: -o-transform 0.15s linear;
+    -webkit-transition: -webkit-transform 0.15s linear;
 }
+
+    .article-box:hover {
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+        -o-transform: scale(1.05);
+    }
 
 .art-photo {
     width: 100%;
@@ -18,7 +27,7 @@
     height: 25%;
     font-family: 'Quicksand', sans-serif;
     color: white;
-    border-radius: 0 0 0.5em 0.5em;
+    border-radius: 0 0 0.5em 0.5em; 
     font-size: 1.2em;
     background-color: #63A669;
 }

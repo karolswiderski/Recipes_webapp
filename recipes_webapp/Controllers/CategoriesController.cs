@@ -51,7 +51,7 @@ namespace recipes_webapp.Controllers
         }
 
         [HttpGet]
-        public ActionResult BestRating(string name) {
+        public ActionResult BestRating(string name, int? page) {
             List<DishesVM> DishesList;
 
             using (Db db = new Db())

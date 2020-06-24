@@ -49,7 +49,7 @@
     height: 20em;
     margin-bottom: 3em;
     box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
-    -moz-transition: -moz-transform 0.15s linear;
+    -moz-transition: -moz-transform 0.15s linear; 
     -o-transition: -o-transform 0.15s linear;
     -webkit-transition: -webkit-transform 0.15s linear;
     position: relative;
