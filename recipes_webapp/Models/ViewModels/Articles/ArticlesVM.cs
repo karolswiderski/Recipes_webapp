@@ -18,6 +18,7 @@ namespace recipes_webapp.Models.ViewModels.Articles
             Img_Path = row.Img_Path;
             Title = row.Title;
             Content = row.Content;
+            Rating = row.Rating;
         }
 
         [Key]
@@ -27,5 +28,6 @@ namespace recipes_webapp.Models.ViewModels.Articles
         public string Img_Path { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public string Rating { get; set; }
     }
 }

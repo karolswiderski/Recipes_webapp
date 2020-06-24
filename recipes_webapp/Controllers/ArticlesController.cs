@@ -1,4 +1,6 @@
-﻿using System;
+﻿using recipes_webapp.Models.Data;
+using recipes_webapp.Models.ViewModels.Articles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,13 +13,27 @@ namespace recipes_webapp.Controllers
         // GET: Articles
         public ActionResult Index()
         {
-            return View();
+            List <ArticlesVM> articlesList;
+
+            using (Db db = new Db())
+            {
+                articlesList = db.Articles.ToArray().Select(x => new ArticlesVM(x)).ToList();
+            }
+
+            return View(articlesList);
         }
 
         [HttpGet]
-        public ActionResult BestArticle() {
+        public ActionResult BestArticle()
+        {
+            List<ArticlesVM> articlesList;
 
-            return PartialView();
+            using (Db db = new Db())
+            {
+                articlesList = db.Articles.ToArray().Select(x => new ArticlesVM(x)).ToList();
+            }
+
+            return PartialView(articlesList);
         }
     }
 }

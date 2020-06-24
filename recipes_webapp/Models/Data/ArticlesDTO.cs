@@ -17,6 +17,7 @@ namespace recipes_webapp.Models.Data
         public string Img_Path { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public string Rating { get; set; }
 
         [ForeignKey("Id_Author")]
         public virtual UsersDTO Users { get; set; }
