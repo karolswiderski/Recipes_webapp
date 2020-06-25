@@ -5,55 +5,34 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div id="articles-list-box">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id_Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date_Added)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Img_Path)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th></th>
-    </tr>
+    <div id="top-mot-box">
+        <p id="mot-text1">Nigdy mało dobrej wiedzy!</p>
+        <p id="mot-text2">odwiedź najciekawsze artykuły o kuchni świata</p>
+    </div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id_Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date_Added)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Img_Path)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id_Article }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id_Article }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id_Article })
-            </td>
-        </tr>
-    }
+    <div id="art-button">
+        <a href="#">NAJLEPSZE</a>
+        <a href="#">NAJNOWSZE</a>
+        <a href="#">NAJSTARSZE</a>
+    </div>
 
-</table>
+    <div id="art-list-ul">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li class="next-art">
+                    <div class="art-photo">
+                        <img src="~/Content/Images/img5.jpg" />
+                    </div>
+                    <div class="art-title">
+                        <p>@item.Title.ToUpper()</p>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+
+
+</div>

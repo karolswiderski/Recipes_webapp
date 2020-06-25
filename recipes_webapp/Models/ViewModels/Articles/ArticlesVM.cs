@@ -28,6 +28,6 @@ namespace recipes_webapp.Models.ViewModels.Articles
         public string Img_Path { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public string Rating { get; set; }
+        public int Rating { get; set; }
     }
 }
