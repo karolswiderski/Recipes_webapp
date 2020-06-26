@@ -58,16 +58,21 @@ namespace recipes_webapp.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            ArticlesDTO Adto;
-            ArticlesVM Avm;
+            ArticlesDTO articleDTO;
+            ArticlesVM articleVM;
 
             using (Db db = new Db())
             {
-                Adto = db.Articles.Find(id);
-                Avm = new ArticlesVM(Adto);
+                articleDTO = db.Articles.Find(id);
+                articleVM = new ArticlesVM(articleDTO);
+                //TempData["author_name"] = db.Users.Where(x => x.User_Id == articleVM.Id_Author).Select(x => x.Login);
+
+                Random rand = new Random();
+                int toSkip = rand.Next(1, db.Articles.Count());
+                TempData["random_id"] = db.Articles.OrderBy(r => Guid.NewGuid()).Skip(toSkip).Select(x => x.Id_Article).Take(1).First();
             }
 
-            return View(Avm);
+            return View(articleVM);
         }
     }
 }

@@ -2,7 +2,7 @@
 <link href="~/Content/StyleSheets/Articles/DetailsCSS.css" rel="stylesheet" />
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.Title ;
 }
 
 <div id="article-details-main-box">
@@ -13,7 +13,7 @@
             &nbsp; <a href="@Url.Action("Index", "Articles", new { filter = "all" })">wróc do listy naszych artykułów</a>
         </div>
         <div id="next-article">
-            <a href="@Url.Action("Index", "Articles", new { filter = "all" })">następny artykuł</a> &nbsp;
+            <a href="@Url.Action("Details", "Articles", new { id = TempData["random_id"] })">następny artykuł</a> &nbsp;
             <i style=" font-size: 80%;" class="fas fa-caret-right"></i>
         </div>
 
