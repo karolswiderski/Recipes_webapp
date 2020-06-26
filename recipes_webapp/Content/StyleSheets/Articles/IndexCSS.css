@@ -88,11 +88,10 @@
 .art-title {
     width: 100%;
     height: auto;
-    max-height: 25%;
     border: 1px solid lightgray;
     border-top: 4px solid lightgray;
     border-bottom: 4px solid white;
-    font-size: 1.5vw;
+    font-size: 1.1vw;
     font-family: 'Quicksand', sans-serif;
     text-align: center;
     background-color: #63A669;
@@ -104,6 +103,6 @@
         margin-left:auto;
         margin-right:auto;
         height: 100%;
-        padding: 5% ;
+        padding: 3% ;
         color: white;
     }

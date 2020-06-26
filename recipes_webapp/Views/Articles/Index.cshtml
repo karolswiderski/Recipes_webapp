@@ -13,9 +13,9 @@
     </div>
 
     <div id="art-button">
-        <a href="#">NAJLEPSZE</a>
-        <a href="#">NAJNOWSZE</a>
-        <a href="#">NAJSTARSZE</a>
+        <a href="~/Articles/Index/?filter=najlepsze">NAJLEPSZE @TempData["a"]</a>
+        <a href="~/Articles/Index/?filter=najnowsze">NAJNOWSZE</a>
+        <a href="~/Articles/Index/?filter=najstarsze">NAJSTARSZE</a>
     </div>
 
     <div id="art-list-ul">
@@ -27,7 +27,7 @@
                         <img src="~/Content/Images/img5.jpg" />
                     </div>
                     <div class="art-title">
-                        <p>@item.Title.ToUpper()</p>
+                        <p>@item.Title.ToUpper() @item.Rating @item.Date_Added</p>
                     </div>
                 </li>
             }

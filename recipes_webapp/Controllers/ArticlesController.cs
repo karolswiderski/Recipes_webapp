@@ -10,14 +10,31 @@ namespace recipes_webapp.Controllers
 {
     public class ArticlesController : Controller
     {
-        // GET: Articles
-        public ActionResult Index()
+        // GET: Articles/Index/filter
+        public ActionResult Index(string filter)
         {
-            List <ArticlesVM> articlesList;
-
+            List<ArticlesVM> articlesList = null;
             using (Db db = new Db())
             {
-                articlesList = db.Articles.ToArray().Select(x => new ArticlesVM(x)).ToList();
+                if (filter == "all")
+                {
+                    articlesList = db.Articles.ToArray().Select(x => new ArticlesVM(x)).ToList();
+                }
+                else if (filter == "najlepsze")
+                {
+                    articlesList = db.Articles.ToArray().Select(x => new ArticlesVM(x)).ToList();
+                    articlesList = articlesList.OrderByDescending(x => x.Rating).ToList();
+                }
+                else if (filter == "najnowsze")
+                {
+                    articlesList = db.Articles.ToArray().Select(x => new ArticlesVM(x)).ToList();
+                    articlesList = articlesList.OrderByDescending(x => x.Date_Added).ToList();
+                }
+                else if (filter == "najstarsze")
+                {
+                    articlesList = db.Articles.ToArray().Select(x => new ArticlesVM(x)).ToList();
+                    articlesList = articlesList.OrderBy(x => x.Rating).ToList();
+                }
             }
 
             return View(articlesList);
