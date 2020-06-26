@@ -2,24 +2,21 @@
 
 <link href="~/Content/StyleSheets/Articles/BestArticlesPartialCSS.css" rel="stylesheet" />
 
-
-<div class="article-box">
-    <img class="art-photo" src="~/Content/Images/1.jpg" />
-    <div class="art-text">
-        Dlaczego gulasz gotujemy powoli? Odpowiada Jan Kowalski.
+@foreach (var item in Model)
+{
+    <div class="article-box">
+        <a href="@Url.Action("Details", "Articles", new { id = item.Id_Article})">
+            <div class="art-photoo">
+                <img class="artimg11" src="~/Content/Images/img5.jpg" />
+                <div class="dataaddedd">
+                    <p>kliknij tutaj żeby przeczytać</p>
+                    <br /><br />
+                    <p>@item.Date_Added.ToString("dd/MM/yyyy") | @item.Rating <i style="font-size:80%" class="fa fa-heart" aria-hidden="true"></i></p>
+                </div>
+            </div>
+        </a>
+        <div class="art-titlee">
+            <p>  @item.Title.ToUpper() </p>
+        </div>
     </div>
-</div>
-
-<div class="article-box">
-    <img class="art-photo" src="~/Content/Images/1.jpg" />
-    <div class="art-text">
-        Wpływ diety ziemniaczanej na organizm człowieka.
-    </div>
-</div>
-
-<div class="article-box">
-    <img class="art-photo" src="~/Content/Images/1.jpg" />
-    <div class="art-text">
-        Świąteczny must have. Sprawdz, co polecamy na świąteczny stół!
-    </div>
-</div> 
+}

@@ -48,6 +48,7 @@ namespace recipes_webapp.Controllers
             using (Db db = new Db())
             {
                 articlesList = db.Articles.ToArray().Select(x => new ArticlesVM(x)).ToList();
+                articlesList = articlesList.OrderByDescending(x => x.Rating).Take(3).ToList();
             }
 
             return PartialView(articlesList);

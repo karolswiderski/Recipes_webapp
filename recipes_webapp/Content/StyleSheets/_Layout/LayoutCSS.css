@@ -27,10 +27,10 @@
 
 #top-menu-options {
     float: left;
-    margin-left: 49%;
-    width: 10%;
+    margin-left: 40%;
+    width: 19%;
     height: 100%;
-    text-align: center;
+    text-align: center; 
     font-size: 120%;
     display: table;
 }
