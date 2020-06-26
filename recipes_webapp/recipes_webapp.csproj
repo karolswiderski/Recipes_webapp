@@ -266,6 +266,7 @@
     <Content Include="Content\Images\img4.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\StyleSheets\Articles\BestArticlesPartialCSS.css" />
+    <Content Include="Content\StyleSheets\Articles\DetailsCSS.css" />
     <Content Include="Content\StyleSheets\Articles\IndexCSS.css" />
     <Content Include="Content\StyleSheets\Categories\BestRatingCSS.css" />
     <Content Include="Content\StyleSheets\Categories\IndexCSS.css" />
@@ -313,6 +314,7 @@
     <Content Include="Views\Articles\BestArticle.cshtml" />
     <Content Include="Views\Categories\TopNavBarCategories.cshtml" />
     <Content Include="Views\Articles\Index.cshtml" />
+    <Content Include="Views\Articles\Details.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

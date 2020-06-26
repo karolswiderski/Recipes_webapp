@@ -23,11 +23,18 @@
             @foreach (var item in Model)
             {
                 <li class="next-art">
-                    <div class="art-photo">
-                        <img src="~/Content/Images/img5.jpg" />
-                    </div>
+                    <a href="@Url.Action("Details", "Articles", new { id = item.Id_Article})">
+                        <div class="art-photo">
+                            <img class="artimg1" src="~/Content/Images/img5.jpg" />
+                            <div class="dataadded">
+                                <p>kliknij tutaj żeby przeczytać</p>
+                                <br /><br />
+                                <p>@item.Date_Added.ToString("dd/MM/yyyy") | @item.Rating <i style="font-size:80%" class="fa fa-heart" aria-hidden="true"></i></p>
+                            </div>
+                        </div>
+                    </a>
                     <div class="art-title">
-                        <p>@item.Title.ToUpper() @item.Rating @item.Date_Added</p>
+                        <p>  @item.Title.ToUpper() </p>
                     </div>
                 </li>
             }

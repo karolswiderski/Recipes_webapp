@@ -52,5 +52,12 @@ namespace recipes_webapp.Controllers
 
             return PartialView(articlesList);
         }
+
+        // GET: Articles/Details
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
     }
 }
