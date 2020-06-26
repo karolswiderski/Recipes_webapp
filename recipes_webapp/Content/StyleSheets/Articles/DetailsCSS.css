@@ -1,2 +1,118 @@
-﻿body {
+﻿#article-details-main-box {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#article-details-top-nav-button {
+    margin: 1.5em 0 0 0;
+    width: 100%;
+    height: 1em;
+}
+
+#back-to-list-text {
+    padding-left: 1em;
+    font-family: 'Quicksand', sans-serif;
+    width: 50%;
+    text-align: left;
+    float: left;
+}
+
+#next-article {
+    padding-right: 1em;
+    font-family: 'Quicksand', sans-serif;
+    width: 50%;
+    float: left;
+    text-align: right;
+}
+
+    #back-to-list-text:hover, #next-article:hover, #back-to-list-text a:hover, #next-article a:hover {
+        color: RGB(136, 176, 75);
+    }
+
+
+#article-details-title {
+    width: 70%;
+    height: auto;
+    font-size: 250%;
+    font-family: 'Quicksand', sans-serif;
+    color: #4e5555;
+    margin: 0 auto 0 auto;
+}
+
+    #article-details-title p {
+        padding: 0;
+        margin: 0;
+    }
+
+    #article-details-photo {
+        width: 70%;
+        height: 37vw;
+        margin: 0 auto 0.2em auto;
+    }
+
+    #article-details-photo img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        border-radius: 0.5em;
+    }
+
+#article-details-information {
+    width: 70%;
+    height: 2.6vw;
+    margin: 0.7em auto 0.7em auto;
+    font-size: 130%;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    padding: 0.3em 0;
+}
+
+    #article-details-information a {
+        color: #4e5555;
+    }
+
+    #article-details-information-author {
+        width: 50%;
+        text-align: left;
+        float: left;
+        padding-left: 1%;
+    }
+
+    #article-details-information-author a {
+        color: rgba(118, 154, 66, 1);
+    }
+
+        #article-details-information-author a:hover {
+            color: #4e5555;
+        }
+        
+        #article-details-information-date-rating i:hover {
+            color: red;
+        }
+
+        #article-details-information-date-rating {
+            width: 50%;
+            text-align: right;
+            float: left;
+            padding-right: 1%;
+        }
+
+
+#article-details-content {
+    width: 70%;
+    height: auto;
+    margin: 0.5em auto 2em auto;
+    font-size: 105%;
+    padding: 0 2%;
+    text-align: justify;
+}
+
+a, a:hover, a:focus {
+    color: black;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    line-break: loose;
+    
 }

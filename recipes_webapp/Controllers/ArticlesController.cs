@@ -58,7 +58,16 @@ namespace recipes_webapp.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            return View();
+            ArticlesDTO Adto;
+            ArticlesVM Avm;
+
+            using (Db db = new Db())
+            {
+                Adto = db.Articles.Find(id);
+                Avm = new ArticlesVM(Adto);
+            }
+
+            return View(Avm);
         }
     }
 }

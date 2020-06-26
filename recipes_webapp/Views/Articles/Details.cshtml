@@ -1,66 +1,44 @@
 ﻿@model recipes_webapp.Models.ViewModels.Articles.ArticlesVM
-    <link href="~/Content/StyleSheets/Articles/DetailsCSS.css" rel="stylesheet" />
+<link href="~/Content/StyleSheets/Articles/DetailsCSS.css" rel="stylesheet" />
+
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div id="article-details-main-box">
 
-<div>
-    <h4>ArticlesVM</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Id_Author)
-        </dt>
+    <div id="article-details-top-nav-button">
+        <div id="back-to-list-text">
+            <i style=" font-size: 80%;" class="fas fa-caret-left"></i>
+            &nbsp; <a href="@Url.Action("Index", "Articles", new { filter = "all" })">wróc do listy naszych artykułów</a>
+        </div>
+        <div id="next-article">
+            <a href="@Url.Action("Index", "Articles", new { filter = "all" })">następny artykuł</a> &nbsp;
+            <i style=" font-size: 80%;" class="fas fa-caret-right"></i>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Id_Author)
-        </dd>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date_Added)
-        </dt>
+    <div id="article-details-title">
+        <p>@Model.Title</p>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date_Added)
-        </dd>
+    <div id="article-details-photo">
+        <img src="~/Content/Images/1.jpg" />
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Img_Path)
-        </dt>
+    <div id="article-details-information">
+        <div id="article-details-information-author">
+            <a href="#">Tomasz Nowak</a>
+        </div>
+        <div id="article-details-information-date-rating">
+            <a>@Model.Date_Added.ToString("dd.MM.yyyy") &nbsp;  &nbsp; </a>
+            <a>@Model.Rating <i class="fa fa-heart" aria-hidden="true"></i></a>
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Img_Path)
-        </dd>
+    <div id="article-details-content">
+        <p>@Model.Content</p>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Article }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
