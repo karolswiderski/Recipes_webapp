@@ -249,6 +249,7 @@
     <Compile Include="Models\Data\IngredientsDTO.cs" />
     <Compile Include="Models\Data\UsersDTO.cs" />
     <Compile Include="Models\ViewModels\Account\LoginUserVM.cs" />
+    <Compile Include="Models\ViewModels\Account\UsersVM.cs" />
     <Compile Include="Models\ViewModels\Articles\ArticlesVM.cs" />
     <Compile Include="Models\ViewModels\Dishes\CategoriesVM.cs" />
     <Compile Include="Models\ViewModels\Dishes\DirectionsVM.cs" />
