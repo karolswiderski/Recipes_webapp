@@ -32,11 +32,11 @@ Work in progress.
 
 ## Screenshots:
 
-![screenshot](./img/apk1.png)
+![screenshot](./img/apk1.jpg)
 
-![screenshot](./img/apk2.png)
+![screenshot](./img/apk2.jpg)
 
-![screenshot](./img/apk3.png)
+![screenshot](./img/apk3.jpg)
 
 ## Main Features:
  
