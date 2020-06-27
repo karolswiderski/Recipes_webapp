@@ -57,7 +57,7 @@ Work in progress.
 ## Contact: 
 
 Created by Karol Świderski. 
-* [linkedin ](https://github.com/karolswiderski/)
+* [linkedin ](https://www.linkedin.com/in/karolswiderski/)
 * [github ](https://github.com/karolswiderski/)
 * kswiderski98@gmail.com
 
