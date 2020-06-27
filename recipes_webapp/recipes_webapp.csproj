@@ -281,6 +281,9 @@
     <Content Include="Content\StyleSheets\_Layout\SearchBarCSS.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="img\apk1.png" />
+    <Content Include="img\apk2.png" />
+    <Content Include="img\apk3.png" />
     <Content Include="Scripts\MyScripts\Recipes\Automatic-Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Recipes\Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Layout\Show-Categories.js" />
