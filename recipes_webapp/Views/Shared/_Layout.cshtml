@@ -23,7 +23,9 @@
 </head>
 <body>
     <div id="top-menu">
-        <div id="top-menu-logo"><a href="@Url.Action("Index", "Recipes", new { area = ""})">to home</a></div>
+        <div id="top-menu-logo">
+            <a id="logo-button" href="@Url.Action("Index", "Recipes", new { area = ""})"><i style="font-size: 175%;" class="fas fa-drumstick-bite"></i> &nbsp; super-smaki.pl</a>
+        </div>
         <div id="top-menu-options">
             <a onmouseover="closeCategories();" class="vertical-text" href="@Url.Action("Index", "Articles", new { filter = "all" })"> ARTYKUŁY </a>
             <a onmouseover="openCategories();" class="vertical-text cat" href="@Url.Action("Index", "Categories", new { categoryName = "all", flag = true})">PRZEPISY <i id="caticonid" class="fas fa-caret-down top-menu-icon"></i></a>

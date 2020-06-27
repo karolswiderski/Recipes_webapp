@@ -19,18 +19,32 @@
 
 #top-menu-logo {
     float: left;
-    width: 10%;
+    width: 12%;
     height: 100%;
     margin-left: 1%;
-    background: #4e5555;
+    text-align: left;
+    display: table;
+    font-size: 125%;
 }
+
+#logo-button {
+    vertical-align: middle;
+    display: table-cell;
+    width: auto;
+}
+
+    #logo-button:hover, #logo-button:focus {
+        text-decoration: none;
+        color: white;
+    }
+
 
 #top-menu-options {
     float: left;
-    margin-left: 40%;
+    margin-left: 38%;
     width: 19%;
     height: 100%;
-    text-align: center; 
+    text-align: center;
     font-size: 120%;
     display: table;
 }
@@ -80,8 +94,8 @@
 }
 
 a {
-text-decoration: none;
-color: white;
+    text-decoration: none;
+    color: white;
 }
 
 .vertical-text:hover, .vertical-text:focus {
