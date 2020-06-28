@@ -1,0 +1,19 @@
+﻿@model recipes_webapp.Models.ViewModels.Account.LoginUserVM
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @placeholder = " nazwa użytkownika", @class = "login-editor editor" } })
+        @Html.PasswordFor(model => model.Password, new { @class = "haslo-editor editor" })
+        <label class="remember-me">Zapamiętaj mnie: </label>
+        @Html.EditorFor(model => model.Remember_Me, new { htmlAttributes = new { @class = "form-check-input check-editor" } })
+        <button class="btn-login" style="width:80%;margin-left:10%; margin-right:10%;">ZALOGUJ SIĘ</button>
+        <div id="warning-information">@TempData["Warning"]</div>
+    }

@@ -16,6 +16,7 @@ namespace recipes_webapp.Models.ViewModels.Account
             Password = row.Password;
             Date_Of_Joing = row.Date_Of_Joing;
             Recommendations = row.Recommendations;
+            Role = row.Role;
         }
 
         [Key]
@@ -25,5 +26,6 @@ namespace recipes_webapp.Models.ViewModels.Account
         public string Password { get; set; }
         public DateTime Date_Of_Joing { get; set; }
         public int Recommendations { get; set; }
+        public string Role { get; set; }
     }
 }
