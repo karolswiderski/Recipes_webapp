@@ -19,13 +19,14 @@ namespace recipes_webapp.Controllers
 
         // GET: Account/Login
         [HttpGet]
-        public ActionResult Login() {
+        public ActionResult Login()
+        {
             string userName = User.Identity.Name;
             if (!string.IsNullOrEmpty(userName)) return Redirect("~/Recipes/Index");
 
             return View();
-        } 
-        
+        }
+
         // POST: Account/Login
         [HttpPost]
         public ActionResult Login(LoginUserVM model)
@@ -61,6 +62,24 @@ namespace recipes_webapp.Controllers
                 FormsAuthentication.SetAuthCookie(model.Login, model.Remember_Me);
                 return RedirectToAction(FormsAuthentication.GetRedirectUrl(model.Login, model.Remember_Me));
             }
+        }
+
+        // GET: Account/Logout
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
+        }
+
+        // GET: Account/CreateNew
+        [HttpGet]
+        public ActionResult CreateNew()
+        {
+            string userName = User.Identity.Name;
+            if (!string.IsNullOrEmpty(userName)) return Redirect("~/Recipes/Index");
+
+            return View();
         }
     }
 }
