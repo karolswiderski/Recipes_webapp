@@ -14,10 +14,10 @@ namespace recipes_webapp.Controllers
         // GET: Account
         public ActionResult Index()
         {
-            return View();
+            return Redirect("~/Account/Login");
         }
 
-        // GET: Account
+        // GET: Account/Login
         [HttpGet]
         public ActionResult Login() {
             string userName = User.Identity.Name;

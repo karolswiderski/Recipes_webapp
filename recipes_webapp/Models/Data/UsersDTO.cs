@@ -8,7 +8,7 @@ namespace recipes_webapp.Models.Data
     public class UsersDTO
     {
         [Key]
-        public int User_Id { get; set; }
+        public int Id_User { get; set; }
         public string User_Name { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }

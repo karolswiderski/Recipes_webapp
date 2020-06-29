@@ -10,7 +10,7 @@ namespace recipes_webapp.Models.ViewModels.Account
 
         public UsersVM(UsersDTO row)
         {
-            User_Id = row.User_Id;
+            Id_User = row.Id_User;
             User_Name = row.User_Name;
             Login = row.Login;
             Password = row.Password;
@@ -20,7 +20,7 @@ namespace recipes_webapp.Models.ViewModels.Account
         }
 
         [Key]
-        public int User_Id { get; set; }
+        public int Id_User { get; set; }
         public string User_Name { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }

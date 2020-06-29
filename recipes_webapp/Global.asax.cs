@@ -29,7 +29,7 @@ namespace recipes_webapp
             using (Db db = new Db())
             {
                 UsersDTO dto = db.Users.FirstOrDefault(x => x.Login == userLogin);
-                roles = db.Users.Where(x => x.User_Id == dto.User_Id).Select(x => x.Role).ToArray();
+                roles = db.Users.Where(x => x.Id_User == dto.Id_User).Select(x => x.Role).ToArray();
             }
 
             IIdentity userIdentity = new GenericIdentity(userLogin);
