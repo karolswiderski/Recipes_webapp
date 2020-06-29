@@ -267,6 +267,8 @@
     <Content Include="Content\Images\img5.jpg" />
     <Content Include="Content\Images\img4.jpg" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\StyleSheets\Account\CreateNew.css" />
+    <Content Include="Content\StyleSheets\Account\LoginCSS.css" />
     <Content Include="Content\StyleSheets\Articles\BestArticlesPartialCSS.css" />
     <Content Include="Content\StyleSheets\Articles\DetailsCSS.css" />
     <Content Include="Content\StyleSheets\Articles\IndexCSS.css" />

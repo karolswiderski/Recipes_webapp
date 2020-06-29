@@ -1,0 +1,97 @@
+﻿#login-form {
+    width: 35%;
+    height: auto;
+    margin: 3em auto;
+}
+
+#login-form-title {
+    font-size: 250%;
+    font-family: 'Quicksand', sans-serif;
+    border-bottom: 1px solid lightgray;
+    letter-spacing: 0.2em;
+}
+
+.login-editor {
+    height: 2.5em;
+    width: 100%;
+    margin: 2em auto 1.5em auto;
+    border: 1px solid white;
+    border-bottom: 1px solid lightgray;
+    padding-left: 2%;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+.password-editor {
+    height: 2.5em;
+    width: 100%;
+    margin: 0 auto 0.5em auto;
+    border: 1px solid white;
+    border-bottom: 1px solid lightgray;
+    padding-left: 2%;
+    letter-spacing: 0.1em;
+}
+
+    .login-editor:hover, .password-editor:hover {
+        border: 1px solid #63A669;
+    }
+
+    .login-editor:focus, .password-editor:focus {
+        border: 1px solid #63A669;
+    }
+
+.remember-me {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 2em;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.form-check-input {
+}
+
+.btn-login {
+    width: 90%;
+    margin: 0.5em 5% 1em 5%;
+    height: 2.5em;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #63A669;
+    color: white;
+    border: 1px solid white;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+}
+
+#warning-information {
+    width: 90%;
+    text-align: left;
+    margin-left: 5%;
+    color: #b57d7d; font-family: 'Poppins', sans-serif;
+}
+
+.btn-login:hover {
+    background-color: #7db582;
+}
+
+    .btn-register {
+        background-color: #649ea6;
+        width: 90%;
+        margin: 1em 5% 0.5em 5%;
+        height: 2.5em;
+        font-family: 'Quicksand', sans-serif;
+        color: white;
+        border: 1px solid white;
+        letter-spacing: 0.2em;
+        font-weight: bold;
+        text-align: center;
+        line-height: 2.5em;
+    }
+
+        .btn-register:hover {
+            background-color: #7daeb5;
+        }
+
+
+a, a:hover, a:focus {
+    text-decoration: none;
+}

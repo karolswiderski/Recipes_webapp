@@ -30,16 +30,19 @@
             <a onmouseover="closeCategories();" class="vertical-text" href="@Url.Action("Index", "Articles", new { filter = "all" })"> ARTYKUŁY </a>
             <a onmouseover="openCategories();" class="vertical-text cat" href="@Url.Action("Index", "Categories", new { categoryName = "all", flag = true})">PRZEPISY <i id="caticonid" class="fas fa-caret-down top-menu-icon"></i></a>
         </div>
-        <div id="top-menu-account"  onmouseover="closeCategories();">
+        <div id="top-menu-account" onmouseover="closeCategories();">
             <a class="fab fa-ello vertical-text"></a>
         </div>
-        <div id="top-menu-searchbar"  onmouseover="closeCategories();">
+        <div id="top-menu-searchbar" onmouseover="closeCategories();">
             @Html.Action("SearchBarPartialLayout", "SearchBar", new { area = "" })
         </div>
     </div>
-    <div id="categories-box">
-        @Html.Action("TopNavBarCategories", "Categories", new { area = "" })
-    </div>
+    @if (ViewBag.Title != "Zaloguj się")
+    {
+        <div id="categories-box">
+            @Html.Action("TopNavBarCategories", "Categories")
+        </div>
+    }
     <div onmouseover="closeCategories();">
         @RenderBody()
     </div>

@@ -31,19 +31,14 @@ namespace recipes_webapp.Controllers
         [HttpPost]
         public ActionResult Login(LoginUserVM model)
         {
-            if (model.Login == null || model.Password == null)
+            if (model.Login == null || model.Password == null || !ModelState.IsValid)
             {
-                TempData["Warning"] = "upss.. Chyba o czymś zapomniałeś.";
-                return View(model);
-            }
-
-            if (!ModelState.IsValid)
-            {
-                TempData["Warning"] = "upss.. Coś poszło nie tak.";
+                TempData["Warning"] = "Zweryfikuj podane dane i spróbuj ponownie";
                 return View(model);
             }
 
             bool isValid = false;
+
             using (Db db = new Db())
             {
                 if (db.Users.Any(x => x.Login.Equals(model.Login) && x.Password.Equals(model.Password)))
@@ -76,10 +71,35 @@ namespace recipes_webapp.Controllers
         [HttpGet]
         public ActionResult CreateNew()
         {
+
             string userName = User.Identity.Name;
             if (!string.IsNullOrEmpty(userName)) return Redirect("~/Recipes/Index");
 
             return View();
+        }
+
+
+        // POST: Account/CreateNew
+        [HttpPost]
+        public ActionResult CreateNew(UsersVM model)
+        {
+
+            using (Db db = new Db())
+            {
+                UsersDTO userDTO = new UsersDTO();
+                userDTO.User_Name = model.User_Name;
+                userDTO.Login = model.Login;
+                userDTO.Password = model.Password;
+                userDTO.Repeat_Password = model.Repeat_Password;
+                userDTO.Recommendations = 0;
+                userDTO.Role = "user";
+                userDTO.Date_Of_Joing = Convert.ToDateTime(System.DateTime.Now.ToString("dd/MM/yyyy"));
+
+                db.Users.Add(userDTO);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Login");
         }
     }
 }

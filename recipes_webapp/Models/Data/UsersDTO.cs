@@ -12,6 +12,7 @@ namespace recipes_webapp.Models.Data
         public string User_Name { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public string Repeat_Password { get; set; }
         public DateTime Date_Of_Joing { get; set; }
         public int Recommendations { get; set; }
         public string Role { get; set; }

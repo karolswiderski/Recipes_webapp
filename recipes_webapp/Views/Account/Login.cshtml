@@ -1,19 +1,29 @@
 ﻿@model recipes_webapp.Models.ViewModels.Account.LoginUserVM
-
+<link href="~/Content/StyleSheets/Account/LoginCSS.css" rel="stylesheet" />
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Zaloguj się";
 }
 
-<h2>Login</h2>
+<div id="login-form">
 
-
+    <p id="login-form-title">ZALOGUJ SIĘ</p>
 
     @using (Html.BeginForm())
     {
         @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @placeholder = " nazwa użytkownika", @class = "login-editor editor" } })
-        @Html.PasswordFor(model => model.Password, new { @class = "haslo-editor editor" })
-        <label class="remember-me">Zapamiętaj mnie: </label>
-        @Html.EditorFor(model => model.Remember_Me, new { htmlAttributes = new { @class = "form-check-input check-editor" } })
-        <button class="btn-login" style="width:80%;margin-left:10%; margin-right:10%;">ZALOGUJ SIĘ</button>
-        <div id="warning-information">@TempData["Warning"]</div>
+        @Html.PasswordFor(model => model.Password, new { @placeholder = " hasło", @class = "password-editor editor" })
+        <label class="remember-me">
+            zapamiętaj &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.EditorFor(model => model.Remember_Me, new { htmlAttributes = new { @class = "form-check-input check-editor" } })
+
+        </label>
+        <button class="btn-login">ZALOGUJ SIĘ</button>
+
+
+        <div id="warning-information"> @TempData["Warning"] </div>
+
     }
+
+    <a href="~/Account/CreateNew"><div href="~/Account/CreateNew" class="btn-register">ZAREJESTRUJ SIĘ</div></a>
+    
+</div>
