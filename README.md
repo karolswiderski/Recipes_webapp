@@ -1,6 +1,6 @@
 # Recipes webapp
 
-> It is a responsive web app for kitchen lovers created in ASP.NET MVC using Entity Framework, HTML, CSS, Javascript, and jQuery.
+> It's a responsive web app for kitchen lovers created in ASP.NET MVC using Entity Framework, HTML, CSS, Javascript, and jQuery.
 
 ### Table of contents:
 * [Status](#status)
@@ -18,7 +18,7 @@ Work in progress.
 
 ## General info:
 
-> 'Recipes' is a web app for kitchen lovers witch searching for new ideas for meal. The purpose of the application is data (recipes) presentation in a friendly way that makes the use a pleasure and the users will back to this website in the future. My application has a lot of useful functions, modern design, and is responsive
+> 'Recipes' is a web app for kitchen lovers who search for new cooking ideas. The purpose of the application is data (recipes) presentation in a friendly and pleasant way that makes the users eager to get back to this website in the future. My application has a lot of useful functions, modern design, and is responsive.
 
 ## Technologies:
 
@@ -40,7 +40,7 @@ Work in progress.
 
 ## Main Features:
  
-- Intuitive presenting list of recipes sorted by categories and their details
+- A list of recipes sorted presented intuitively by categories and their details
 - Searching recipes by name/description
 - Displaying a list of articles and their details
 - Intuitive user interface
