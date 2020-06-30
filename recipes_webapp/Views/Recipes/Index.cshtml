@@ -64,21 +64,28 @@
     <div id="right-side">
 
         <div id="log">
-            <a href="@Url.Action("Login", "Account", new { filter = "all" })">
-                <div id="log-box" onmouseenter="showTxt(1)" onmouseleave="hideTxt(1)">
-                    <div class="log-text"><i class="fas fa-sign-in-alt left-icon icn1"></i><b class="text1 log2">	&nbsp; ZALOGUJ SIĘ</b></div>
-                </div>
-            </a>
-            <a href="@Url.Action("Logout", "Account", new { filter = "all" })">
-                <div id="logout-box" onmouseenter="showTxt(2)" onmouseleave="hideTxt(2)">
-                    <div class="log-text"><i class="fas fa-sign-out-alt left-icon icn2"></i><b class="text2 log2">	&nbsp; WYLOGUJ SIĘ</b></div>
-                </div>
-            </a>
-            <a href="@Url.Action("Register", "Account", new { filter = "all" })">
-                <div id="reg-box" onmouseenter="showTxt(3)" onmouseleave="hideTxt(3)">
-                    <div class="log-text"><i class="fa fa-user-plus left-icon icn3"></i><b class="text3 log2">	&nbsp; ZAREJESTRUJ SIĘ</b></div>
-                </div>
-            </a>
+            @if (!User.Identity.IsAuthenticated)
+            {
+
+                <a href="@Url.Action("Login", "Account", new { filter = "all" })">
+                    <div id="log-box" onmouseenter="showTxt(1)" onmouseleave="hideTxt(1)">
+                        <div class="log-text"><i class="fas fa-sign-in-alt left-icon icn1"></i><b class="text1 log2">	&nbsp; ZALOGUJ SIĘ</b></div>
+                    </div>
+                </a>
+                <a href="@Url.Action("CreateNew", "Account", new { filter = "all" })">
+                    <div id="reg-box" onmouseenter="showTxt(3)" onmouseleave="hideTxt(3)">
+                        <div class="log-text"><i class="fa fa-user-plus left-icon icn3"></i><b class="text3 log2">	&nbsp; ZAREJESTRUJ SIĘ</b></div>
+                    </div>
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Logout", "Account", new { filter = "all" })">
+                    <div id="logout-box" onmouseenter="showTxt(2)" onmouseleave="hideTxt(2)">
+                        <div class="log-text"><i class="fas fa-sign-out-alt left-icon icn2"></i><b class="text2 log2">	&nbsp; WYLOGUJ SIĘ</b></div>
+                    </div>
+                </a>
+            }
             <div id=""></div>
         </div>
 

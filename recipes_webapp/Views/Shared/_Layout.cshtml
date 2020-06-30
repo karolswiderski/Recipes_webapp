@@ -31,13 +31,13 @@
             <a onmouseover="openCategories();" class="vertical-text cat" href="@Url.Action("Index", "Categories", new { categoryName = "all", flag = true})">PRZEPISY <i id="caticonid" class="fas fa-caret-down top-menu-icon"></i></a>
         </div>
         <div id="top-menu-account" onmouseover="closeCategories();">
-            <a class="fab fa-ello vertical-text"></a>
+            <a href="@Url.Action("My", "Account", new { filter = "all" })" class="fab fa-ello vertical-text"></a>
         </div>
         <div id="top-menu-searchbar" onmouseover="closeCategories();">
             @Html.Action("SearchBarPartialLayout", "SearchBar", new { area = "" })
         </div>
     </div>
-    @if (ViewBag.Title != "Zaloguj się")
+    @if (ViewBag.Title != "Zaloguj się" && ViewBag.Title != "Zarejestruj się")
     {
         <div id="categories-box">
             @Html.Action("TopNavBarCategories", "Categories")

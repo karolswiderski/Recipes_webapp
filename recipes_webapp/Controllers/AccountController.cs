@@ -33,7 +33,7 @@ namespace recipes_webapp.Controllers
         {
             if (model.Login == null || model.Password == null || !ModelState.IsValid)
             {
-                TempData["Warning"] = "Zweryfikuj podane dane i spróbuj ponownie";
+                TempData["Warning"] = "Autoryzacja nie powiodła się. Spróbuj ponownie.";
                 return View(model);
             }
 
@@ -49,7 +49,7 @@ namespace recipes_webapp.Controllers
 
             if (!isValid)
             {
-                TempData["Warning"] = "Nazwa użytkownika lub hasło jest błędne. ";
+                TempData["Warning"] = "Autoryzacja nie powiodła się. Spróbuj ponownie.";
                 return View(model);
             }
             else
@@ -83,9 +83,34 @@ namespace recipes_webapp.Controllers
         [HttpPost]
         public ActionResult CreateNew(UsersVM model)
         {
+            if (model.User_Name == null || model.Login == null || model.Password == null || model.Repeat_Password == null)
+            {
+                TempData["Warning"] = "Nie wszystkie pola zostały uzupełnione. Uzupełnij braki i spróbuj ponownie.";
+                return View(model);
+            }
+
+            if (model.Password != model.Repeat_Password)
+            {
+                TempData["Warning"] = "Podane hasła różnią się od siebie. Wpisz identyczne hasła i spróbuj ponownie.";
+                return View(model);
+            }
+
+            if (model.Password.Length < 8 || model.Repeat_Password.Length < 8)
+            {
+                TempData["Warning"] = "Hasło musi składać się z conajmniej 8 znaków. Wpisz dłuższe hasło i spróbuj ponownie.";
+                return View(model);
+            }
 
             using (Db db = new Db())
             {
+                UsersDTO sameLogin = db.Users.FirstOrDefault(x => x.Login == model.Login);
+                if (sameLogin != null)
+                {
+                    TempData["Warning"] = "Wybrany login jest już zajęty. Wybierz inny login i spróbuj ponownie.";
+                    return View(model);
+                }
+
+
                 UsersDTO userDTO = new UsersDTO();
                 userDTO.User_Name = model.User_Name;
                 userDTO.Login = model.Login;
@@ -100,6 +125,23 @@ namespace recipes_webapp.Controllers
             }
 
             return RedirectToAction("Login");
+        }
+
+        // GET: Account/My
+        [HttpGet]
+        public ActionResult My()
+        {
+            string userName = User.Identity.Name;
+            if (string.IsNullOrEmpty(userName)) return Redirect("~/Recipes/Index");
+            UsersVM myAccountModel;
+
+            using (Db db = new Db())
+            {
+                UsersDTO myAccount = db.Users.FirstOrDefault(x => x.Login == userName);
+                myAccountModel = new UsersVM(myAccount);
+            }
+
+            return View(myAccountModel);
         }
     }
 }

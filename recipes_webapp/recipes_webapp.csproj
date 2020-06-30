@@ -269,6 +269,7 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\StyleSheets\Account\CreateNew.css" />
     <Content Include="Content\StyleSheets\Account\LoginCSS.css" />
+    <Content Include="Content\StyleSheets\Account\MyCSS.css" />
     <Content Include="Content\StyleSheets\Articles\BestArticlesPartialCSS.css" />
     <Content Include="Content\StyleSheets\Articles\DetailsCSS.css" />
     <Content Include="Content\StyleSheets\Articles\IndexCSS.css" />
@@ -324,6 +325,7 @@
     <Content Include="Views\Articles\Details.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\CreateNew.cshtml" />
+    <Content Include="Views\Account\My.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
