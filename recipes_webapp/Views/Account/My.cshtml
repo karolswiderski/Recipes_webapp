@@ -5,71 +5,31 @@
     ViewBag.Title = Model.User_Name + " - moje konto";
 }
 
-<h2>My</h2>
+<div id="myaccount-main-box">
 
-<div>
-    <h4>UsersVM</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User_Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.User_Name)
-        </dd>
+    <div id="myaccount-information-box">
+        <div id="myaccount-user-photo-box">
+            <div id="myaccount-image">
+                <img id="user-image" src="~/Content/Images/user-icon.png" />
+            </div>
+            <div id="myaccount-button">
+                <a>zmień zdjęcie</a>
+            </div>
+        </div>
+        <div id="myaccount-information">
+            <div id="myaccount-username">@Model.User_Name</div>
+            <div id="myaccount-rating"><p>rekomandacje: @Model.Recommendations</p> </div>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Login)
-        </dt>
+    <div id="myaccount-buttons-table">
+        <a href="#"> MOJE PRZEPISY </a>
+        <a href="#"> ULUBIONE PRZEPISY </a>
+        <a href="#"> ZMIEŃ PODPIS </a>
+        <a href="#"> ZMIEŃ HASŁO </a>
+        <a href="@Url.Action("Logout", "Account")"> WYLOGUJ </a>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Login)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Repeat_Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Repeat_Password)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Date_Of_Joing)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Date_Of_Joing)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Recommendations)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Recommendations)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Role)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Role)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_User }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

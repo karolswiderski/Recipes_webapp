@@ -1,2 +1,91 @@
-﻿body {
+﻿#myaccount-main-box {
+    width: 100%;
+    height: auto;
+}
+
+
+#myaccount-information-box {
+    width: 90%;
+    height: 15vw;
+    margin: 3.5em auto 1.5em auto;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#myaccount-user-photo-box {
+    float: left;
+    width: 15%;
+    height: 100%;
+    height: 13vw;
+}
+
+#user-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 25%;
+}
+
+#myaccount-information {
+    float: left;
+    width: 85%;
+    height: 15vw;
+    padding-left: 1%;
+}
+
+#myaccount-username {
+    font-size: 450%;
+    font-weight: bold;
+    width: auto;
+    color: rgba(106, 139, 60, 1);
+}
+
+#myaccount-login {
+    font-size: 150%;
+}
+
+#myaccount-rating {
+    padding-left: 1%;
+    font-size: 150%;
+}
+
+#myaccount-buttons-table {
+    width: 90%;
+    margin: 1em auto;
+    font-size: 125%;
+    background-color: #3e4444;
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    line-height: 3em;
+    height: 3em;
+}
+
+    #myaccount-buttons-table a {
+        float: left;
+        color: white;
+        width: 20%;
+        text-align: center;
+        background-color: #3e4444;
+        border-right: 1px solid white;
+        vertical-align: middle;
+        display: table-cell;
+    }
+
+        #myaccount-buttons-table a:hover {
+            text-decoration: none;
+            background-color: #505858;
+        }
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+#myaccount-image {
+    width: 100%;
+    height: 13vw;
+}
+
+#myaccount-button {
+    width: 100%;
+    height: 2vw;
+    text-align: center;
 }

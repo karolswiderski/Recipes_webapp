@@ -266,6 +266,7 @@
     <Content Include="Content\Images\img3.jpg" />
     <Content Include="Content\Images\img5.jpg" />
     <Content Include="Content\Images\img4.jpg" />
+    <Content Include="Content\Images\user-icon.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\StyleSheets\Account\CreateNew.css" />
     <Content Include="Content\StyleSheets\Account\LoginCSS.css" />
