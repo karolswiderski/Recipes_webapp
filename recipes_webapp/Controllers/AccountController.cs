@@ -158,5 +158,47 @@ namespace recipes_webapp.Controllers
 
             return PartialView(myRecipesList);
         }
+         
+        [HttpGet]
+        public ActionResult MyFollowingUsers(int id)
+        {
+            List<int> userFollowersVM = new List<int>();
+            List<UsersVM> myFollowingList = new List<UsersVM>();
+
+            using (Db db = new Db())
+            {
+                userFollowersVM = db.User_Followers.ToArray().Where(x => x.Follower_Id == id && x.Its_Still == true).Select(x => x.User_Id).ToList();
+
+                foreach (var item in userFollowersVM)
+                {
+                    UsersDTO myFollowing = db.Users.FirstOrDefault(x => x.Id_User == item);
+
+                    myFollowingList.Add(new UsersVM(myFollowing));
+                }
+            }
+
+            return PartialView(myFollowingList);
+        }
+
+        [HttpGet]
+        public ActionResult MyFollowingRecipes(int id)
+        {
+            List<int> recipeFollowersVM = new List<int>();
+            List<DishesVM> myFollowingList = new List<DishesVM>();
+
+            using (Db db = new Db())
+            {
+                recipeFollowersVM = db.Recipe_Followers.ToArray().Where(x => x.Follower_Id == id && x.Its_Still == true).Select(x => x.Recipe_Id).ToList();
+
+                foreach (var item in recipeFollowersVM)
+                {
+                    DishesDTO myFollowing = db.Dishes.FirstOrDefault(x => x.Id_Dish == item);
+
+                    myFollowingList.Add(new DishesVM(myFollowing));
+                }
+            }
+
+            return PartialView(myFollowingList);
+        }
     }
 }

@@ -34,6 +34,8 @@ namespace recipes_webapp.Models.Data
         public System.Data.Entity.DbSet<recipes_webapp.Models.ViewModels.Account.LoginUserVM> LoginUserVMs { get; set; }
 
         public System.Data.Entity.DbSet<recipes_webapp.Models.ViewModels.Account.UsersVM> UsersVMs { get; set; }
+
+        public System.Data.Entity.DbSet<recipes_webapp.Models.ViewModels.Account.RecipeFollowersVM> RecipeFollowersVMs { get; set; }
     }
 }
 

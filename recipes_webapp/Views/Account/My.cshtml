@@ -33,6 +33,10 @@
 
     <div id="myaccount-myrecipes-box">
         @Html.Action("BestRating", "Categories", new { name = "byuserid", userId = Model.Id_User })
+
+        @Html.Action("MyFollowingUsers", "Account", new { id = Model.Id_User })
+
+        @Html.Action("MyFollowingRecipes", "Account", new { id = Model.Id_User })
     </div>
     <div id=""></div>
     <div id=""></div>

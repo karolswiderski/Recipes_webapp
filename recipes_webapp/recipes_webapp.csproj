@@ -238,6 +238,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\SearchBarController.cs" />
+    <Compile Include="Controllers\User_FollowersVM.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -333,6 +334,8 @@
     <Content Include="Views\Account\CreateNew.cshtml" />
     <Content Include="Views\Account\My.cshtml" />
     <Content Include="Views\Account\MyRecipes.cshtml" />
+    <Content Include="Views\Account\MyFollowingUsers.cshtml" />
+    <Content Include="Views\Account\MyFollowingRecipes.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

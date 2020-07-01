@@ -25,6 +25,6 @@ namespace recipes_webapp.Models.ViewModels.Account
         public int Recipe_Id { get; set; }
         public int Follower_Id { get; set; }
         public DateTime Date_Of_Started { get; set; }
-        public byte Its_Still { get; set; }
+        public bool Its_Still { get; set; }
     }
 }
