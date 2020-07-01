@@ -1,5 +1,6 @@
 ﻿using recipes_webapp.Models.Data;
 using recipes_webapp.Models.ViewModels.Account;
+using recipes_webapp.Models.ViewModels.Dishes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -142,6 +143,20 @@ namespace recipes_webapp.Controllers
             }
 
             return View(myAccountModel);
+        }
+
+        [HttpGet]
+        public ActionResult MyRecipes() 
+        {
+            List<DishesVM> myRecipesList;
+
+            using (Db db = new Db())
+            {
+                UsersDTO myAccount = db.Users.FirstOrDefault(x => x.Login == User.Identity.Name);
+                myRecipesList = db.Dishes.ToArray().Where(x => x.Id_Author == myAccount.Id_User).Select(x => new DishesVM(x)).ToList();    
+            }
+
+            return PartialView(myRecipesList);
         }
     }
 }

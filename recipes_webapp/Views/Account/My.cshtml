@@ -31,5 +31,11 @@
         <a href="@Url.Action("Logout", "Account")"> WYLOGUJ </a>
     </div>
 
+    <div id="myaccount-myrecipes-box">
+        @Html.Action("BestRating", "Categories", new { name = "byuserid", userId = Model.Id_User })
+    </div>
+    <div id=""></div>
+    <div id=""></div>
+    <div id=""></div>
 
 </div>

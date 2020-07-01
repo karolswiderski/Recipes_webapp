@@ -248,8 +248,12 @@
     <Compile Include="Models\Data\DishesDTO.cs" />
     <Compile Include="Models\Data\GalleryDTO.cs" />
     <Compile Include="Models\Data\IngredientsDTO.cs" />
+    <Compile Include="Models\Data\Recipe_FollowersDTO.cs" />
     <Compile Include="Models\Data\UsersDTO.cs" />
+    <Compile Include="Models\Data\User_FollowersDTO.cs" />
     <Compile Include="Models\ViewModels\Account\LoginUserVM.cs" />
+    <Compile Include="Models\ViewModels\Account\RecipeFollowersVM.cs" />
+    <Compile Include="Models\ViewModels\Account\UserFollowersVM.cs" />
     <Compile Include="Models\ViewModels\Account\UsersVM.cs" />
     <Compile Include="Models\ViewModels\Articles\ArticlesVM.cs" />
     <Compile Include="Models\ViewModels\Dishes\CategoriesVM.cs" />
@@ -271,6 +275,7 @@
     <Content Include="Content\StyleSheets\Account\CreateNew.css" />
     <Content Include="Content\StyleSheets\Account\LoginCSS.css" />
     <Content Include="Content\StyleSheets\Account\MyCSS.css" />
+    <Content Include="Content\StyleSheets\Account\MyRecipes.css" />
     <Content Include="Content\StyleSheets\Articles\BestArticlesPartialCSS.css" />
     <Content Include="Content\StyleSheets\Articles\DetailsCSS.css" />
     <Content Include="Content\StyleSheets\Articles\IndexCSS.css" />
@@ -327,6 +332,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\CreateNew.cshtml" />
     <Content Include="Views\Account\My.cshtml" />
+    <Content Include="Views\Account\MyRecipes.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -51,17 +51,25 @@ namespace recipes_webapp.Controllers
         }
 
         [HttpGet]
-        public ActionResult BestRating(string name) {
-            List<DishesVM> DishesList;
+        public ActionResult BestRating(string name, int userId)
+        {
+            List<DishesVM> DishesList = new List<DishesVM>();
 
             using (Db db = new Db())
             {
-                if (name == "all") DishesList = db.Dishes.ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
+                if (name == "byuserid")
+                {
+                    DishesList = db.Dishes.Where(x => x.Id_Author == userId).ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
+                }
                 else
                 {
-                    CategoriesDTO category = db.Categories.FirstOrDefault(x => x.Name == name);
-                    TempData["test"] = "test";
-                    DishesList = db.Dishes.Where(x => x.Id_Category == category.Id_Category).ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
+                    if (name == "all") DishesList = db.Dishes.ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
+                    else if (name != "all" && name != "byuserid")
+                    {
+                        CategoriesDTO category = db.Categories.FirstOrDefault(x => x.Name == name);
+                        TempData["test"] = "test";
+                        DishesList = db.Dishes.Where(x => x.Id_Category == category.Id_Category).ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
+                    }
                 }
             }
 
@@ -69,7 +77,8 @@ namespace recipes_webapp.Controllers
         }
 
         [HttpGet]
-        public ActionResult TopNavBarCategories() {
+        public ActionResult TopNavBarCategories()
+        {
 
             List<CategoriesVM> CategoriesList;
             using (Db db = new Db())

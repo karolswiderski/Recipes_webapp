@@ -89,3 +89,10 @@ p {
     height: 2vw;
     text-align: center;
 }
+
+
+#myaccount-myrecipes-box {
+    width: 90%;
+    height: auto;
+    margin: 1.5em auto 1.5em auto;
+}

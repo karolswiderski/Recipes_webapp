@@ -16,6 +16,8 @@ namespace recipes_webapp.Models.Data
         public DbSet<GalleryDTO> Gallery { get; set; }
         public DbSet<UsersDTO> Users { get; set; }
         public DbSet<ArticlesDTO> Articles { get; set; }
+        public DbSet<Recipe_FollowersDTO> Recipe_Followers { get; set; }
+        public DbSet<User_FollowersDTO> User_Followers { get; set; }
 
         public System.Data.Entity.DbSet<recipes_webapp.Models.ViewModels.Dishes.DishesVM> DishesVMs { get; set; }
 
