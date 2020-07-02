@@ -37,6 +37,15 @@
         @Html.Action("MyFollowingUsers", "Account", new { id = Model.Id_User })
 
         @Html.Action("MyFollowingRecipes", "Account", new { id = Model.Id_User })
+
+        zmiana podpisu:
+
+        @Html.Action("ChangeSignature", "Account", new { id = Model.Id_User })
+
+        zmiana hasla:
+
+        @Html.Action("ChangePassword", "Account", new { id = Model.Id_User })
+
     </div>
     <div id=""></div>
     <div id=""></div>

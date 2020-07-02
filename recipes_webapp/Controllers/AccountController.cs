@@ -146,19 +146,19 @@ namespace recipes_webapp.Controllers
         }
 
         [HttpGet]
-        public ActionResult MyRecipes() 
+        public ActionResult MyRecipes()
         {
             List<DishesVM> myRecipesList;
 
             using (Db db = new Db())
             {
                 UsersDTO myAccount = db.Users.FirstOrDefault(x => x.Login == User.Identity.Name);
-                myRecipesList = db.Dishes.ToArray().Where(x => x.Id_Author == myAccount.Id_User).Select(x => new DishesVM(x)).ToList();    
+                myRecipesList = db.Dishes.ToArray().Where(x => x.Id_Author == myAccount.Id_User).Select(x => new DishesVM(x)).ToList();
             }
 
             return PartialView(myRecipesList);
         }
-         
+
         [HttpGet]
         public ActionResult MyFollowingUsers(int id)
         {
@@ -199,6 +199,67 @@ namespace recipes_webapp.Controllers
             }
 
             return PartialView(myFollowingList);
+        }
+
+        // GET: Account/ChangeSignature
+        [HttpGet]
+        public ActionResult ChangeSignature(int id)
+        {
+            UsersVM myAccountModel;
+
+            using (Db db = new Db())
+            {
+                UsersDTO myAccount = db.Users.FirstOrDefault(x => x.Id_User == id);
+                myAccountModel = new UsersVM(myAccount);
+            }
+
+            return PartialView(myAccountModel);
+        }
+
+        // POST: Account/ChangeSignature
+        [HttpPost]
+        public ActionResult ChangeSignature(UsersVM model)
+        {
+            using (Db db = new Db())
+            {
+                UsersDTO dto = db.Users.Find(model.Id_User);
+                dto.User_Name = model.User_Name;
+
+                db.SaveChanges();
+            }
+            
+            return RedirectToAction("My");
+        }
+
+        // GET: Account/ChangePassword
+        [HttpGet]
+        public ActionResult ChangePassword(int id)
+        {
+            UsersVM myAccountModel;
+
+            using (Db db = new Db())
+            {
+                UsersDTO myAccount = db.Users.FirstOrDefault(x => x.Id_User == id);
+                myAccountModel = new UsersVM(myAccount);
+            }
+
+            return PartialView(myAccountModel);
+        }
+
+        // POST: Account/ChangePassword
+        [HttpPost]
+        public ActionResult ChangePassword(UsersVM model)
+        {
+            using (Db db = new Db())
+            {
+                UsersDTO dto = db.Users.Find(model.Id_User);
+                dto.Password = model.Password;
+                dto.Repeat_Password = model.Repeat_Password;
+
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("My");
         }
     }
 }

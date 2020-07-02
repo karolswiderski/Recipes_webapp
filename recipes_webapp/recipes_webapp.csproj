@@ -19,7 +19,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort>44343</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -336,6 +337,8 @@
     <Content Include="Views\Account\MyRecipes.cshtml" />
     <Content Include="Views\Account\MyFollowingUsers.cshtml" />
     <Content Include="Views\Account\MyFollowingRecipes.cshtml" />
+    <Content Include="Views\Account\ChangeSignature.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
