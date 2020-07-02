@@ -274,9 +274,13 @@
     <Content Include="Content\Images\img4.jpg" />
     <Content Include="Content\Images\user-icon.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\StyleSheets\Account\ChangePasswordCSS.css" />
+    <Content Include="Content\StyleSheets\Account\ChangeSignaureCSS.css" />
     <Content Include="Content\StyleSheets\Account\CreateNew.css" />
     <Content Include="Content\StyleSheets\Account\LoginCSS.css" />
     <Content Include="Content\StyleSheets\Account\MyCSS.css" />
+    <Content Include="Content\StyleSheets\Account\MyFollowingRecipesCSS.css" />
+    <Content Include="Content\StyleSheets\Account\MyFollowingUsersCSS.css" />
     <Content Include="Content\StyleSheets\Account\MyRecipes.css" />
     <Content Include="Content\StyleSheets\Articles\BestArticlesPartialCSS.css" />
     <Content Include="Content\StyleSheets\Articles\DetailsCSS.css" />
