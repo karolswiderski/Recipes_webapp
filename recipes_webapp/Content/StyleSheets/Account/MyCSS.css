@@ -60,8 +60,8 @@
 
     #myaccount-buttons-table a {
         float: left;
-        color: white;
-        width: 20%;
+        color: #bfbfbf;
+        width: 16.6%;
         text-align: center;
         background-color: #3e4444;
         border-right: 1px solid white;
@@ -90,9 +90,9 @@ p {
     text-align: center;
 }
 
-
-#myaccount-myrecipes-box {
+.content-box {
     width: 90%;
     height: auto;
     margin: 1.5em auto 1.5em auto;
+    display: none;
 }

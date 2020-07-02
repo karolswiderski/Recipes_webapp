@@ -297,6 +297,7 @@
     <Content Include="img\apk1.jpg" />
     <Content Include="img\apk2.jpg" />
     <Content Include="img\apk3.jpg" />
+    <Content Include="Scripts\MyScripts\Account\MyAccount-Select-Options.js" />
     <Content Include="Scripts\MyScripts\Recipes\Automatic-Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Recipes\Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Layout\Show-Categories.js" />
