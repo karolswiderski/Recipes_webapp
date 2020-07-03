@@ -46,3 +46,22 @@
     .change-button:hover {
         background-color: #7db582;
     }
+
+#change-warning-information-name {
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    text-align: center;
+    margin-left: 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.warning {
+    color: #b57d7d;
+    margin-top: 2em;
+}
+
+.success {
+    color: #7db58b;
+    margin-top: 2em;
+}

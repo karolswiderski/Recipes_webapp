@@ -130,8 +130,9 @@ namespace recipes_webapp.Controllers
 
         // GET: Account/My
         [HttpGet]
-        public ActionResult My()
+        public ActionResult My(int mode)
         {
+            TempData["setMode"] = mode;
             string userName = User.Identity.Name;
             if (string.IsNullOrEmpty(userName)) return Redirect("~/Recipes/Index");
             UsersVM myAccountModel;
@@ -220,6 +221,11 @@ namespace recipes_webapp.Controllers
         [HttpPost]
         public ActionResult ChangeSignature(UsersVM model)
         {
+            if (model.User_Name.Length < 4)
+            {
+                TempData["UserName_Warning"] = "Nazwa użytkownika musi składać się z conajmniej 4 znaków. Wpisz dłuższą nazwę i spróbuj ponownie.";
+                return RedirectToAction("My", new { mode = 4 });
+            }
             using (Db db = new Db())
             {
                 UsersDTO dto = db.Users.Find(model.Id_User);
@@ -227,8 +233,10 @@ namespace recipes_webapp.Controllers
 
                 db.SaveChanges();
             }
-            
-            return RedirectToAction("My");
+
+            TempData["UserName_Warning"] = "";
+            TempData["UserName_Success"] = "Edycja podpisu zakończona sukcesem.";
+            return RedirectToAction("My", new { mode = 1 });
         }
 
         // GET: Account/ChangePassword
@@ -250,16 +258,42 @@ namespace recipes_webapp.Controllers
         [HttpPost]
         public ActionResult ChangePassword(UsersVM model)
         {
+            if (model.Password == null || model.Repeat_Password == null)
+            {
+                TempData["Password_Warning"] = "Nie wszystkie pola zostały uzupełnione. Uzupełnij braki i spróbuj ponownie.";
+                return RedirectToAction("My", new { mode = 5 });
+            }
+            if (model.Repeat_Password.Length < 8)
+            {
+                TempData["Password_Warning"] = "Nowe hasło musi składać się z conajmniej 8 znaków. Wpisz dłuższe hasło i spróbuj ponownie.";
+                return RedirectToAction("My", new { mode = 5 });
+            }
             using (Db db = new Db())
             {
                 UsersDTO dto = db.Users.Find(model.Id_User);
-                dto.Password = model.Password;
-                dto.Repeat_Password = model.Repeat_Password;
 
-                db.SaveChanges();
+                if (model.Password == dto.Password)
+                {
+                    if (model.Password == model.Repeat_Password)
+                    {
+                        TempData["Password_Warning"] = "Podane hasła nie różnią się od siebie. Wybierz inne hasło i spróbuj ponownie.";
+                        return RedirectToAction("My", new { mode = 5 });
+                    }
+                    dto.Password = model.Repeat_Password;
+                    dto.Repeat_Password = model.Repeat_Password;
+
+                    db.SaveChanges();
+                }
+                else
+                {
+                    TempData["Password_Warning"] = "Potwierdzenie Twojego hasła nie powiodło się. Spróbuj ponownie.";
+                    return RedirectToAction("My", new { mode = 5 });
+                }
             }
 
-            return RedirectToAction("My");
+            TempData["Password_Warning"] = "";
+            TempData["Password_Success"] = "Edycja hasła zakończona sukcesem.";
+            return RedirectToAction("My", new { mode = 5 });
         }
     }
 }

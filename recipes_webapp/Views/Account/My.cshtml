@@ -5,6 +5,7 @@
     ViewBag.Title = Model.User_Name + " - moje konto";
 }
 
+<script src="~/Scripts/MyScripts/Account/MyAccount-Select-Options.js"></script>
 <div id="myaccount-main-box">
 
 
@@ -52,9 +53,7 @@
         @Html.Action("ChangePassword", "Account", new { id = Model.Id_User })
     </div>
 
-
+    <script>selectOption(@TempData["setMode"]);</script>
 
 </div>
 
-
-<script src="~/Scripts/MyScripts/Account/MyAccount-Select-Options.js"></script>

@@ -7,12 +7,17 @@
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Id_User)
-    <div id="changesignature-box">
-        <p> USTAW SWÓJ NOWY PODPIS </p>
-        <div id="new-signature">
-            @Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { @class = "text-editor" } })
-        </div>
-        <button type="submit" class="change-button">ZATWIERDŹ ZMIANĘ</button>
+
+<div id="changesignature-box">
+    <p> USTAW SWÓJ NOWY PODPIS </p>
+    <div id="new-signature">
+        @Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { @class = "text-editor", Title = "Wprowadź swój nowy podpis. To nim będziesz podpisywał swoje przepisy.", autocomplete = "off" } })
     </div>
+
+    <div class="change-warning-information-name warning"> @TempData["UserName_Warning"] </div>
+    <div class="change-warning-information-name success"> @TempData["UserName_Success"] </div>
+
+    <button type="submit" class="change-button">ZATWIERDŹ ZMIANĘ</button>
+</div>
 
 }

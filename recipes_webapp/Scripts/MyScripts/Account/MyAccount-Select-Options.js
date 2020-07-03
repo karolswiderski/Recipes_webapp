@@ -1,5 +1,4 @@
-﻿selectOption(1);
-
+﻿
 function selectOption(x) {
     for (var i = 1; i < 6; i++) {
         document.getElementsByClassName('box' + i)[0].style.display = 'none';
