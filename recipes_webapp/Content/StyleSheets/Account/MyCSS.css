@@ -97,3 +97,35 @@ p {
     display: none;
 
 }
+
+
+.box1, .box2 {
+    text-align: center;
+}
+
+.box1-toptext, .box2-toptext {
+    font-size: 300%;
+    margin: 1em auto 1.5em auto;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 0.1em;
+    width: auto;
+    padding: 0 5%;
+}
+
+.box1-options, .box2-options {
+    width: 20%;
+    margin: 0.5em auto;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+    .box1-options a, .box2-options a {
+        float: left;
+        width: 100%;
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 1em;
+        padding-top: 0.5em;
+        font-size: 125%;
+    }

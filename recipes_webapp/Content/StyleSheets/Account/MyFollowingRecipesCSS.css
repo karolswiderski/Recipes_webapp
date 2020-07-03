@@ -1,2 +1,16 @@
-﻿body {
+﻿
+.box1-options {
+    width: 20%;
+    margin: 0.5em auto;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
 }
+
+    .box1-options a {
+        float: left;
+        width: 100%;
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 1em;
+        padding-top: 0.5em;
+        font-size: 125%;
+    }

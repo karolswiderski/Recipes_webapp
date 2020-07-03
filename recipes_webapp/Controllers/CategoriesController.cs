@@ -1,4 +1,5 @@
 ﻿using recipes_webapp.Models.Data;
+using recipes_webapp.Models.ViewModels.Account;
 using recipes_webapp.Models.ViewModels.Dishes;
 using System;
 using System.Collections.Generic;
@@ -57,9 +58,19 @@ namespace recipes_webapp.Controllers
 
             using (Db db = new Db())
             {
-                if (name == "byuserid")
+                if (name == "byuserid" || name == "following")
                 {
-                    DishesList = db.Dishes.Where(x => x.Id_Author == userId).ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
+                    if (name == "byuserid") DishesList = db.Dishes.Where(x => x.Id_Author == userId).ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
+                    else if (name == "following")
+                    {
+                        List <int> followingList = db.Recipe_Followers.Where(x => x.Follower_Id == userId && x.Its_Still == true).ToArray().Select(x => x.Recipe_Id).ToList();
+                        foreach (var item in followingList)
+                        {
+                            DishesDTO dish = new DishesDTO();
+                            dish = db.Dishes.First(x => x.Id_Dish == item);
+                            DishesList.Add(new DishesVM(dish));
+                        }
+                    }
                 }
                 else
                 {

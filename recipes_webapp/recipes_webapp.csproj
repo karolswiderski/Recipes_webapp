@@ -340,10 +340,10 @@
     <Content Include="Views\Account\CreateNew.cshtml" />
     <Content Include="Views\Account\My.cshtml" />
     <Content Include="Views\Account\MyRecipes.cshtml" />
-    <Content Include="Views\Account\MyFollowingUsers.cshtml" />
-    <Content Include="Views\Account\MyFollowingRecipes.cshtml" />
     <Content Include="Views\Account\ChangeSignature.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\MyFollowingUsers.cshtml" />
+    <Content Include="Views\Account\MyFollowingRecipes.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

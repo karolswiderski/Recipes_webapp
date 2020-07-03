@@ -25,20 +25,32 @@
     </div>
 
     <div id="myaccount-buttons-table">
-        <a href="#" onclick="selectOption(1)" class="box-button-1"> MOJE PRZEPISY </a>
-        <a href="#" onclick="selectOption(2)" class="box-button-2"> ULUBIONE PRZEPISY </a>
-        <a href="#" style="width: 17%;" onclick="selectOption(3)" class="box-button-3"> REKOMENDACJE </a>
+        <a href="#" onclick="selectOption(1)" class="box-button-1"> MOJE PRZEPISY (@TempData["myRecipesCount"]) </a>
+        <a href="#" onclick="selectOption(2)" class="box-button-2"> ULUBIONE PRZEPISY (@TempData["myFollowingRecipesCount"])</a>
+        <a href="#" style="width: 17%;" onclick="selectOption(3)" class="box-button-3"> REKOMENDACJE (@TempData["myFollowingUsersCount"])</a>
         <a href="#" onclick="selectOption(4)" class="box-button-4"> ZMIEŃ PODPIS </a>
         <a href="#" onclick="selectOption(5)" class="box-button-5"> ZMIEŃ HASŁO </a>
         <a href="#"> WYLOGUJ SIĘ </a>
     </div>
 
     <div class="content-box box1" id="myaccount-myrecipes-box">
+
+        <a class="box1-toptext">PRZEPISY DODANE PRZEZ CIEBIE</a>
+        <div class="box1-options">
+            <a>dodaj następny przepis</a>
+        </div>
+
         @Html.Action("BestRating", "Categories", new { name = "byuserid", userId = Model.Id_User })
     </div>
 
     <div class="content-box box2" id="myaccount-myfollowingrecipes-box">
-        @Html.Action("MyFollowingRecipes", "Account", new { id = Model.Id_User })
+
+        <a class="box2-toptext">TWOJE ULUBIONE PRZEPISY</a>
+        <div class="box2-options">
+            <a>poszukaj następnego</a>
+        </div>
+
+        @Html.Action("BestRating", "Categories", new { name = "following", userId = Model.Id_User })
     </div>
 
     <div class="content-box box3" id="myaccount-myfollowingusers-box">
