@@ -14,7 +14,7 @@ namespace recipes_webapp.Controllers
     {
         // GET: Account
         public ActionResult Index()
-        { 
+        {
             return Redirect("~/Account/My?mode=1");
         }
 
@@ -150,17 +150,19 @@ namespace recipes_webapp.Controllers
         }
 
         [HttpGet]
-        public ActionResult MyRecipes()
+        public ActionResult MyRecipes(int userId, string orderBy)
         {
-            List<DishesVM> myRecipesList;
+            List<DishesVM> DishesList = new List<DishesVM>();
 
             using (Db db = new Db())
             {
-                UsersDTO myAccount = db.Users.FirstOrDefault(x => x.Login == User.Identity.Name);
-                myRecipesList = db.Dishes.ToArray().Where(x => x.Id_Author == myAccount.Id_User).Select(x => new DishesVM(x)).ToList();
+                if (orderBy == "newest") DishesList = db.Dishes.Where(x => x.Id_Author == userId).ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Date_Added).ToList();
+                else if (orderBy == "oldest") DishesList = db.Dishes.Where(x => x.Id_Author == userId).ToArray().Select(x => new DishesVM(x)).OrderByDescending(x => x.Date_Added).ToList();
+                else if (orderBy == "mostPopular") DishesList = db.Dishes.Where(x => x.Id_Author == userId).ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
+                TempData["userId"] = userId;
             }
 
-            return PartialView(myRecipesList);
+            return PartialView(DishesList);
         }
 
         [HttpGet]
@@ -185,53 +187,22 @@ namespace recipes_webapp.Controllers
         }
 
         [HttpGet]
-        public ActionResult MyFollowingRecipes(string name, int userId)
-        {/*
-            List<int> recipeFollowersVM = new List<int>();
-            List<DishesVM> myFollowingList = new List<DishesVM>();
-
-            using (Db db = new Db())
-            {
-                recipeFollowersVM = db.Recipe_Followers.ToArray().Where(x => x.Follower_Id == id && x.Its_Still == true).Select(x => x.Recipe_Id).ToList();
-
-                foreach (var item in recipeFollowersVM)
-                {
-                    DishesDTO myFollowing = db.Dishes.FirstOrDefault(x => x.Id_Dish == item);
-
-                    myFollowingList.Add(new DishesVM(myFollowing));
-                }
-            }
-
-            return PartialView(myFollowingList);*/
-
+        public ActionResult MyFollowingRecipes(int userId, string orderBy)
+        {
             List<DishesVM> DishesList = new List<DishesVM>();
+            List<int> followingList = new List<int>();
 
             using (Db db = new Db())
             {
-                if (name == "byuserid" || name == "following")
+                followingList = db.Recipe_Followers.Where(x => x.Follower_Id == userId).ToArray().Select(x => x.Recipe_Id).ToList();
+                foreach (var item in followingList)
                 {
-                    if (name == "byuserid") DishesList = db.Dishes.Where(x => x.Id_Author == userId).ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
-                    else if (name == "following")
-                    {
-                        List<int> followingList = db.Recipe_Followers.Where(x => x.Follower_Id == userId && x.Its_Still == true).ToArray().Select(x => x.Recipe_Id).ToList();
-                        foreach (var item in followingList)
-                        {
-                            DishesDTO dish = new DishesDTO();
-                            dish = db.Dishes.First(x => x.Id_Dish == item);
-                            DishesList.Add(new DishesVM(dish));
-                        }
-                    }
+                    DishesDTO dish = db.Dishes.Find(item);
+                    DishesList.Add(new DishesVM(dish));
                 }
-                else
-                {
-                    if (name == "all") DishesList = db.Dishes.ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
-                    else if (name != "all" && name != "byuserid")
-                    {
-                        CategoriesDTO category = db.Categories.FirstOrDefault(x => x.Name == name);
-                        TempData["test"] = "test";
-                        DishesList = db.Dishes.Where(x => x.Id_Category == category.Id_Category).ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
-                    }
-                }
+                
+                if (orderBy == "newest") DishesList = DishesList.OrderBy(x => x.Date_Added).ToList();
+                else if (orderBy == "mostPopular") DishesList.OrderBy(x => x.Rating).ToList();
             }
 
             return PartialView(DishesList);
@@ -329,6 +300,19 @@ namespace recipes_webapp.Controllers
             TempData["Password_Warning"] = "";
             TempData["Password_Success"] = "Edycja hasła zakończona sukcesem.";
             return RedirectToAction("My", new { mode = 5 });
+        }
+
+        [HttpGet]
+        public ActionResult SingleRecipe(int id) {
+            DishesVM recipeVM;
+
+            using (Db db = new Db())
+            {
+                DishesDTO recipeDTO = db.Dishes.Find(id);
+                recipeVM = new DishesVM(recipeDTO);
+            }
+
+            return PartialView(recipeVM);
         }
     }
 }

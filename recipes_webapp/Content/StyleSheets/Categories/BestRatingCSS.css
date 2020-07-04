@@ -1,10 +1,10 @@
-﻿#rating {
+﻿.rating {
     width: 100%;
     height: auto;
     margin-top: auto;
 }
 
-#rating-list {
+.rating-list {
     width: 100%;
     display: block;
     margin: 0 auto;

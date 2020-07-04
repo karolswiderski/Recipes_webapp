@@ -1,11 +1,20 @@
 ﻿@model recipes_webapp.Models.ViewModels.Account.UsersVM
 <link href="~/Content/StyleSheets/Account/MyCSS.css" rel="stylesheet" />
 
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
 @{
     ViewBag.Title = Model.User_Name + " - moje konto";
 }
 
+
+
 <script src="~/Scripts/MyScripts/Account/MyAccount-Select-Options.js"></script>
+<script src="~/Scripts/MyScripts/Account/Select-Sort-Options-Recipes.js"></script>
+
+
+
 <div id="myaccount-main-box">
 
 
@@ -37,20 +46,38 @@
 
         <a class="box1-toptext">PRZEPISY DODANE PRZEZ CIEBIE</a>
         <div class="box1-options">
-            <a>dodaj następny przepis</a>
+            <a href="#" class="recipes-sort-button-1 box1-options-text" onclick="selectRecipesSortOption(1)">najnowsze</a>
+            <a href="#" class="recipes-sort-button-2 box1-options-text" onclick="selectRecipesSortOption(2)">najstarsze</a>
+            <a href="#" class="recipes-sort-button-3 box1-options-text" onclick="selectRecipesSortOption(3)">najpopularniejsze</a>
+            <a href="#" class="recipes-sort-button-4 box1-last-option">dodaj następny</a>
         </div>
 
-        @Html.Action("BestRating", "Categories", new { name = "byuserid", userId = Model.Id_User })
+        <div class="recipes-sort-1">
+            @Html.Action("MyRecipes", "Account", new { userId = Model.Id_User, orderBy = "newest" })
+        </div>
+        <div class="recipes-sort-2">
+            @Html.Action("MyRecipes", "Account", new { userId = Model.Id_User, orderBy = "oldest" })
+        </div>
+        <div class="recipes-sort-3">
+            @Html.Action("MyRecipes", "Account", new { userId = Model.Id_User, orderBy = "mostPopular" })
+        </div>
     </div>
 
     <div class="content-box box2" id="myaccount-myfollowingrecipes-box">
 
         <a class="box2-toptext">TWOJE ULUBIONE PRZEPISY</a>
         <div class="box2-options">
-            <a>poszukaj następnego</a>
+            <a href="#" class="following-recipes-sort-button-1 box2-options-text" onclick="selectFollowingRecipesSortOption(1)">ostatnio polubione</a>
+            <a href="#" class="following-recipes-sort-button-2 box2-options-text" onclick="selectFollowingRecipesSortOption(2)">najpopularniejsze</a>
+            <a href="#" class="following-recipes-sort-button-3 box2-last-option">znajdź następne</a>
         </div>
 
-        @Html.Action("BestRating", "Categories", new { name = "following", userId = Model.Id_User })
+        <div class="following-recipes-sort-1">
+            @Html.Action("MyFollowingRecipes", "Account", new { userId = Model.Id_User, orderBy = "newest" })
+        </div>
+        <div class="following-recipes-sort-2">
+            @Html.Action("MyFollowingRecipes", "Account", new { userId = Model.Id_User, orderBy = "mostPopular" })
+        </div>
     </div>
 
     <div class="content-box box3" id="myaccount-myfollowingusers-box">
@@ -66,6 +93,8 @@
     </div>
 
     <script>selectOption(@TempData["setMode"]);</script>
+    <script>selectRecipesSortOption(1);</script>
+    <script>selectFollowingRecipesSortOption(1);</script>
 
 </div>
 

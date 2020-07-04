@@ -1,0 +1,37 @@
+﻿@model recipes_webapp.Models.ViewModels.Dishes.DishesVM
+
+
+<li class="rating-recipe">
+    <a href="@Url.Action("Details", "Recipes", new { id = Model.Id_Dish})">
+        <div class="rating-recipe-photo">
+            <img src="~/Content/Images/img1.jpg" />
+        </div>
+    </a>
+    <div class="rating-recipe-information">
+
+
+        <div class="rating-icons"> <i class="far fa-heart"></i> 	&nbsp; @Html.DisplayFor(modelItem => Model.Rating) </div>
+        <div class="rating-icons">  <i class="glyphicon glyphicon-cutlery"></i> 	&nbsp; @Html.DisplayFor(modelItem => Model.Servings) </div>
+        <div class="rating-icons">  <i class="far fa-clock"></i> &nbsp; @Html.DisplayFor(modelItem => Model.Time) </div>
+        <div class="rating-icons-last ">
+            <i class="glyphicon glyphicon-stats"></i> &nbsp;
+            @if (Convert.ToInt32(Html.DisplayFor(modelItem => Model.Level).ToString()) == 1)
+            {
+                <a>łatwy</a>
+            }
+            else if (Convert.ToInt32(Html.DisplayFor(modelItem => Model.Level).ToString()) == 2)
+            {
+                <a>średni</a>
+            }
+            else if (Convert.ToInt32(Html.DisplayFor(modelItem => Model.Level).ToString()) == 3)
+            {
+                <a>trudny</a>
+            }
+        </div>
+    </div>
+    <div class="rating-recipe-text">
+        <div class="rating-text-author"><b>Tomasz Nowak</b></div>
+        <div class="rating-text-title"><b>@Html.DisplayFor(modelItem => Model.Name)</b></div>
+        <div class="rating-text-content"><i>@Html.DisplayFor(modelItem => Model.Description)</i></div>
+    </div>
+</li>

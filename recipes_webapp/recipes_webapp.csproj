@@ -279,9 +279,7 @@
     <Content Include="Content\StyleSheets\Account\CreateNew.css" />
     <Content Include="Content\StyleSheets\Account\LoginCSS.css" />
     <Content Include="Content\StyleSheets\Account\MyCSS.css" />
-    <Content Include="Content\StyleSheets\Account\MyFollowingRecipesCSS.css" />
     <Content Include="Content\StyleSheets\Account\MyFollowingUsersCSS.css" />
-    <Content Include="Content\StyleSheets\Account\MyRecipes.css" />
     <Content Include="Content\StyleSheets\Articles\BestArticlesPartialCSS.css" />
     <Content Include="Content\StyleSheets\Articles\DetailsCSS.css" />
     <Content Include="Content\StyleSheets\Articles\IndexCSS.css" />
@@ -302,6 +300,7 @@
     <Content Include="img\apk2.jpg" />
     <Content Include="img\apk3.jpg" />
     <Content Include="Scripts\MyScripts\Account\MyAccount-Select-Options.js" />
+    <Content Include="Scripts\MyScripts\Account\Select-Sort-Options-Recipes.js" />
     <Content Include="Scripts\MyScripts\Recipes\Automatic-Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Recipes\Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Layout\Show-Categories.js" />
@@ -344,6 +343,7 @@
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\MyFollowingUsers.cshtml" />
     <Content Include="Views\Account\MyFollowingRecipes.cshtml" />
+    <Content Include="Views\Account\SingleRecipe.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
