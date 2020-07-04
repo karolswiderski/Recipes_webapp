@@ -3,7 +3,7 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> 
 @{
     ViewBag.Title = Model.User_Name + " - moje konto";
 }
@@ -39,7 +39,7 @@
         <a href="#" style="width: 17%;" onclick="selectOption(3)" class="box-button-3"> REKOMENDACJE (@TempData["myFollowingUsersCount"])</a>
         <a href="#" onclick="selectOption(4)" class="box-button-4"> ZMIEŃ PODPIS </a>
         <a href="#" onclick="selectOption(5)" class="box-button-5"> ZMIEŃ HASŁO </a>
-        <a href="#"> WYLOGUJ SIĘ </a>
+        <a href="~/Account/Logout"> WYLOGUJ SIĘ </a>
     </div>
 
     <div class="content-box box1" id="myaccount-myrecipes-box">
@@ -69,7 +69,7 @@
         <div class="box2-options">
             <a href="#" class="following-recipes-sort-button-1 box2-options-text" onclick="selectFollowingRecipesSortOption(1)">ostatnio polubione</a>
             <a href="#" class="following-recipes-sort-button-2 box2-options-text" onclick="selectFollowingRecipesSortOption(2)">najpopularniejsze</a>
-            <a href="#" class="following-recipes-sort-button-3 box2-last-option">znajdź następne</a>
+            <a href="~/Categories/" class="following-recipes-sort-button-3 box2-last-option">znajdź następne</a>
         </div>
 
         <div class="following-recipes-sort-1">

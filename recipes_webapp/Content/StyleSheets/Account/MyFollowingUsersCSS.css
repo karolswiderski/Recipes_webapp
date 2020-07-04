@@ -1,2 +1,109 @@
-﻿body {
+﻿#myfollowingusers-box {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    color: black;
+    text-align: center;
+}
+
+#myfollowingusers-top-text {
+    font-size: 300%;
+    margin: 1em 0 1.5em 0;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 0.1em;
+}
+
+#myfollowingusers-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.myfollowingusers-user {
+    width: 50em;
+    margin: 3em auto;
+    height: 10em;
+}
+
+.myfollowingusers-photo {
+    float: left;
+    width: 20%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+}
+
+    .myfollowingusers-photo img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        border-radius: 50%;
+    }
+
+
+.myfollowingusers-name {
+    float: left;
+    width: 55%;
+    height: 100%;
+}
+
+.myfollowingusers-button-box {
+    width: 25%;
+    height: 100%;
+    display: table;
+}
+
+.myfollowingusers-button {
+    float: left;
+    width: 100%;
+    height: 20%;
+    margin-top: 30%;
+    display: table;
+}
+
+.myfollowingusers-button-text {
+    vertical-align: middle;
+    display: table-cell;
+    border: 1px solid #3e4444;
+    border-radius: 0.5em;
+    text-decoration: none;
+    color:black;
+}
+
+    .myfollowingusers-button-text:hover {
+        background-color: rgba(175, 70, 70, 0.9);
+        border: none;
+        text-decoration: none;
+        color: white;
+    }
+
+    .myfollowingusers-username {
+        font-size: 250%;
+        font-family: 'Quicksand', sans-serif;
+        color: rgba(106, 139, 60, 1);
+        vertical-align: bottom;
+        display: table-cell;
+    }
+
+.myfollowingusers-login {
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+}
+
+.username-box {
+    width: 100%;
+    height: 60%;
+    display: table;
+    text-align: left;
+    padding-left: 5%;
+}
+
+.login-box {
+    width: 100%;
+    height: 40%;
+    text-align: left;
+    padding-left: 7%;
 }

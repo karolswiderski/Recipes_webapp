@@ -93,11 +93,6 @@
     bottom: 0;
 }
 
-a {
-    text-decoration: none;
-    color: white;
-}
-
 .vertical-text:hover, .vertical-text:focus {
     color: RGB(136, 176, 75);
     text-decoration: none;

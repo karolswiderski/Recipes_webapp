@@ -141,9 +141,14 @@ p {
     color: #bfbfbf;
 }
 
-.box1-options:hover, .box2-options:hover {
-    color: RGB(136, 176, 75)
-}
+    .box2-last-option:hover, .box1-last-option:hover {
+        color: RGB(136, 176, 75);
+        font-weight: bold;
+    }
+
+    .box1-options:hover, .box2-options:hover {
+        color: RGB(136, 176, 75)
+    }
 
 .box1-options-text, .box2-options-text {
     border-right: 1px dotted lightgray;

@@ -87,12 +87,3 @@
     margin-top: 8%;
     margin-bottom: 8%;
 }
-
-a {
-    text-decoration: none;
-    color: white;
-}
-
-    a:hover {
-        color: RGB(136, 176, 75);
-    }

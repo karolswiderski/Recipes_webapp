@@ -142,8 +142,8 @@ namespace recipes_webapp.Controllers
                 UsersDTO myAccount = db.Users.FirstOrDefault(x => x.Login == userName);
                 myAccountModel = new UsersVM(myAccount);
                 TempData["myRecipesCount"] = db.Dishes.Where(x => x.Id_Author == myAccount.Id_User).Count();
-                TempData["myFollowingRecipesCount"] = db.Recipe_Followers.Where(x => x.Follower_Id == myAccount.Id_User).Count();
-                TempData["myFollowingUsersCount"] = db.User_Followers.Where(x => x.Follower_Id == myAccount.Id_User).Count();
+                TempData["myFollowingRecipesCount"] = db.Recipe_Followers.Where(x => x.Follower_Id == myAccount.Id_User && x.Its_Still == true).Count();
+                TempData["myFollowingUsersCount"] = db.User_Followers.Where(x => x.Follower_Id == myAccount.Id_User && x.Its_Still == true).Count();
             }
 
             return View(myAccountModel);
@@ -194,13 +194,13 @@ namespace recipes_webapp.Controllers
 
             using (Db db = new Db())
             {
-                followingList = db.Recipe_Followers.Where(x => x.Follower_Id == userId).ToArray().Select(x => x.Recipe_Id).ToList();
+                followingList = db.Recipe_Followers.Where(x => x.Follower_Id == userId && x.Its_Still == true).ToArray().Select(x => x.Recipe_Id).ToList();
                 foreach (var item in followingList)
                 {
                     DishesDTO dish = db.Dishes.Find(item);
                     DishesList.Add(new DishesVM(dish));
                 }
-                
+
                 if (orderBy == "newest") DishesList = DishesList.OrderBy(x => x.Date_Added).ToList();
                 else if (orderBy == "mostPopular") DishesList.OrderBy(x => x.Rating).ToList();
             }
@@ -303,7 +303,8 @@ namespace recipes_webapp.Controllers
         }
 
         [HttpGet]
-        public ActionResult SingleRecipe(int id) {
+        public ActionResult SingleRecipe(int id)
+        {
             DishesVM recipeVM;
 
             using (Db db = new Db())
@@ -313,6 +314,23 @@ namespace recipes_webapp.Controllers
             }
 
             return PartialView(recipeVM);
+        }
+
+        // POST: Account/DeactivateFollow
+        [HttpGet]
+        public ActionResult DeactivateFollow(int userId)
+        {
+            User_FollowersDTO user = new User_FollowersDTO();
+
+            using (Db db = new Db())
+            {
+                user = db.User_Followers.FirstOrDefault(x => x.User_Id == userId);
+                user.Its_Still = false;
+
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("My", new { mode = 3 });
         }
     }
 }
