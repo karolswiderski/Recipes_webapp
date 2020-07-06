@@ -1,0 +1,79 @@
+﻿#addnewrecipe-main-box {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+
+
+}
+
+#addnewrecipe-top-title-box {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid lightgray;
+    font-size: 400%;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    letter-spacing: 0.2em;
+}
+
+.addnewrecipe-content-side {
+    float: left;
+    width: 90%;
+    height: auto;
+    padding: 0 0 0 10%;
+    border-bottom: 1px solid lightgray;
+}
+
+.addnewrecipe-check-side {
+    float: left;
+    width: 10%;
+    height: auto;
+    margin: 0;
+    border-bottom: 1px solid lightgray;
+}
+
+    .addnewrecipe-check-side b {
+        padding-left: 5%;
+    }
+
+    .addnewrecipe-content-box {
+        width: 100%;
+        height: auto;
+        margin: 2em 0;
+        padding-bottom: 2em;
+    }
+
+.all-side-text {
+    font-family: 'Quicksand', sans-serif;
+    border: none;
+}
+
+.information-editor {
+    width: 95%;
+    height: 2em;
+    text-align: center;
+    margin: 1em 0;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    margin-left: 5%;
+}
+
+    .information-editor:hover {
+        border-bottom: 1px solid rgba(118, 154, 66, 1);
+    }
+
+    .information-editor:focus {
+        border: none;
+        border: 2px solid rgba(118, 154, 66, 1);
+        padding: 0;
+    }
+
+.check-side-text {
+    width: 70%;
+    height: 2em;
+    text-align: left;
+    margin: 2em 15% 2em 0;
+    padding-left: 15%;
+    font-weight: bold;
+}

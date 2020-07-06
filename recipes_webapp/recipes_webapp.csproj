@@ -257,6 +257,7 @@
     <Compile Include="Models\ViewModels\Account\UserFollowersVM.cs" />
     <Compile Include="Models\ViewModels\Account\UsersVM.cs" />
     <Compile Include="Models\ViewModels\Articles\ArticlesVM.cs" />
+    <Compile Include="Models\ViewModels\Dishes\AddNewRecipeVM.cs" />
     <Compile Include="Models\ViewModels\Dishes\CategoriesVM.cs" />
     <Compile Include="Models\ViewModels\Dishes\DirectionsVM.cs" />
     <Compile Include="Models\ViewModels\Dishes\DishesVM.cs" />
@@ -286,6 +287,7 @@
     <Content Include="Content\StyleSheets\Categories\IndexCSS.css" />
     <Content Include="Content\StyleSheets\Categories\RecipesCSS.css" />
     <Content Include="Content\StyleSheets\Categories\TopNavBarCategoriesCSS.css" />
+    <Content Include="Content\StyleSheets\Recipes\AddNewRecipeCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\DetailsCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\DirectionsCSS.css" />
     <Content Include="Content\StyleSheets\Recipes\IndexCSS.css" />
@@ -300,6 +302,7 @@
     <Content Include="img\apk3.jpg" />
     <Content Include="Scripts\MyScripts\Account\MyAccount-Select-Options.js" />
     <Content Include="Scripts\MyScripts\Account\Select-Sort-Options-Recipes.js" />
+    <Content Include="Scripts\MyScripts\Recipes\AddNewRecipe\Showing-Icons.js" />
     <Content Include="Scripts\MyScripts\Recipes\Automatic-Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Recipes\Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Layout\Show-Categories.js" />
@@ -343,6 +346,7 @@
     <Content Include="Views\Account\MyFollowingUsers.cshtml" />
     <Content Include="Views\Account\MyFollowingRecipes.cshtml" />
     <Content Include="Views\Account\SingleRecipe.cshtml" />
+    <Content Include="Views\Recipes\AddNew.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

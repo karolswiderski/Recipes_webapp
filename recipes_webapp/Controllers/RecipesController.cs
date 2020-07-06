@@ -78,5 +78,12 @@ namespace recipes_webapp.Controllers
 
                 return PartialView(directionsVM);
         }
+
+        [HttpGet]
+        public ActionResult AddNew() {
+            AddNewRecipeVM model = new AddNewRecipeVM();
+
+            return View(model);
+        }
     }
 }

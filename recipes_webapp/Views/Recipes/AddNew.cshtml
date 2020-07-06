@@ -1,0 +1,58 @@
+﻿@model recipes_webapp.Models.ViewModels.Dishes.AddNewRecipeVM
+
+<link href="~/Content/StyleSheets/Recipes/AddNewRecipeCSS.css" rel="stylesheet" />
+<script src="~/Scripts/MyScripts/Recipes/AddNewRecipe/Showing-Icons.js"></script>
+@{
+
+
+    ViewBag.Title = "Dodaj nowy przepis.";
+}
+
+<div id="addnewrecipe-main-box">
+    <div id="addnewrecipe-top-title-box">
+        DODAJ NOWY PRZEPIS
+    </div>
+
+    <div id="addnewracipe-information-box" class="addnewrecipe-content-box">
+        <div class="addnewrecipe-content-side">
+            <b class="all-side-text">I. PODSTAWOWE INFORMACJE:</b>
+            @Html.EditorFor(model => model.Dishes.Name, new { htmlAttributes = new { @id = "check-text-1", @class = "information-editor", @placeholder = "pełna nazwa", onchange = "checkIcon(1)" } })
+            @Html.EditorFor(model => model.Dishes.Description, new { htmlAttributes = new { @id = "check-text-2", @class = "information-editor", @placeholder = "pare zdań opisujących potrawę i przepis", onchange = "checkIcon(2)" } })
+            @Html.EditorFor(model => model.Dishes.Servings, new { htmlAttributes = new { @id = "check-text-3", @class = "information-editor", @placeholder = "liczba porcji", onchange = "checkIcon(3)" } })
+            @Html.EditorFor(model => model.Dishes.Time, new { htmlAttributes = new { @id = "check-text-4", @class = "information-editor", @placeholder = "czas przygotowania podany w minutach", @Title = "czas podaj w minutach, np. 90 min", @type = "number", @min = "10", @step = "5", @max = "360", onchange = "checkIcon(4)" } })
+            @Html.EditorFor(model => model.Dishes.Level, new { htmlAttributes = new { @id = "check-text-5", @class = "information-editor", @placeholder = "poziom trudności 1-3", @Title = "gdzie: 1 - łatwy, 2 - średni, 3 - trudny", @type = "number", @min = "1", @step = "1", @max = "3", onchange = "checkIcon(5)" } })
+
+        </div>
+        <div class="addnewrecipe-check-side">
+            <b class="all-side-text"> </b>
+            <div id="check-big-box-1" class="check-side-text" style="margin-top: 1em;">
+                <div id="check-box-1" style="display: none;">TYTUŁ &nbsp; <i style="font-size: 90%;" id="check-icon-1" class="far fa-times-circle"></i></div> 
+            </div>
+            <div id="check-big-box-2"  class="check-side-text">
+                <div id="check-box-2" style="display: none;">OPIS &nbsp; <i style="font-size: 90%;" id="check-icon-2" class="far fa-times-circle"></i></div>
+            </div>
+            <div id="check-big-box-3"  class="check-side-text">
+                <div id="check-box-3" style="display: none;">PORCJE &nbsp; <i style="font-size: 90%;" id="check-icon-3" class="far fa-times-circle"></i></div>
+            </div>
+            <div id="check-big-box-4"  class="check-side-text">
+                <div id="check-box-4" style="display: none;">CZAS &nbsp; <i style="font-size: 90%;" id="check-icon-4" class="far fa-times-circle"></i></div>
+            </div>
+            <div id="check-big-box-5"  class="check-side-text" style="margin-bottom: 1em;">
+                <div id="check-box-5" style="display: none;">POZIOM &nbsp; <i style="font-size: 90%;" id="check-icon-5" class="far fa-times-circle"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="addnewracipe-ingredients-box" class="addnewrecipe-content-box">
+
+    </div>
+
+    <div id="addnewracipe-directions-box" class="addnewrecipe-content-box">
+
+    </div>
+
+    <div id="addnewracipe-photos-box" class="addnewrecipe-content-box">
+
+    </div>
+
+</div>
