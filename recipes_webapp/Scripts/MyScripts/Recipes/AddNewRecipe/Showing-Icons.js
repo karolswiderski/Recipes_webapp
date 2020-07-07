@@ -5,6 +5,7 @@
         $("#check-icon-" + x).css("color", "red");
     } else {
         //document.getElementById("check-box-" + x).style.display = "";
+        if (x > 5) document.getElementById("check-big-box-" + x).style.display = "block";
         $("#check-box-" + x).fadeIn(300);
         document.getElementById("check-big-box-" + x).style.borderLeft = "1px solid lightgray";
         document.getElementById("check-big-box-" + x).style.borderBottom = "1px solid lightgray";

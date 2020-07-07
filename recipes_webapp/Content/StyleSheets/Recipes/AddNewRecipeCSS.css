@@ -14,12 +14,20 @@
     letter-spacing: 0.2em;
 }
 
+.addnewrecipe-left-side {
+    float: left;
+    width: 9%;
+    height: auto;
+    margin: 0;
+    display: block;
+}
+
 .addnewrecipe-content-side {
     float: left;
-    width: 90%;
+    width: 80%;
     height: auto;
-    padding: 0 0 0 10%;
-    border-bottom: 1px solid lightgray;
+    padding: 0 0 0 2%;
+    border-left: 1em solid #FF6F61;
 }
 
 .addnewrecipe-check-side {
@@ -27,7 +35,6 @@
     width: 10%;
     height: auto;
     margin: 0;
-    border-bottom: 1px solid lightgray;
 }
 
     .addnewrecipe-check-side b {
@@ -45,6 +52,12 @@
     height: 29em;
     padding-bottom: 0;
     margin-top: 2em;
+}
+
+#addnewracipe-ingredients-box {
+}
+
+#addnewracipe-directions-box {
 }
 
 .all-side-text {
