@@ -1,9 +1,12 @@
-﻿using recipes_webapp.Models.Data;
+﻿using recipes_webapp.Models.Class;
+using recipes_webapp.Models.Data;
 using recipes_webapp.Models.ViewModels.Dishes;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace recipes_webapp.Controllers
@@ -81,9 +84,39 @@ namespace recipes_webapp.Controllers
 
         [HttpGet]
         public ActionResult AddNew() {
-            AddNewRecipeVM model = new AddNewRecipeVM();
 
-            return View(model);
+            List<Level> level= new List<Level>();
+            level.Add(new Level() { Level_Id = 1, Level_Name = "Łatwy" });
+            level.Add(new Level() { Level_Id = 2, Level_Name = "Średni" });
+            level.Add(new Level() { Level_Id = 3, Level_Name = "Trudny" });
+
+            AddNewRecipeVM model = new AddNewRecipeVM();
+            using (Db db = new Db()) {
+                model.CategoriesList = new SelectList(db.Categories.ToList(), "Id_Category", "Name");
+                model.LevelList = new SelectList(level, "Level_Id", "Level_Name");
+            }
+                return View(model);
+        }
+
+        // POST: Home/SaveGalleryImages
+        [HttpPost]
+        public ActionResult SaveGalleryImages(int id)
+        {
+            foreach (string fileName in Request.Files)
+            {
+                HttpPostedFileBase file = Request.Files[fileName];
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    var orginalDirectory = new DirectoryInfo(string.Format("{0}Content\\Images\\Uploads", Server.MapPath(@"\")));
+                    string pathString1 = Path.Combine(orginalDirectory.ToString(), "Recipes\\" + id.ToString() + "\\Gallery");
+
+                    var path = string.Format("{0}\\{1}", pathString1, file.FileName);
+
+                    file.SaveAs(path);
+                }
+            }
+            return View();
         }
     }
 }

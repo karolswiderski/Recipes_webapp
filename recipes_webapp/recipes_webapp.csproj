@@ -242,6 +242,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Class\Level.cs" />
     <Compile Include="Models\Data\ArticlesDTO.cs" />
     <Compile Include="Models\Data\CategoriesDTO.cs" />
     <Compile Include="Models\Data\Db.cs" />
@@ -337,6 +338,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\Recipes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

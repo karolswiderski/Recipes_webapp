@@ -8,185 +8,202 @@
 
     ViewBag.Title = "Dodaj nowy przepis.";
 }
+@using (Html.BeginForm("AddNew", "Recipes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="addnewrecipe-main-box">
+        <div id="addnewrecipe-top-title-box">
+            DODAJ NOWY PRZEPIS
+        </div>
 
-<div id="addnewrecipe-main-box">
-    <div id="addnewrecipe-top-title-box">
-        DODAJ NOWY PRZEPIS
+        <div id="addnewracipe-information-box" class="addnewrecipe-content-box">
+            <div class="addnewrecipe-left-side">  </div>
+            <div class="addnewrecipe-content-side first-section">
+                <div class="all-side-text">I. PODSTAWOWE INFORMACJE:</div>
+                @Html.DropDownListFor(model => model.Categories.Id_Category, Model.CategoriesList, "kategoria", new { @style = "text-align-last:center; ", @id = "check-text-31", @class = "information-editor", onchange = "checkIcon(31)" })
+                @Html.EditorFor(model => model.Dishes.Name, new { htmlAttributes = new { @id = "check-text-1", @class = "information-editor", @placeholder = "pełna nazwa potrawy", onchange = "checkIcon(1)" } })
+                @Html.EditorFor(model => model.Dishes.Description, new { htmlAttributes = new { @id = "check-text-2", @class = "information-editor", @placeholder = "pare zdań opisujących potrawę i przepis", onchange = "checkIcon(2)" } })
+                @Html.EditorFor(model => model.Dishes.Servings, new { htmlAttributes = new { @id = "check-text-3", @class = "information-editor", @placeholder = "liczba gotowych porcji", onchange = "checkIcon(3)" } })
+                @Html.EditorFor(model => model.Dishes.Time, new { htmlAttributes = new { @id = "check-text-4", @class = "information-editor", @placeholder = "czas przygotowania (podany w minutach)", @Title = "czas podaj w minutach, np. 90 min", @type = "number", @min = "10", @step = "5", @max = "360", onchange = "checkIcon(4)" } })
+                @Html.DropDownListFor(model => model.Dishes.Level, Model.LevelList, "poziom trudności", new { @style = "text-align-last:center; ", @id = "check-text-5", @class = "information-editor", onchange = "checkIcon(5)" })
+                <div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; Opis musi być dłuższy! Powinien składać się z conajmniej 50 liter. Poprawe błędy i spróbuj ponownie. </div>
+            </div>
+            <div class="addnewrecipe-check-side" style="border-top: 1px solid #FF6F61;">
+                <div class="all-side-text"> </div>
+                <div id="check-big-box-31" class="check-side-text" style="margin-top: 2.5em;">
+                    <div id="check-box-31" style="display: none;">KATEGORIA &nbsp; <i style="font-size: 90%;" id="check-icon-31" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-1" class="check-side-text">
+                    <div id="check-box-1" style="display: none;">TYTUŁ &nbsp; <i style="font-size: 90%;" id="check-icon-1" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-2" class="check-side-text">
+                    <div id="check-box-2" style="display: none;">OPIS &nbsp; <i style="font-size: 90%;" id="check-icon-2" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-3" class="check-side-text">
+                    <div id="check-box-3" style="display: none;">PORCJE &nbsp; <i style="font-size: 90%;" id="check-icon-3" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-4" class="check-side-text">
+                    <div id="check-box-4" style="display: none;">CZAS &nbsp; <i style="font-size: 90%;" id="check-icon-4" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-5" class="check-side-text" style="margin-bottom: 5em;">
+                    <div id="check-box-5" style="display: none;">POZIOM &nbsp; <i style="font-size: 90%;" id="check-icon-5" class="far fa-times-circle"></i></div>
+                </div>
+            </div>
+            <div style="clear:both; width: 100%; height: 2em;"> </div>
+        </div>
+
+        <div id="addnewracipe-ingredients-box" class="addnewrecipe-content-box">
+            <div class="addnewrecipe-left-side"> w </div>
+            <div class="addnewrecipe-content-side second-section">
+                <div class="all-side-text">II. LISTA SKŁADNIKÓW:</div>
+                @Html.EditorFor(model => model.Ingredients.Ingredient_1, new { htmlAttributes = new { @id = "check-text-6", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(6) " } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_2, new { htmlAttributes = new { @id = "check-text-7", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(7)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_3, new { htmlAttributes = new { @id = "check-text-8", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(8)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_4, new { htmlAttributes = new { @id = "check-text-9", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(9)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_5, new { htmlAttributes = new { @id = "check-text-10", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(10)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_6, new { htmlAttributes = new { @id = "check-text-11", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(11)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_7, new { htmlAttributes = new { @id = "check-text-12", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(12)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_8, new { htmlAttributes = new { @id = "check-text-13", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(13)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_9, new { htmlAttributes = new { @id = "check-text-14", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(14)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_10, new { htmlAttributes = new { @id = "check-text-15", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(15)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_11, new { htmlAttributes = new { @id = "check-text-16", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(16)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_12, new { htmlAttributes = new { @id = "check-text-17", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(17)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_13, new { htmlAttributes = new { @id = "check-text-18", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(18)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_14, new { htmlAttributes = new { @id = "check-text-19", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(19)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_15, new { htmlAttributes = new { @id = "check-text-20", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(20)", @style = "display: none;" } })
+                <div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; Składnik o numerze 7 pozostał pusty. Uzupełnij braki i spróbuj ponownie. </div>
+            </div>
+            <div class="addnewrecipe-check-side" style="border-top: 1px solid #6B5B95;">
+                <div class="all-side-text"> </div>
+                <div id="check-big-box-6" class="check-side-text" style="margin-top: 2.5em;">
+                    <div id="check-box-6" style="display: none;">SKŁADNIK 1 &nbsp; <i style="font-size: 90%;" id="check-icon-6" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-7" class="check-side-text" style="display: none;">
+                    <div id="check-box-7" style="display: none;">SKŁADNIK 2 &nbsp; <i style="font-size: 90%;" id="check-icon-7" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-8" class="check-side-text" style="display: none;">
+                    <div id="check-box-8" style="display: none;">SKŁADNIK 3 &nbsp; <i style="font-size: 90%;" id="check-icon-8" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-9" class="check-side-text" style="display: none;">
+                    <div id="check-box-9" style="display: none;">SKŁADNIK 4 &nbsp; <i style="font-size: 90%;" id="check-icon-9" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-10" class="check-side-text" style="display: none;">
+                    <div id="check-box-10" style="display: none;">SKŁADNIK 5 &nbsp; <i style="font-size: 90%;" id="check-icon-10" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-11" class="check-side-text" style="display: none;">
+                    <div id="check-box-11" style="display: none;">SKŁADNIK 6 &nbsp; <i style="font-size: 90%;" id="check-icon-11" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-12" class="check-side-text" style="display: none;">
+                    <div id="check-box-12" style="display: none;">SKŁADNIK 7 &nbsp; <i style="font-size: 90%;" id="check-icon-12" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-13" class="check-side-text" style="display: none;">
+                    <div id="check-box-13" style="display: none;">SKŁADNIK 8 &nbsp; <i style="font-size: 90%;" id="check-icon-13" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-14" class="check-side-text" style="display: none;">
+                    <div id="check-box-14" style="display: none;">SKŁADNIK 9 &nbsp; <i style="font-size: 90%;" id="check-icon-14" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-15" class="check-side-text" style="display: none;">
+                    <div id="check-box-15" style="display: none;">SKŁADNIK 10 &nbsp; <i style="font-size: 90%;" id="check-icon-15" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-16" class="check-side-text" style="display: none;">
+                    <div id="check-box-16" style="display: none;">SKŁADNIK 11 &nbsp; <i style="font-size: 90%;" id="check-icon-16" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-17" class="check-side-text" style="display: none;">
+                    <div id="check-box-17" style="display: none;">SKŁADNIK 12 &nbsp; <i style="font-size: 90%;" id="check-icon-17" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-18" class="check-side-text" style="display: none;">
+                    <div id="check-box-18" style="display: none;">SKŁADNIK 13 &nbsp; <i style="font-size: 90%;" id="check-icon-18" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-19" class="check-side-text" style="display: none;">
+                    <div id="check-box-19" style="display: none;">SKŁADNIK 14 &nbsp; <i style="font-size: 90%;" id="check-icon-19" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-20" class="check-side-text" style="margin-bottom: 5em; display: none;">
+                    <div id="check-box-20" style="display: none;">SKŁADNIK 15 &nbsp; <i style="font-size: 90%;" id="check-icon-20" class="far fa-times-circle"></i></div>
+                </div>
+
+            </div>
+            <div style="clear:both; width: 100%; height: 2em;"> </div>
+        </div>
+
+        <div id="addnewracipe-directions-box" class="addnewrecipe-content-box">
+            <div class="addnewrecipe-left-side"> w </div>
+            <div class="addnewrecipe-content-side third-section">
+                <div class="all-side-text">III. SPOSÓB PRZYGOTOWANIA POTRAWY:</div>
+                @Html.EditorFor(model => model.Directions.Step_1_Content, new { htmlAttributes = new { @id = "check-text-21", @class = "information-editor", @placeholder = "krok 1 - opis", onchange = "addIngedientBox(21) " } })
+                @Html.EditorFor(model => model.Directions.Step_2_Content, new { htmlAttributes = new { @id = "check-text-22", @class = "information-editor", @placeholder = "krok 2 - opis", onchange = "addIngedientBox(22)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_3_Content, new { htmlAttributes = new { @id = "check-text-23", @class = "information-editor", @placeholder = "krok 3 - opis", onchange = "addIngedientBox(23)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_4_Content, new { htmlAttributes = new { @id = "check-text-24", @class = "information-editor", @placeholder = "krok 4 - opis", onchange = "addIngedientBox(24)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_5_Content, new { htmlAttributes = new { @id = "check-text-25", @class = "information-editor", @placeholder = "krok 5 - opis", onchange = "addIngedientBox(25)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_6_Content, new { htmlAttributes = new { @id = "check-text-26", @class = "information-editor", @placeholder = "krok 6 - opis", onchange = "addIngedientBox(26)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_7_Content, new { htmlAttributes = new { @id = "check-text-27", @class = "information-editor", @placeholder = "krok 7 - opis", onchange = "addIngedientBox(27)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_8_Content, new { htmlAttributes = new { @id = "check-text-28", @class = "information-editor", @placeholder = "krok 8 - opis", onchange = "addIngedientBox(28)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_9_Content, new { htmlAttributes = new { @id = "check-text-29", @class = "information-editor", @placeholder = "krok 9 - opis", onchange = "addIngedientBox(29)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_10_Content, new { htmlAttributes = new { @id = "check-text-30", @class = "information-editor", @placeholder = "krok 10 - opis", onchange = "addIngedientBox(30)", @style = "display: none;" } })
+                <div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; Krok o numerze 4 pozostał pusty. Uzupełnij braki i spróbuj ponownie. </div>
+            </div>
+            <div class="addnewrecipe-check-side" style="border-top: 1px solid #88B04B;">
+                <div class="all-side-text"> </div>
+                <div id="check-big-box-21" class="check-side-text" style="margin-top: 2.5em;">
+                    <div id="check-box-21" style="display: none;">KROK 1 &nbsp; <i style="font-size: 90%;" id="check-icon-21" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-22" class="check-side-text" style="display: none;">
+                    <div id="check-box-22" style="display: none;">KROK 2 &nbsp; <i style="font-size: 90%;" id="check-icon-22" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-23" class="check-side-text" style="display: none;">
+                    <div id="check-box-23" style="display: none;">KROK 3 &nbsp; <i style="font-size: 90%;" id="check-icon-23" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-24" class="check-side-text" style="display: none;">
+                    <div id="check-box-24" style="display: none;">KROK 4 &nbsp; <i style="font-size: 90%;" id="check-icon-24" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-25" class="check-side-text" style="display: none;">
+                    <div id="check-box-25" style="display: none;">KROK 5 &nbsp; <i style="font-size: 90%;" id="check-icon-25" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-26" class="check-side-text" style="display: none;">
+                    <div id="check-box-26" style="display: none;">KROK 6 &nbsp; <i style="font-size: 90%;" id="check-icon-26" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-27" class="check-side-text" style="display: none;">
+                    <div id="check-box-27" style="display: none;">KROK 7 &nbsp; <i style="font-size: 90%;" id="check-icon-27" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-28" class="check-side-text" style="display: none;">
+                    <div id="check-box-28" style="display: none;">KROK 8 &nbsp; <i style="font-size: 90%;" id="check-icon-28" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-29" class="check-side-text" style="display: none;">
+                    <div id="check-box-29" style="display: none;">KROK 9 &nbsp; <i style="font-size: 90%;" id="check-icon-29" class="far fa-times-circle"></i></div>
+                </div>
+                <div id="check-big-box-30" class="check-side-text" style="margin-bottom: 5em; display: none;">
+                    <div id="check-box-30" style="display: none;">KROK 10 &nbsp; <i style="font-size: 90%;" id="check-icon-30" class="far fa-times-circle"></i></div>
+                </div>
+            </div>
+
+            <div style="clear:both; width: 100%; height: 2em;"> </div>
+        </div>
+
+        <div id="addnewracipe-photos-box" class="addnewrecipe-content-box">
+            <div class="addnewrecipe-left-side"> w </div>
+            <div class="addnewrecipe-content-side fourth-section">
+                <div class="all-side-text">IV. ZDJĘCIA PRZEDSTAWIAJĄCE GOTOWĄ POTRAWĘ:</div>
+
+                <form action="/home/SaveGalleryImages/@Model." method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm">
+                    <div class="fallback">
+                        <input type="file" name="file" multiple />
+                        <input type="submit" value="Upload" />
+                    </div>
+                </form>
+
+                @Html.EditorFor(model => model.Directions.Step_1_Content, new { htmlAttributes = new { @id = "check-text-21", @class = "information-editor", @placeholder = "krok 1 - opis", onchange = "addIngedientBox(21) " } })
+
+
+
+                <div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; Przepis musi posiadać conajmniej jedno zdjęcie. Dodaj zdjęcie i spróbuj ponownie. </div>
+            </div>
+            <div class="addnewrecipe-check-side" style="border-top: 1px solid #EFC050;">
+                <div class="all-side-text"> </div>
+                <div id="check-big-box-21" class="check-side-text" style="margin-top: 2.5em;">
+                    <div id="check-box-21" style="display: none;">KROK 1 &nbsp; <i style="font-size: 90%;" id="check-icon-21" class="far fa-times-circle"></i></div>
+                </div>
+            </div>
+
+            <div style="clear:both; width: 100%; height: 2em;"> </div>
+        </div>
+
     </div>
-
-    <div id="addnewracipe-information-box" class="addnewrecipe-content-box">
-        <div class="addnewrecipe-left-side">  </div>
-        <div class="addnewrecipe-content-side first-section">
-            <div class="all-side-text">I. PODSTAWOWE INFORMACJE:</div>
-            @Html.EditorFor(model => model.Dishes.Name, new { htmlAttributes = new { @id = "check-text-1", @class = "information-editor", @placeholder = "pełna nazwa", onchange = "checkIcon(1)" } })
-            @Html.EditorFor(model => model.Dishes.Description, new { htmlAttributes = new { @id = "check-text-2", @class = "information-editor", @placeholder = "pare zdań opisujących potrawę i przepis", onchange = "checkIcon(2)" } })
-            @Html.EditorFor(model => model.Dishes.Servings, new { htmlAttributes = new { @id = "check-text-3", @class = "information-editor", @placeholder = "liczba porcji", onchange = "checkIcon(3)" } })
-            @Html.EditorFor(model => model.Dishes.Time, new { htmlAttributes = new { @id = "check-text-4", @class = "information-editor", @placeholder = "czas przygotowania podany w minutach", @Title = "czas podaj w minutach, np. 90 min", @type = "number", @min = "10", @step = "5", @max = "360", onchange = "checkIcon(4)" } })
-            @Html.EditorFor(model => model.Dishes.Level, new { htmlAttributes = new { @id = "check-text-5", @class = "information-editor", @placeholder = "poziom trudności 1-3", @Title = "gdzie: 1 - łatwy, 2 - średni, 3 - trudny", @type = "number", @min = "1", @step = "1", @max = "3", onchange = "checkIcon(5)" } })
-            <div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; Opis musi być dłuższy! Powinien składać się z conajmniej 50 liter. Poprawe błędy i spróbuj ponownie. </div>
-        </div>
-        <div class="addnewrecipe-check-side" style="border-top: 1px solid #FF6F61;">
-            <div class="all-side-text"> </div>
-            <div id="check-big-box-1" class="check-side-text" style="margin-top: 2.5em;">
-                <div id="check-box-1" style="display: none;">TYTUŁ &nbsp; <i style="font-size: 90%;" id="check-icon-1" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-2" class="check-side-text">
-                <div id="check-box-2" style="display: none;">OPIS &nbsp; <i style="font-size: 90%;" id="check-icon-2" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-3" class="check-side-text">
-                <div id="check-box-3" style="display: none;">PORCJE &nbsp; <i style="font-size: 90%;" id="check-icon-3" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-4" class="check-side-text">
-                <div id="check-box-4" style="display: none;">CZAS &nbsp; <i style="font-size: 90%;" id="check-icon-4" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-5" class="check-side-text" style="margin-bottom: 5em;">
-                <div id="check-box-5" style="display: none;">POZIOM &nbsp; <i style="font-size: 90%;" id="check-icon-5" class="far fa-times-circle"></i></div>
-            </div>
-        </div>
-        <div style="clear:both; width: 100%; height: 2em;"> </div>
-    </div>
-
-    <div id="addnewracipe-ingredients-box" class="addnewrecipe-content-box">
-        <div class="addnewrecipe-left-side"> w </div>
-        <div class="addnewrecipe-content-side second-section">
-            <div class="all-side-text">II. LISTA SKŁADNIKÓW:</div>
-            @Html.EditorFor(model => model.Ingredients.Ingredient_1, new { htmlAttributes = new { @id = "check-text-6", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(6) " } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_2, new { htmlAttributes = new { @id = "check-text-7", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(7)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_3, new { htmlAttributes = new { @id = "check-text-8", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(8)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_4, new { htmlAttributes = new { @id = "check-text-9", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(9)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_5, new { htmlAttributes = new { @id = "check-text-10", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(10)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_6, new { htmlAttributes = new { @id = "check-text-11", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(11)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_7, new { htmlAttributes = new { @id = "check-text-12", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(12)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_8, new { htmlAttributes = new { @id = "check-text-13", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(13)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_9, new { htmlAttributes = new { @id = "check-text-14", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(14)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_10, new { htmlAttributes = new { @id = "check-text-15", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(15)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_11, new { htmlAttributes = new { @id = "check-text-16", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(16)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_12, new { htmlAttributes = new { @id = "check-text-17", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(17)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_13, new { htmlAttributes = new { @id = "check-text-18", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(18)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_14, new { htmlAttributes = new { @id = "check-text-19", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(19)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Ingredients.Ingredient_15, new { htmlAttributes = new { @id = "check-text-20", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(20)", @style = "display: none;" } })
-            <div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; Składnik o numerze 7 pozostał pusty. Uzupełnij braki i spróbuj ponownie. </div>
-        </div>
-        <div class="addnewrecipe-check-side" style="border-top: 1px solid #6B5B95;">
-            <div class="all-side-text"> </div>
-            <div id="check-big-box-6" class="check-side-text" style="margin-top: 2.5em;">
-                <div id="check-box-6" style="display: none;">SKŁADNIK 1 &nbsp; <i style="font-size: 90%;" id="check-icon-6" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-7" class="check-side-text" style="display: none;">
-                <div id="check-box-7" style="display: none;">SKŁADNIK 2 &nbsp; <i style="font-size: 90%;" id="check-icon-7" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-8" class="check-side-text" style="display: none;">
-                <div id="check-box-8" style="display: none;">SKŁADNIK 3 &nbsp; <i style="font-size: 90%;" id="check-icon-8" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-9" class="check-side-text" style="display: none;">
-                <div id="check-box-9" style="display: none;">SKŁADNIK 4 &nbsp; <i style="font-size: 90%;" id="check-icon-9" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-10" class="check-side-text" style="display: none;">
-                <div id="check-box-10" style="display: none;">SKŁADNIK 5 &nbsp; <i style="font-size: 90%;" id="check-icon-10" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-11" class="check-side-text" style="display: none;">
-                <div id="check-box-11" style="display: none;">SKŁADNIK 6 &nbsp; <i style="font-size: 90%;" id="check-icon-11" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-12" class="check-side-text" style="display: none;">
-                <div id="check-box-12" style="display: none;">SKŁADNIK 7 &nbsp; <i style="font-size: 90%;" id="check-icon-12" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-13" class="check-side-text" style="display: none;">
-                <div id="check-box-13" style="display: none;">SKŁADNIK 8 &nbsp; <i style="font-size: 90%;" id="check-icon-13" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-14" class="check-side-text" style="display: none;">
-                <div id="check-box-14" style="display: none;">SKŁADNIK 9 &nbsp; <i style="font-size: 90%;" id="check-icon-14" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-15" class="check-side-text" style="display: none;">
-                <div id="check-box-15" style="display: none;">SKŁADNIK 10 &nbsp; <i style="font-size: 90%;" id="check-icon-15" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-16" class="check-side-text" style="display: none;">
-                <div id="check-box-16" style="display: none;">SKŁADNIK 11 &nbsp; <i style="font-size: 90%;" id="check-icon-16" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-17" class="check-side-text" style="display: none;">
-                <div id="check-box-17" style="display: none;">SKŁADNIK 12 &nbsp; <i style="font-size: 90%;" id="check-icon-17" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-18" class="check-side-text" style="display: none;">
-                <div id="check-box-18" style="display: none;">SKŁADNIK 13 &nbsp; <i style="font-size: 90%;" id="check-icon-18" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-19" class="check-side-text" style="display: none;">
-                <div id="check-box-19" style="display: none;">SKŁADNIK 14 &nbsp; <i style="font-size: 90%;" id="check-icon-19" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-20" class="check-side-text" style="margin-bottom: 5em; display: none;">
-                <div id="check-box-20" style="display: none;">SKŁADNIK 15 &nbsp; <i style="font-size: 90%;" id="check-icon-20" class="far fa-times-circle"></i></div>
-            </div>
-
-        </div>
-        <div style="clear:both; width: 100%; height: 2em;"> </div>
-    </div>
-
-    <div id="addnewracipe-directions-box" class="addnewrecipe-content-box">
-        <div class="addnewrecipe-left-side"> w </div>
-        <div class="addnewrecipe-content-side third-section">
-            <div class="all-side-text">III. SPOSÓB PRZYGOTOWANIA POTRAWY:</div>
-            @Html.EditorFor(model => model.Directions.Step_1_Content, new { htmlAttributes = new { @id = "check-text-21", @class = "information-editor", @placeholder = "krok 1 - opis", onchange = "addIngedientBox(21) " } })
-            @Html.EditorFor(model => model.Directions.Step_2_Content, new { htmlAttributes = new { @id = "check-text-22", @class = "information-editor", @placeholder = "krok 2 - opis", onchange = "addIngedientBox(22)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Directions.Step_3_Content, new { htmlAttributes = new { @id = "check-text-23", @class = "information-editor", @placeholder = "krok 3 - opis", onchange = "addIngedientBox(23)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Directions.Step_4_Content, new { htmlAttributes = new { @id = "check-text-24", @class = "information-editor", @placeholder = "krok 4 - opis", onchange = "addIngedientBox(24)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Directions.Step_5_Content, new { htmlAttributes = new { @id = "check-text-25", @class = "information-editor", @placeholder = "krok 5 - opis", onchange = "addIngedientBox(25)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Directions.Step_6_Content, new { htmlAttributes = new { @id = "check-text-26", @class = "information-editor", @placeholder = "krok 6 - opis", onchange = "addIngedientBox(26)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Directions.Step_7_Content, new { htmlAttributes = new { @id = "check-text-27", @class = "information-editor", @placeholder = "krok 7 - opis", onchange = "addIngedientBox(27)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Directions.Step_8_Content, new { htmlAttributes = new { @id = "check-text-28", @class = "information-editor", @placeholder = "krok 8 - opis", onchange = "addIngedientBox(28)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Directions.Step_9_Content, new { htmlAttributes = new { @id = "check-text-29", @class = "information-editor", @placeholder = "krok 9 - opis", onchange = "addIngedientBox(29)", @style = "display: none;" } })
-            @Html.EditorFor(model => model.Directions.Step_10_Content, new { htmlAttributes = new { @id = "check-text-30", @class = "information-editor", @placeholder = "krok 10 - opis", onchange = "addIngedientBox(30)", @style = "display: none;" } })
-            <div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; Krok o numerze 4 pozostał pusty. Uzupełnij braki i spróbuj ponownie. </div>
-        </div>
-        <div class="addnewrecipe-check-side" style="border-top: 1px solid #88B04B;">
-            <div class="all-side-text"> </div>
-            <div id="check-big-box-21" class="check-side-text" style="margin-top: 2.5em;">
-                <div id="check-box-21" style="display: none;">KROK 1 &nbsp; <i style="font-size: 90%;" id="check-icon-21" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-22" class="check-side-text" style="display: none;">
-                <div id="check-box-22" style="display: none;">KROK 2 &nbsp; <i style="font-size: 90%;" id="check-icon-22" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-23" class="check-side-text" style="display: none;">
-                <div id="check-box-23" style="display: none;">KROK 3 &nbsp; <i style="font-size: 90%;" id="check-icon-23" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-24" class="check-side-text" style="display: none;">
-                <div id="check-box-24" style="display: none;">KROK 4 &nbsp; <i style="font-size: 90%;" id="check-icon-24" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-25" class="check-side-text" style="display: none;">
-                <div id="check-box-25" style="display: none;">KROK 5 &nbsp; <i style="font-size: 90%;" id="check-icon-25" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-26" class="check-side-text" style="display: none;">
-                <div id="check-box-26" style="display: none;">KROK 6 &nbsp; <i style="font-size: 90%;" id="check-icon-26" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-27" class="check-side-text" style="display: none;">
-                <div id="check-box-27" style="display: none;">KROK 7 &nbsp; <i style="font-size: 90%;" id="check-icon-27" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-28" class="check-side-text" style="display: none;">
-                <div id="check-box-28" style="display: none;">KROK 8 &nbsp; <i style="font-size: 90%;" id="check-icon-28" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-29" class="check-side-text" style="display: none;">
-                <div id="check-box-29" style="display: none;">KROK 9 &nbsp; <i style="font-size: 90%;" id="check-icon-29" class="far fa-times-circle"></i></div>
-            </div>
-            <div id="check-big-box-30" class="check-side-text" style="margin-bottom: 5em; display: none;">
-                <div id="check-box-30" style="display: none;">KROK 10 &nbsp; <i style="font-size: 90%;" id="check-icon-30" class="far fa-times-circle"></i></div>
-            </div>
-        </div>
-
-        <div style="clear:both; width: 100%; height: 2em;"> </div>
-    </div>
-
-    <div id="addnewracipe-photos-box" class="addnewrecipe-content-box">
-        <div class="addnewrecipe-left-side"> w </div>
-        <div class="addnewrecipe-content-side fourth-section">
-            <div class="all-side-text">IV. ZDJĘCIA PRZEDSTAWIAJĄCE GOTOWĄ POTRAWĘ:</div>
-            @Html.EditorFor(model => model.Directions.Step_1_Content, new { htmlAttributes = new { @id = "check-text-21", @class = "information-editor", @placeholder = "krok 1 - opis", onchange = "addIngedientBox(21) " } })
-           <div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; Krok o numerze 4 pozostał pusty. Uzupełnij braki i spróbuj ponownie. </div>
-        </div>
-        <div class="addnewrecipe-check-side" style="border-top: 1px solid #EFC050;">
-            <div class="all-side-text"> </div>
-            <div id="check-big-box-21" class="check-side-text" style="margin-top: 2.5em;">
-                <div id="check-box-21" style="display: none;">KROK 1 &nbsp; <i style="font-size: 90%;" id="check-icon-21" class="far fa-times-circle"></i></div>
-            </div>
-        </div>
-
-        <div style="clear:both; width: 100%; height: 2em;"> </div>
-    </div>
-
-</div>
+}
