@@ -14,3 +14,5 @@
     }
 }
 
+// 1 - 5 INFORMACJE PODSTAWOWE
+// 6 - 20 SKŁADNIKI

@@ -3,13 +3,10 @@
     height: 100%;
     padding: 0;
     margin: 0;
-
-
 }
 
 #addnewrecipe-top-title-box {
     width: 100%;
-    height: auto;
     border-bottom: 1px solid lightgray;
     font-size: 400%;
     font-family: 'Quicksand', sans-serif;
@@ -37,16 +34,25 @@
         padding-left: 5%;
     }
 
-    .addnewrecipe-content-box {
-        width: 100%;
-        height: auto;
-        margin: 2em 0;
-        padding-bottom: 2em;
-    }
+.addnewrecipe-content-box {
+    width: 100%;
+    height: auto;
+    margin: 0 0 0 0;
+    padding-bottom: 2em;
+}
+
+#addnewracipe-information-box {
+    height: 29em;
+    padding-bottom: 0;
+    margin-top: 2em;
+}
 
 .all-side-text {
     font-family: 'Quicksand', sans-serif;
     border: none;
+    height: 1em;
+    margin: 1em 0;
+    font-weight: bold;
 }
 
 .information-editor {
@@ -70,10 +76,19 @@
     }
 
 .check-side-text {
-    width: 70%;
+    width: 85%;
     height: 2em;
     text-align: left;
     margin: 2em 15% 2em 0;
-    padding-left: 15%;
+    padding-left: 13%;
     font-weight: bold;
+}
+
+.content-side-error {
+    margin-left: 5%;
+    width: 95%;
+    height: 2em;
+    margin: 1em 0 1em 5%;
+    font-family: 'Poppins', sans-serif;
+    color: #b57d7d;
 }
