@@ -338,7 +338,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\Recipes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -358,6 +357,7 @@
     <Content Include="Views\Account\MyFollowingRecipes.cshtml" />
     <Content Include="Views\Account\SingleRecipe.cshtml" />
     <Content Include="Views\Recipes\AddNew.cshtml" />
+    <Content Include="Views\Recipes\AddPhotos.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -15,8 +15,8 @@ namespace recipes_webapp.Models.Data
         public int Id_Category { get; set; }
         public int Id_Direction { get; set; }
         public int Id_Ingredient { get; set; }
-        public int Id_Gallery { get; set; }
         public int Id_Author { get; set; }
+        public string Gallery_Path { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Time { get; set; }
@@ -33,9 +33,6 @@ namespace recipes_webapp.Models.Data
 
         [ForeignKey("Id_Ingredient")]
         public virtual IngredientsDTO Ingredients { get; set; }
-
-        [ForeignKey("Id_Gallery")]
-        public virtual GalleryDTO Gallery { get; set; }
 
         [ForeignKey("Id_Author")]
         public virtual UsersDTO Users { get; set; }

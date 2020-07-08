@@ -115,7 +115,7 @@ namespace recipes_webapp.Controllers
 
         // POST: Recipes/AddNew
         [HttpPost]
-        public ActionResult AddNew(AddNewRecipeVM model)
+        public ActionResult AddNew(AddNewRecipeVM model, HttpPostedFileBase file)
         {
             #region Preparation-List-If-Will-Be-Errors
             List<Level> level = new List<Level>();
@@ -152,6 +152,7 @@ namespace recipes_webapp.Controllers
 
             //Post Method:
 
+            int id;
             using (Db db = new Db())
             {
                 #region Add-Ingredients-To-Db
@@ -221,25 +222,66 @@ namespace recipes_webapp.Controllers
                 string userName = User.Identity.Name;
                 UsersDTO user = db.Users.FirstOrDefault(x => x.Login == userName);
 
-                DishesDTO dish = new DishesDTO();
-                dish.Id_Author = user.Id_User;
-                dish.Id_Category = model.Dishes.Id_Category;
-                dish.Id_Direction = directions.Id_Direction;
-                dish.Id_Gallery = 1;
-                dish.Id_Ingredient = ingredients.Id_Ingredient;
-                dish.Name = model.Dishes.Name;
-                dish.Description = model.Dishes.Description;
-                dish.Servings = model.Dishes.Servings;
-                dish.Time = model.Dishes.Time;
-                dish.Level = model.Dishes.Level;
-                dish.Date_Added = Convert.ToDateTime(DateTime.Today.ToString("dd-MM-yyyy"));
+                DishesDTO dish = new DishesDTO
+                {
+                    Id_Author = user.Id_User,
+                    Id_Category = model.Dishes.Id_Category,
+                    Id_Direction = directions.Id_Direction,
+                    Id_Ingredient = ingredients.Id_Ingredient,
+                    Name = model.Dishes.Name,
+                    Description = model.Dishes.Description,
+                    Servings = model.Dishes.Servings,
+                    Time = model.Dishes.Time,
+                    Level = model.Dishes.Level,
+                    Date_Added = Convert.ToDateTime(DateTime.Today.ToString("dd-MM-yyyy"))
+                };
 
                 db.Dishes.Add(dish);
                 db.SaveChanges();
+                id = dish.Id_Dish;
             }
 
+            #region Dodawanie zdjęcia
 
-            return RedirectToAction("~/Recipes/Index");
+            var originalDirectory = new DirectoryInfo(string.Format("{0}Content\\Images\\Uploads", Server.MapPath(@"\")));
+            var pathString1 = Path.Combine(originalDirectory.ToString(), "Recipes");
+            var pathString2 = Path.Combine(originalDirectory.ToString(), "Recipes\\" + id.ToString());
+            var pathString4 = Path.Combine(originalDirectory.ToString(), "Recipes\\" + id.ToString() + "\\Thumbs");
+            var pathString3 = Path.Combine(originalDirectory.ToString(), "Recipes\\" + id.ToString() + "\\Gallery");
+
+            if (!Directory.Exists(pathString1)) Directory.CreateDirectory(pathString1);
+            if (!Directory.Exists(pathString2)) Directory.CreateDirectory(pathString2);
+            if (!Directory.Exists(pathString3)) Directory.CreateDirectory(pathString3);
+            if (!Directory.Exists(pathString4)) Directory.CreateDirectory(pathString4);
+
+            using (Db db = new Db())
+            {
+                DishesDTO dish = new DishesDTO();
+                dish = db.Dishes.Find(id);
+                dish.Gallery_Path = pathString4;
+                db.SaveChanges();
+            }
+
+            #endregion
+
+            return RedirectToAction("AddPhotos", new { id });
+        }
+
+        // GET: Recipes/AddNew/AddPhotos
+        [HttpGet]
+        public ActionResult AddPhotos(int id)
+        {
+            DishesVM model;
+            TempData["RecipeId"] = id;
+                
+            using (Db db = new Db())
+            {
+                DishesDTO dish = db.Dishes.Find(id);
+                model = new DishesVM(dish);
+                model.MyGallery = Directory.EnumerateFiles(Server.MapPath("~/Content/Images/Uploads/Recipes/" + id + "/Thumbs"))
+                                                                        .Select(fn => Path.GetFileName(fn));
+            }
+            return View(model);
         }
 
         // POST: Recipes/SaveGalleryImages
@@ -254,10 +296,24 @@ namespace recipes_webapp.Controllers
                 {
                     var orginalDirectory = new DirectoryInfo(string.Format("{0}Content\\Images\\Uploads", Server.MapPath(@"\")));
                     string pathString1 = Path.Combine(orginalDirectory.ToString(), "Recipes\\" + id.ToString() + "\\Gallery");
+                    string pathString2 = Path.Combine(orginalDirectory.ToString(), "Recipes\\" + id.ToString() + "\\Thumbs");
 
                     var path = string.Format("{0}\\{1}", pathString1, file.FileName);
+                    var path2 = string.Format("{0}\\{1}", pathString2, file.FileName);
 
                     file.SaveAs(path);
+                    WebImage img;
+                    try
+                    {
+                        img = new WebImage(file.InputStream);
+                        img.Resize(200, 200);
+                        img.Save(path2);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        return RedirectToAction("/Recipes/Index");
+                    }
                 }
             }
             return View();
