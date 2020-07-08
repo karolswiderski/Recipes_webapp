@@ -34,11 +34,12 @@ namespace recipes_webapp.Controllers
             }
 
 
-           return View(recipeVM);
+            return View(recipeVM);
         }
 
         [HttpGet]
-        public ActionResult PhotoSlider(int id) {
+        public ActionResult PhotoSlider(int id)
+        {
 
             GalleryVM galleryVM;
 
@@ -48,7 +49,7 @@ namespace recipes_webapp.Controllers
                 galleryVM = new GalleryVM(galleryDTO);
             }
 
-                return PartialView(galleryVM);
+            return PartialView(galleryVM);
         }
 
         [HttpGet]
@@ -79,26 +80,169 @@ namespace recipes_webapp.Controllers
                 directionsVM = new DirectionsVM(directionsDTO);
             }
 
-                return PartialView(directionsVM);
+            return PartialView(directionsVM);
         }
 
+        // GET: Recipes/AddNew
         [HttpGet]
-        public ActionResult AddNew() {
-
-            List<Level> level= new List<Level>();
+        public ActionResult AddNew()
+        {
+            List<Level> level = new List<Level>();
             level.Add(new Level() { Level_Id = 1, Level_Name = "Łatwy" });
             level.Add(new Level() { Level_Id = 2, Level_Name = "Średni" });
             level.Add(new Level() { Level_Id = 3, Level_Name = "Trudny" });
 
-            AddNewRecipeVM model = new AddNewRecipeVM();
-            using (Db db = new Db()) {
-                model.CategoriesList = new SelectList(db.Categories.ToList(), "Id_Category", "Name");
+            CategoriesDTO catDTO = new CategoriesDTO();
+            DirectionsDTO dirDTO = new DirectionsDTO();
+            DishesDTO disDTO = new DishesDTO();
+            GalleryDTO galDTO = new GalleryDTO();
+            IngredientsDTO ingDTO = new IngredientsDTO();
+
+            AddNewRecipeVM model = new AddNewRecipeVM(catDTO, dirDTO, disDTO, galDTO, ingDTO);
+            using (Db db = new Db())
+            {
+                model.Dishes.CategoriesSelectList = new SelectList(db.Categories.ToList(), "Id_Category", "Name");
                 model.LevelList = new SelectList(level, "Level_Id", "Level_Name");
+                /*
+                DishesDTO newRecipe = new DishesDTO();
+                db.Dishes.Add(newRecipe);
+                db.SaveChanges();
+                TempData["newRecipeId"] = newRecipe.Id_Dish;
+                */
             }
-                return View(model);
+            return View(model);
         }
 
-        // POST: Home/SaveGalleryImages
+        // POST: Recipes/AddNew
+        [HttpPost]
+        public ActionResult AddNew(AddNewRecipeVM model)
+        {
+            #region Preparation-List-If-Will-Be-Errors
+            List<Level> level = new List<Level>();
+            level.Add(new Level() { Level_Id = 1, Level_Name = "Łatwy" });
+            level.Add(new Level() { Level_Id = 2, Level_Name = "Średni" });
+            level.Add(new Level() { Level_Id = 3, Level_Name = "Trudny" });
+            using (Db db = new Db())
+            {
+                model.Dishes.CategoriesSelectList = new SelectList(db.Categories.ToList(), "Id_Category", "Name");
+                model.LevelList = new SelectList(level, "Level_Id", "Level_Name");
+            }
+            #endregion
+
+            //Exception Handling:
+            #region Basic-information
+            if (model.Dishes.Id_Category == 0) { TempData["WarningSection1"] = "Kategoria pozostała pusta. Uzupełnij braki i spróbuj ponownie."; return View(model); }
+            if (model.Dishes.Name == null) { TempData["WarningSection1"] = "Nazwa potrawy pozostała pusta. Uzupełnij braki i spróbuj ponownie."; return View(model); }
+            if (model.Dishes.Description == null) { TempData["WarningSection1"] = "Opis przepisu i potrawy pozostał pusty. Uzupełnij braki i spróbuj ponownie."; return View(model); }
+            if (model.Dishes.Servings == 0) { TempData["WarningSection1"] = "Ilość porcji pozostała pusta. Uzupełnij braki i spróbuj ponownie."; return View(model); }
+            if (model.Dishes.Time == null || model.Dishes.Time == "0") { TempData["WarningSection1"] = "Czas przygotowania pozostał pusty. Uzupełnij braki i spróbuj ponownie."; return View(model); }
+            if (model.Dishes.Level == 0) { TempData["WarningSection1"] = "Poziom trudności pozostał pusty. Uzupełnij braki i spróbuj ponownie."; return View(model); }
+
+            if (model.Dishes.Name.Length < 3) { TempData["WarningSection1"] = "Nazwa potrawy powinna składać się z co najmniej 3 znaków. Popraw błędy i spróbuj ponownie."; return View(model); }
+            if (model.Dishes.Description.Length < 15) { TempData["WarningSection1"] = "Opis potrawy powinna składać się z co najmniej 15 znaków. Popraw błędy i spróbuj ponownie."; return View(model); }
+            #endregion
+
+            #region Ingredients-List
+            if (model.Ingredients.Ingredient_1 == null) { TempData["WarningSection2"] = "Musisz dodać co najmniej jeden składnik. Uzupełnij braki i spróbuj ponownie."; return View(model); }
+            #endregion
+
+            #region Direction-List
+            if (model.Directions.Step_1_Content == null) { TempData["WarningSection3"] = "Musisz dodać co najmniej jeden krok przygotowania. Uzupełnij braki i spróbuj ponownie."; return View(model); }
+            #endregion
+
+            //Post Method:
+
+            using (Db db = new Db())
+            {
+                #region Add-Ingredients-To-Db
+                IngredientsDTO ingredients = new IngredientsDTO();
+                ingredients.Ingredient_1 = model.Ingredients.Ingredient_1;
+
+                if (model.Ingredients.Ingredient_2 != null) ingredients.Ingredient_2 = model.Ingredients.Ingredient_2;
+                else ingredients.Ingredient_2 = "";
+                if (model.Ingredients.Ingredient_3 != null) ingredients.Ingredient_3 = model.Ingredients.Ingredient_3;
+                else ingredients.Ingredient_3 = "";
+                if (model.Ingredients.Ingredient_4 != null) ingredients.Ingredient_4 = model.Ingredients.Ingredient_4;
+                else ingredients.Ingredient_4 = "";
+                if (model.Ingredients.Ingredient_5 != null) ingredients.Ingredient_5 = model.Ingredients.Ingredient_5;
+                else ingredients.Ingredient_5 = "";
+                if (model.Ingredients.Ingredient_6 != null) ingredients.Ingredient_6 = model.Ingredients.Ingredient_6;
+                else ingredients.Ingredient_6 = "";
+                if (model.Ingredients.Ingredient_7 != null) ingredients.Ingredient_7 = model.Ingredients.Ingredient_7;
+                else ingredients.Ingredient_7 = "";
+                if (model.Ingredients.Ingredient_8 != null) ingredients.Ingredient_8 = model.Ingredients.Ingredient_8;
+                else ingredients.Ingredient_8 = "";
+                if (model.Ingredients.Ingredient_9 != null) ingredients.Ingredient_9 = model.Ingredients.Ingredient_9;
+                else ingredients.Ingredient_9 = "";
+                if (model.Ingredients.Ingredient_10 != null) ingredients.Ingredient_10 = model.Ingredients.Ingredient_10;
+                else ingredients.Ingredient_10 = "";
+                if (model.Ingredients.Ingredient_11 != null) ingredients.Ingredient_11 = model.Ingredients.Ingredient_11;
+                else ingredients.Ingredient_11 = "";
+                if (model.Ingredients.Ingredient_12 != null) ingredients.Ingredient_12 = model.Ingredients.Ingredient_12;
+                else ingredients.Ingredient_12 = "";
+                if (model.Ingredients.Ingredient_13 != null) ingredients.Ingredient_13 = model.Ingredients.Ingredient_13;
+                else ingredients.Ingredient_13 = "";
+                if (model.Ingredients.Ingredient_14 != null) ingredients.Ingredient_14 = model.Ingredients.Ingredient_14;
+                else ingredients.Ingredient_14 = "";
+                if (model.Ingredients.Ingredient_15 != null) ingredients.Ingredient_15 = model.Ingredients.Ingredient_15;
+                else ingredients.Ingredient_15 = "";
+
+                db.Ingredients.Add(ingredients);
+                #endregion
+
+                #region Add-Directions-To-Db
+                DirectionsDTO directions = new DirectionsDTO();
+                directions.Step_1_Content = model.Directions.Step_1_Content;
+
+                if (model.Directions.Step_2_Content != null) directions.Step_2_Content = model.Directions.Step_2_Content;
+                else directions.Step_2_Content = "";
+                if (model.Directions.Step_3_Content != null) directions.Step_3_Content = model.Directions.Step_3_Content;
+                else directions.Step_3_Content = "";
+                if (model.Directions.Step_4_Content != null) directions.Step_4_Content = model.Directions.Step_4_Content;
+                else directions.Step_4_Content = "";
+                if (model.Directions.Step_5_Content != null) directions.Step_5_Content = model.Directions.Step_5_Content;
+                else directions.Step_5_Content = "";
+                if (model.Directions.Step_6_Content != null) directions.Step_6_Content = model.Directions.Step_6_Content;
+                else directions.Step_6_Content = "";
+                if (model.Directions.Step_7_Content != null) directions.Step_7_Content = model.Directions.Step_7_Content;
+                else directions.Step_7_Content = "";
+                if (model.Directions.Step_8_Content != null) directions.Step_8_Content = model.Directions.Step_8_Content;
+                else directions.Step_8_Content = "";
+                if (model.Directions.Step_9_Content != null) directions.Step_9_Content = model.Directions.Step_9_Content;
+                else directions.Step_9_Content = "";
+                if (model.Directions.Step_10_Content != null) directions.Step_10_Content = model.Directions.Step_10_Content;
+                else directions.Step_10_Content = "";
+
+                db.Directions.Add(directions);
+                #endregion
+
+                db.SaveChanges();
+
+                string userName = User.Identity.Name;
+                UsersDTO user = db.Users.FirstOrDefault(x => x.Login == userName);
+
+                DishesDTO dish = new DishesDTO();
+                dish.Id_Author = user.Id_User;
+                dish.Id_Category = model.Dishes.Id_Category;
+                dish.Id_Direction = directions.Id_Direction;
+                dish.Id_Gallery = 1;
+                dish.Id_Ingredient = ingredients.Id_Ingredient;
+                dish.Name = model.Dishes.Name;
+                dish.Description = model.Dishes.Description;
+                dish.Servings = model.Dishes.Servings;
+                dish.Time = model.Dishes.Time;
+                dish.Level = model.Dishes.Level;
+                dish.Date_Added = Convert.ToDateTime(DateTime.Today.ToString("dd-MM-yyyy"));
+
+                db.Dishes.Add(dish);
+                db.SaveChanges();
+            }
+
+
+            return RedirectToAction("~/Recipes/Index");
+        }
+
+        // POST: Recipes/SaveGalleryImages
         [HttpPost]
         public ActionResult SaveGalleryImages(int id)
         {

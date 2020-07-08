@@ -12,20 +12,22 @@
 {
     <div id="addnewrecipe-main-box">
         <div id="addnewrecipe-top-title-box">
-            DODAJ NOWY PRZEPIS
+            DODAJ NOWY PRZEPIS - część 1 
         </div>
 
         <div id="addnewracipe-information-box" class="addnewrecipe-content-box">
-            <div class="addnewrecipe-left-side">  </div>
+            <div class="addnewrecipe-left-side"> &nbsp; </div>
             <div class="addnewrecipe-content-side first-section">
                 <div class="all-side-text">I. PODSTAWOWE INFORMACJE:</div>
-                @Html.DropDownListFor(model => model.Categories.Id_Category, Model.CategoriesList, "kategoria", new { @style = "text-align-last:center; ", @id = "check-text-31", @class = "information-editor", onchange = "checkIcon(31)" })
+                @Html.DropDownListFor(model => model.Dishes.Id_Category, Model.Dishes.CategoriesSelectList ?? new List<SelectListItem>(), "kategoria", new { @style = "text-align-last:center; ", @id = "check-text-31", @class = "information-editor", onchange = "checkIcon(31)" })
+
                 @Html.EditorFor(model => model.Dishes.Name, new { htmlAttributes = new { @id = "check-text-1", @class = "information-editor", @placeholder = "pełna nazwa potrawy", onchange = "checkIcon(1)" } })
                 @Html.EditorFor(model => model.Dishes.Description, new { htmlAttributes = new { @id = "check-text-2", @class = "information-editor", @placeholder = "pare zdań opisujących potrawę i przepis", onchange = "checkIcon(2)" } })
                 @Html.EditorFor(model => model.Dishes.Servings, new { htmlAttributes = new { @id = "check-text-3", @class = "information-editor", @placeholder = "liczba gotowych porcji", onchange = "checkIcon(3)" } })
                 @Html.EditorFor(model => model.Dishes.Time, new { htmlAttributes = new { @id = "check-text-4", @class = "information-editor", @placeholder = "czas przygotowania (podany w minutach)", @Title = "czas podaj w minutach, np. 90 min", @type = "number", @min = "10", @step = "5", @max = "360", onchange = "checkIcon(4)" } })
-                @Html.DropDownListFor(model => model.Dishes.Level, Model.LevelList, "poziom trudności", new { @style = "text-align-last:center; ", @id = "check-text-5", @class = "information-editor", onchange = "checkIcon(5)" })
-                <div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; Opis musi być dłuższy! Powinien składać się z conajmniej 50 liter. Poprawe błędy i spróbuj ponownie. </div>
+                @Html.DropDownListFor(model => model.Dishes.Level, Model.LevelList ?? new List<SelectListItem>(), "poziom trudności", new { @style = "text-align-last:center; ", @id = "check-text-5", @class = "information-editor", onchange = "checkIcon(5)" })
+                @if (@TempData["WarningSection1"] != null)
+                {<div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; @TempData["WarningSection1"] </div>}
             </div>
             <div class="addnewrecipe-check-side" style="border-top: 1px solid #FF6F61;">
                 <div class="all-side-text"> </div>
@@ -52,7 +54,7 @@
         </div>
 
         <div id="addnewracipe-ingredients-box" class="addnewrecipe-content-box">
-            <div class="addnewrecipe-left-side"> w </div>
+            <div class="addnewrecipe-left-side"> &nbsp; </div>
             <div class="addnewrecipe-content-side second-section">
                 <div class="all-side-text">II. LISTA SKŁADNIKÓW:</div>
                 @Html.EditorFor(model => model.Ingredients.Ingredient_1, new { htmlAttributes = new { @id = "check-text-6", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(6) " } })
@@ -70,7 +72,8 @@
                 @Html.EditorFor(model => model.Ingredients.Ingredient_13, new { htmlAttributes = new { @id = "check-text-18", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(18)", @style = "display: none;" } })
                 @Html.EditorFor(model => model.Ingredients.Ingredient_14, new { htmlAttributes = new { @id = "check-text-19", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(19)", @style = "display: none;" } })
                 @Html.EditorFor(model => model.Ingredients.Ingredient_15, new { htmlAttributes = new { @id = "check-text-20", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(20)", @style = "display: none;" } })
-                <div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; Składnik o numerze 7 pozostał pusty. Uzupełnij braki i spróbuj ponownie. </div>
+                @if (@TempData["WarningSection2"] != null)
+                {<div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; @TempData["WarningSection2"] </div>}
             </div>
             <div class="addnewrecipe-check-side" style="border-top: 1px solid #6B5B95;">
                 <div class="all-side-text"> </div>
@@ -125,7 +128,7 @@
         </div>
 
         <div id="addnewracipe-directions-box" class="addnewrecipe-content-box">
-            <div class="addnewrecipe-left-side"> w </div>
+            <div class="addnewrecipe-left-side"> &nbsp; </div>
             <div class="addnewrecipe-content-side third-section">
                 <div class="all-side-text">III. SPOSÓB PRZYGOTOWANIA POTRAWY:</div>
                 @Html.EditorFor(model => model.Directions.Step_1_Content, new { htmlAttributes = new { @id = "check-text-21", @class = "information-editor", @placeholder = "krok 1 - opis", onchange = "addIngedientBox(21) " } })
@@ -138,7 +141,8 @@
                 @Html.EditorFor(model => model.Directions.Step_8_Content, new { htmlAttributes = new { @id = "check-text-28", @class = "information-editor", @placeholder = "krok 8 - opis", onchange = "addIngedientBox(28)", @style = "display: none;" } })
                 @Html.EditorFor(model => model.Directions.Step_9_Content, new { htmlAttributes = new { @id = "check-text-29", @class = "information-editor", @placeholder = "krok 9 - opis", onchange = "addIngedientBox(29)", @style = "display: none;" } })
                 @Html.EditorFor(model => model.Directions.Step_10_Content, new { htmlAttributes = new { @id = "check-text-30", @class = "information-editor", @placeholder = "krok 10 - opis", onchange = "addIngedientBox(30)", @style = "display: none;" } })
-                <div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; Krok o numerze 4 pozostał pusty. Uzupełnij braki i spróbuj ponownie. </div>
+                @if (@TempData["WarningSection3"] != null)
+                {<div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; @TempData["WarningSection3"] </div>}
             </div>
             <div class="addnewrecipe-check-side" style="border-top: 1px solid #88B04B;">
                 <div class="all-side-text"> </div>
@@ -177,33 +181,12 @@
             <div style="clear:both; width: 100%; height: 2em;"> </div>
         </div>
 
-        <div id="addnewracipe-photos-box" class="addnewrecipe-content-box">
-            <div class="addnewrecipe-left-side"> w </div>
-            <div class="addnewrecipe-content-side fourth-section">
-                <div class="all-side-text">IV. ZDJĘCIA PRZEDSTAWIAJĄCE GOTOWĄ POTRAWĘ:</div>
-
-                <form action="/home/SaveGalleryImages/@Model." method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm">
-                    <div class="fallback">
-                        <input type="file" name="file" multiple />
-                        <input type="submit" value="Upload" />
-                    </div>
-                </form>
-
-                @Html.EditorFor(model => model.Directions.Step_1_Content, new { htmlAttributes = new { @id = "check-text-21", @class = "information-editor", @placeholder = "krok 1 - opis", onchange = "addIngedientBox(21) " } })
-
-
-
-                <div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; Przepis musi posiadać conajmniej jedno zdjęcie. Dodaj zdjęcie i spróbuj ponownie. </div>
-            </div>
-            <div class="addnewrecipe-check-side" style="border-top: 1px solid #EFC050;">
-                <div class="all-side-text"> </div>
-                <div id="check-big-box-21" class="check-side-text" style="margin-top: 2.5em;">
-                    <div id="check-box-21" style="display: none;">KROK 1 &nbsp; <i style="font-size: 90%;" id="check-icon-21" class="far fa-times-circle"></i></div>
-                </div>
-            </div>
-
-            <div style="clear:both; width: 100%; height: 2em;"> </div>
+        <div id="addnewracipe-next-page-box" class="addnewrecipe-content-box">
+            <div class="addnewrecipe-left-side"> &nbsp; </div>
+            <button class="addnewrecipe-center-side">
+                <div class="all-side-text text-in-button">JEŻELI UZUPEŁNIŁEŚ WSZYSTKIE DANE, KLIKNIJ <u>TUTAJ</u> ABY PRZEJŚĆ DALEJ</div>
+            </button>
+            <div class="addnewrecipe-right-side"> &nbsp; </div>
         </div>
-
     </div>
 }

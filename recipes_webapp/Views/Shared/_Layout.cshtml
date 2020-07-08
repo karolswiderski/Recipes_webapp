@@ -45,7 +45,7 @@
             @Html.Action("SearchBarPartialLayout", "SearchBar", new { area = "" })
         </div>
     </div>
-    @if (ViewBag.Title != "Zaloguj się" && ViewBag.Title != "Zarejestruj się")
+    @if (ViewBag.Title != "Zaloguj się" && ViewBag.Title != "Zarejestruj się" && ViewBag.Title != "Dodaj nowy przepis.")
     {
         <div id="categories-box">
             @Html.Action("TopNavBarCategories", "Categories")

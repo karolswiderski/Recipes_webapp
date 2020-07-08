@@ -72,7 +72,6 @@ namespace recipes_webapp.Controllers
         [HttpGet]
         public ActionResult CreateNew()
         {
-
             string userName = User.Identity.Name;
             if (!string.IsNullOrEmpty(userName)) return Redirect("~/Recipes/Index");
 

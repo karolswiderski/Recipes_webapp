@@ -44,7 +44,7 @@ namespace recipes_webapp.Models.ViewModels.Dishes
         public int Rating { get; set; }
         public DateTime Date_Added { get; set; }
 
-        public IEnumerable<SelectListItem> Categories { get; set; }
+        public IEnumerable<SelectListItem> CategoriesSelectList { get; set; }
         public int Directions { get; set; }
         public int Ingredients { get; set; }
         public int Gallery { get; set; }

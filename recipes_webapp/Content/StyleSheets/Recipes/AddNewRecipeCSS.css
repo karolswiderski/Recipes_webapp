@@ -7,7 +7,7 @@
 
 #addnewrecipe-top-title-box {
     width: 100%;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid black;
     font-size: 400%;
     font-family: 'Quicksand', sans-serif;
     text-align: center;
@@ -20,12 +20,46 @@
     height: 100%;
 }
 
-.addnewrecipe-content-side {
+.addnewrecipe-right-side {
     float: left;
-    width: 85%;
-    height: auto;
-    padding: 0 0 0 3%;
+    width: 5%;
+    height: 100%;
 }
+
+.addnewrecipe-center-side {
+    float: left;
+    width: 90%;
+    height: 7em;
+    padding: 0 0 0 3%;
+    border-left: 3em solid #EFC050;
+    border-right: 3em solid #EFC050;
+    border-bottom: 1px solid #EFC050;
+    border-top: 1px solid #EFC050;
+    margin-bottom: 5em;
+    display: table;
+    transition: background-color 0.3s;
+    background-color: white;
+}
+
+.text-in-button {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    width: 100%;
+    height: auto;
+}
+
+.addnewrecipe-center-side:hover {
+    background-color: #EFC050;
+    color: white;
+}
+
+    .addnewrecipe-content-side {
+        float: left;
+        width: 85%;
+        height: auto;
+        padding: 0 0 1em 3%;
+    }
 
 .first-section {
     border-left: 3em solid #FF6F61;
@@ -73,7 +107,6 @@
     height: 33.5em;
     padding-bottom: 0;
     margin-top: 2em;
-    margin-bottom: 4em;
 }
 
 #addnewracipe-ingredients-box {
@@ -86,19 +119,23 @@
     margin-top: 2em;
 }
 
-#addnewracipe-photos-box {
+#addnewracipe-next-page-box {
     padding-bottom: 0;
     margin-top: 2em;
 }
 
-.all-side-text {
-    font-family: 'Quicksand', sans-serif;
-    border: none;
-    height: 1.5em;
-    margin: 1em 0;
-    font-weight: bold;
-    font-size: 150%;
-}
+    #addnewracipe-next-page-box a {
+        color: black;
+    }
+
+    .all-side-text {
+        font-family: 'Quicksand', sans-serif;
+        border: none;
+        height: 1.5em;
+        margin: 1em 0;
+        font-weight: bold;
+        font-size: 150%;
+    }
 
 .information-editor {
     width: 95%;
