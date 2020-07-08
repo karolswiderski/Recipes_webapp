@@ -13,7 +13,6 @@ namespace recipes_webapp.Models.Data
         public DbSet<CategoriesDTO> Categories { get; set; }
         public DbSet<DirectionsDTO> Directions { get; set; }
         public DbSet<IngredientsDTO> Ingredients { get; set; }
-        public DbSet<GalleryDTO> Gallery { get; set; }
         public DbSet<UsersDTO> Users { get; set; }
         public DbSet<ArticlesDTO> Articles { get; set; }
         public DbSet<Recipe_FollowersDTO> Recipe_Followers { get; set; }
@@ -26,8 +25,6 @@ namespace recipes_webapp.Models.Data
         public System.Data.Entity.DbSet<recipes_webapp.Models.ViewModels.Dishes.IngredientsVM> IngredientsVMs { get; set; }
 
         public System.Data.Entity.DbSet<recipes_webapp.Models.ViewModels.Dishes.DirectionsVM> DirectionsVMs { get; set; }
-
-        public System.Data.Entity.DbSet<recipes_webapp.Models.ViewModels.Dishes.GalleryVM> GalleryVMs { get; set; }
 
         public System.Data.Entity.DbSet<recipes_webapp.Models.ViewModels.Articles.ArticlesVM> ArticlesVMs { get; set; }
 

@@ -1,13 +1,13 @@
 ﻿@model recipes_webapp.Models.ViewModels.Dishes.AddNewRecipeVM
 
 <link href="~/Content/StyleSheets/Recipes/AddNewRecipeCSS.css" rel="stylesheet" />
-<script src="~/Scripts/MyScripts/Recipes/AddNewRecipe/Showing-Icons.js"></script>
-<script src="~/Scripts/MyScripts/Recipes/AddNewRecipe/Add-Next-Ingredien.js"></script>
+<script src="~/Scripts/MyScripts/Recipes/AddNewRecipe/Checking-Validation.js"></script>
+<script src="~/Scripts/MyScripts/Recipes/AddNewRecipe/Add-Next-Box.js"></script>
+
 @{
-
-
-    ViewBag.Title = "Dodaj nowy przepis.";
+    ViewBag.Title = "Dodaj nowy przepis - część 1";
 }
+
 @using (Html.BeginForm("AddNew", "Recipes", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="addnewrecipe-main-box">
@@ -19,13 +19,12 @@
             <div class="addnewrecipe-left-side"> &nbsp; </div>
             <div class="addnewrecipe-content-side first-section">
                 <div class="all-side-text">I. PODSTAWOWE INFORMACJE:</div>
-                @Html.DropDownListFor(model => model.Dishes.Id_Category, Model.Dishes.CategoriesSelectList ?? new List<SelectListItem>(), "kategoria", new { @style = "text-align-last:center; ", @id = "check-text-31", @class = "information-editor", onchange = "checkIcon(31)" })
-
-                @Html.EditorFor(model => model.Dishes.Name, new { htmlAttributes = new { @id = "check-text-1", @class = "information-editor", @placeholder = "pełna nazwa potrawy", onchange = "checkIcon(1)" } })
-                @Html.EditorFor(model => model.Dishes.Description, new { htmlAttributes = new { @id = "check-text-2", @class = "information-editor", @placeholder = "pare zdań opisujących potrawę i przepis", onchange = "checkIcon(2)" } })
-                @Html.EditorFor(model => model.Dishes.Servings, new { htmlAttributes = new { @id = "check-text-3", @class = "information-editor", @placeholder = "liczba gotowych porcji", onchange = "checkIcon(3)" } })
-                @Html.EditorFor(model => model.Dishes.Time, new { htmlAttributes = new { @id = "check-text-4", @class = "information-editor", @placeholder = "czas przygotowania (podany w minutach)", @Title = "czas podaj w minutach, np. 90 min", @type = "number", @min = "10", @step = "5", @max = "360", onchange = "checkIcon(4)" } })
-                @Html.DropDownListFor(model => model.Dishes.Level, Model.LevelList ?? new List<SelectListItem>(), "poziom trudności", new { @style = "text-align-last:center; ", @id = "check-text-5", @class = "information-editor", onchange = "checkIcon(5)" })
+                @Html.DropDownListFor(model => model.Dishes.Id_Category, Model.Dishes.CategoriesSelectList ?? new List<SelectListItem>(), "kategoria", new { @style = "text-align-last:center; ", @id = "check-text-31", @class = "information-editor", onchange = "checkingValidation(31)" })
+                @Html.EditorFor(model => model.Dishes.Name, new { htmlAttributes = new { @id = "check-text-1", @class = "information-editor", @placeholder = "pełna nazwa potrawy", onchange = "checkingValidation(1)" } })
+                @Html.EditorFor(model => model.Dishes.Description, new { htmlAttributes = new { @id = "check-text-2", @class = "information-editor", @placeholder = "pare zdań opisujących potrawę i przepis", onchange = "checkingValidation(2)" } })
+                @Html.EditorFor(model => model.Dishes.Servings, new { htmlAttributes = new { @id = "check-text-3", @class = "information-editor", @placeholder = "liczba gotowych porcji", onchange = "checkingValidation(3)" } })
+                @Html.EditorFor(model => model.Dishes.Time, new { htmlAttributes = new { @id = "check-text-4", @class = "information-editor", @placeholder = "czas przygotowania (podany w minutach)", @Title = "czas podaj w minutach, np. 90 min", @type = "number", @min = "10", @step = "5", @max = "360", onchange = "checkingValidation(4)" } })
+                @Html.DropDownListFor(model => model.Dishes.Level, Model.LevelList ?? new List<SelectListItem>(), "poziom trudności", new { @style = "text-align-last:center; ", @id = "check-text-5", @class = "information-editor", onchange = "checkingValidation(5)" })
                 @if (@TempData["WarningSection1"] != null)
                 {<div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; @TempData["WarningSection1"] </div>}
             </div>
@@ -57,21 +56,21 @@
             <div class="addnewrecipe-left-side"> &nbsp; </div>
             <div class="addnewrecipe-content-side second-section">
                 <div class="all-side-text">II. LISTA SKŁADNIKÓW:</div>
-                @Html.EditorFor(model => model.Ingredients.Ingredient_1, new { htmlAttributes = new { @id = "check-text-6", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(6) " } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_2, new { htmlAttributes = new { @id = "check-text-7", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(7)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_3, new { htmlAttributes = new { @id = "check-text-8", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(8)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_4, new { htmlAttributes = new { @id = "check-text-9", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(9)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_5, new { htmlAttributes = new { @id = "check-text-10", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(10)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_6, new { htmlAttributes = new { @id = "check-text-11", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(11)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_7, new { htmlAttributes = new { @id = "check-text-12", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(12)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_8, new { htmlAttributes = new { @id = "check-text-13", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(13)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_9, new { htmlAttributes = new { @id = "check-text-14", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(14)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_10, new { htmlAttributes = new { @id = "check-text-15", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(15)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_11, new { htmlAttributes = new { @id = "check-text-16", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(16)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_12, new { htmlAttributes = new { @id = "check-text-17", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(17)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_13, new { htmlAttributes = new { @id = "check-text-18", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(18)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_14, new { htmlAttributes = new { @id = "check-text-19", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(19)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Ingredients.Ingredient_15, new { htmlAttributes = new { @id = "check-text-20", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addIngedientBox(20)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_1, new { htmlAttributes = new { @id = "check-text-6", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(6) " } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_2, new { htmlAttributes = new { @id = "check-text-7", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(7)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_3, new { htmlAttributes = new { @id = "check-text-8", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(8)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_4, new { htmlAttributes = new { @id = "check-text-9", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(9)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_5, new { htmlAttributes = new { @id = "check-text-10", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(10)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_6, new { htmlAttributes = new { @id = "check-text-11", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(11)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_7, new { htmlAttributes = new { @id = "check-text-12", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(12)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_8, new { htmlAttributes = new { @id = "check-text-13", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox13)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_9, new { htmlAttributes = new { @id = "check-text-14", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(14)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_10, new { htmlAttributes = new { @id = "check-text-15", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(15)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_11, new { htmlAttributes = new { @id = "check-text-16", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBoxx(16)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_12, new { htmlAttributes = new { @id = "check-text-17", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(17)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_13, new { htmlAttributes = new { @id = "check-text-18", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(18)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_14, new { htmlAttributes = new { @id = "check-text-19", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(19)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Ingredients.Ingredient_15, new { htmlAttributes = new { @id = "check-text-20", @class = "information-editor", @placeholder = "składnik + ilość", onchange = "addNextBox(20)", @style = "display: none;" } })
                 @if (@TempData["WarningSection2"] != null)
                 {<div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; @TempData["WarningSection2"] </div>}
             </div>
@@ -131,16 +130,16 @@
             <div class="addnewrecipe-left-side"> &nbsp; </div>
             <div class="addnewrecipe-content-side third-section">
                 <div class="all-side-text">III. SPOSÓB PRZYGOTOWANIA POTRAWY:</div>
-                @Html.EditorFor(model => model.Directions.Step_1_Content, new { htmlAttributes = new { @id = "check-text-21", @class = "information-editor", @placeholder = "krok 1 - opis", onchange = "addIngedientBox(21) " } })
-                @Html.EditorFor(model => model.Directions.Step_2_Content, new { htmlAttributes = new { @id = "check-text-22", @class = "information-editor", @placeholder = "krok 2 - opis", onchange = "addIngedientBox(22)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Directions.Step_3_Content, new { htmlAttributes = new { @id = "check-text-23", @class = "information-editor", @placeholder = "krok 3 - opis", onchange = "addIngedientBox(23)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Directions.Step_4_Content, new { htmlAttributes = new { @id = "check-text-24", @class = "information-editor", @placeholder = "krok 4 - opis", onchange = "addIngedientBox(24)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Directions.Step_5_Content, new { htmlAttributes = new { @id = "check-text-25", @class = "information-editor", @placeholder = "krok 5 - opis", onchange = "addIngedientBox(25)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Directions.Step_6_Content, new { htmlAttributes = new { @id = "check-text-26", @class = "information-editor", @placeholder = "krok 6 - opis", onchange = "addIngedientBox(26)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Directions.Step_7_Content, new { htmlAttributes = new { @id = "check-text-27", @class = "information-editor", @placeholder = "krok 7 - opis", onchange = "addIngedientBox(27)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Directions.Step_8_Content, new { htmlAttributes = new { @id = "check-text-28", @class = "information-editor", @placeholder = "krok 8 - opis", onchange = "addIngedientBox(28)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Directions.Step_9_Content, new { htmlAttributes = new { @id = "check-text-29", @class = "information-editor", @placeholder = "krok 9 - opis", onchange = "addIngedientBox(29)", @style = "display: none;" } })
-                @Html.EditorFor(model => model.Directions.Step_10_Content, new { htmlAttributes = new { @id = "check-text-30", @class = "information-editor", @placeholder = "krok 10 - opis", onchange = "addIngedientBox(30)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_1_Content, new { htmlAttributes = new { @id = "check-text-21", @class = "information-editor", @placeholder = "krok 1 - opis", onchange = "addNextBox(21) " } })
+                @Html.EditorFor(model => model.Directions.Step_2_Content, new { htmlAttributes = new { @id = "check-text-22", @class = "information-editor", @placeholder = "krok 2 - opis", onchange = "addNextBox(22)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_3_Content, new { htmlAttributes = new { @id = "check-text-23", @class = "information-editor", @placeholder = "krok 3 - opis", onchange = "addNextBox(23)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_4_Content, new { htmlAttributes = new { @id = "check-text-24", @class = "information-editor", @placeholder = "krok 4 - opis", onchange = "addNextBox(24)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_5_Content, new { htmlAttributes = new { @id = "check-text-25", @class = "information-editor", @placeholder = "krok 5 - opis", onchange = "addNextBox(25)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_6_Content, new { htmlAttributes = new { @id = "check-text-26", @class = "information-editor", @placeholder = "krok 6 - opis", onchange = "addNextBox(26)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_7_Content, new { htmlAttributes = new { @id = "check-text-27", @class = "information-editor", @placeholder = "krok 7 - opis", onchange = "addNextBox(27)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_8_Content, new { htmlAttributes = new { @id = "check-text-28", @class = "information-editor", @placeholder = "krok 8 - opis", onchange = "addNextBox(28)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_9_Content, new { htmlAttributes = new { @id = "check-text-29", @class = "information-editor", @placeholder = "krok 9 - opis", onchange = "addNextBox(29)", @style = "display: none;" } })
+                @Html.EditorFor(model => model.Directions.Step_10_Content, new { htmlAttributes = new { @id = "check-text-30", @class = "information-editor", @placeholder = "krok 10 - opis", onchange = "addNextBoxx(30)", @style = "display: none;" } })
                 @if (@TempData["WarningSection3"] != null)
                 {<div class="content-side-error"><i style="color: black;" class="fas fa-exclamation-circle"></i> &nbsp; @TempData["WarningSection3"] </div>}
             </div>

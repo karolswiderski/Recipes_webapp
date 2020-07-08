@@ -248,7 +248,6 @@
     <Compile Include="Models\Data\Db.cs" />
     <Compile Include="Models\Data\DirectionsDTO.cs" />
     <Compile Include="Models\Data\DishesDTO.cs" />
-    <Compile Include="Models\Data\GalleryDTO.cs" />
     <Compile Include="Models\Data\IngredientsDTO.cs" />
     <Compile Include="Models\Data\Recipe_FollowersDTO.cs" />
     <Compile Include="Models\Data\UsersDTO.cs" />
@@ -262,7 +261,6 @@
     <Compile Include="Models\ViewModels\Dishes\CategoriesVM.cs" />
     <Compile Include="Models\ViewModels\Dishes\DirectionsVM.cs" />
     <Compile Include="Models\ViewModels\Dishes\DishesVM.cs" />
-    <Compile Include="Models\ViewModels\Dishes\GalleryVM.cs" />
     <Compile Include="Models\ViewModels\Dishes\IngredientsVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -311,8 +309,8 @@
     <Content Include="Scripts\dropzone\dropzone.min.js" />
     <Content Include="Scripts\MyScripts\Account\MyAccount-Select-Options.js" />
     <Content Include="Scripts\MyScripts\Account\Select-Sort-Options-Recipes.js" />
-    <Content Include="Scripts\MyScripts\Recipes\AddNewRecipe\Add-Next-Ingredien.js" />
-    <Content Include="Scripts\MyScripts\Recipes\AddNewRecipe\Showing-Icons.js" />
+    <Content Include="Scripts\MyScripts\Recipes\AddNewRecipe\Add-Next-Box.js" />
+    <Content Include="Scripts\MyScripts\Recipes\AddNewRecipe\Checking-Validation.js" />
     <Content Include="Scripts\MyScripts\Recipes\Automatic-Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Recipes\Photo-Slider.js" />
     <Content Include="Scripts\MyScripts\Layout\Show-Categories.js" />

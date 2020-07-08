@@ -40,7 +40,7 @@ namespace recipes_webapp.Controllers
         [HttpGet]
         public ActionResult PhotoSlider(int id)
         {
-
+            /*
             GalleryVM galleryVM;
 
             using (Db db = new Db())
@@ -48,8 +48,9 @@ namespace recipes_webapp.Controllers
                 GalleryDTO galleryDTO = db.Gallery.Find(id);
                 galleryVM = new GalleryVM(galleryDTO);
             }
-
-            return PartialView(galleryVM);
+            */
+            return PartialView();
+            
         }
 
         [HttpGet]
@@ -87,28 +88,23 @@ namespace recipes_webapp.Controllers
         [HttpGet]
         public ActionResult AddNew()
         {
-            List<Level> level = new List<Level>();
-            level.Add(new Level() { Level_Id = 1, Level_Name = "Łatwy" });
-            level.Add(new Level() { Level_Id = 2, Level_Name = "Średni" });
-            level.Add(new Level() { Level_Id = 3, Level_Name = "Trudny" });
+            List<Level> level = new List<Level>
+            {
+                new Level() { Level_Id = 1, Level_Name = "Łatwy" },
+                new Level() { Level_Id = 2, Level_Name = "Średni" },
+                new Level() { Level_Id = 3, Level_Name = "Trudny" }
+            };
 
             CategoriesDTO catDTO = new CategoriesDTO();
             DirectionsDTO dirDTO = new DirectionsDTO();
             DishesDTO disDTO = new DishesDTO();
-            GalleryDTO galDTO = new GalleryDTO();
             IngredientsDTO ingDTO = new IngredientsDTO();
+            AddNewRecipeVM model = new AddNewRecipeVM(catDTO, dirDTO, disDTO, ingDTO);
 
-            AddNewRecipeVM model = new AddNewRecipeVM(catDTO, dirDTO, disDTO, galDTO, ingDTO);
             using (Db db = new Db())
             {
                 model.Dishes.CategoriesSelectList = new SelectList(db.Categories.ToList(), "Id_Category", "Name");
                 model.LevelList = new SelectList(level, "Level_Id", "Level_Name");
-                /*
-                DishesDTO newRecipe = new DishesDTO();
-                db.Dishes.Add(newRecipe);
-                db.SaveChanges();
-                TempData["newRecipeId"] = newRecipe.Id_Dish;
-                */
             }
             return View(model);
         }
@@ -241,8 +237,7 @@ namespace recipes_webapp.Controllers
                 id = dish.Id_Dish;
             }
 
-            #region Dodawanie zdjęcia
-
+            #region Add-Gallery-Path
             var originalDirectory = new DirectoryInfo(string.Format("{0}Content\\Images\\Uploads", Server.MapPath(@"\")));
             var pathString1 = Path.Combine(originalDirectory.ToString(), "Recipes");
             var pathString2 = Path.Combine(originalDirectory.ToString(), "Recipes\\" + id.ToString());
@@ -261,7 +256,6 @@ namespace recipes_webapp.Controllers
                 dish.Gallery_Path = pathString4;
                 db.SaveChanges();
             }
-
             #endregion
 
             return RedirectToAction("AddPhotos", new { id });
@@ -278,8 +272,8 @@ namespace recipes_webapp.Controllers
             {
                 DishesDTO dish = db.Dishes.Find(id);
                 model = new DishesVM(dish);
-                model.MyGallery = Directory.EnumerateFiles(Server.MapPath("~/Content/Images/Uploads/Recipes/" + id + "/Thumbs"))
-                                                                        .Select(fn => Path.GetFileName(fn));
+                TempData["DishName"] = model.Name;
+                model.MyGallery = Directory.EnumerateFiles(Server.MapPath("~/Content/Images/Uploads/Recipes/" + id + "/Thumbs")).Select(fn => Path.GetFileName(fn));
             }
             return View(model);
         }
@@ -308,10 +302,10 @@ namespace recipes_webapp.Controllers
                         img = new WebImage(file.InputStream);
                         img.Resize(200, 200);
                         img.Save(path2);
-
                     }
                     catch (Exception ex)
                     {
+                        Console.WriteLine(ex);
                         return RedirectToAction("/Recipes/Index");
                     }
                 }

@@ -12,22 +12,19 @@ namespace recipes_webapp.Models.ViewModels.Dishes
     {
         public AddNewRecipeVM() { }
 
-        public AddNewRecipeVM(CategoriesDTO catRow, DirectionsDTO dirRow, DishesDTO disRow, GalleryDTO galRow, IngredientsDTO ingRow)
+        public AddNewRecipeVM(CategoriesDTO catRow, DirectionsDTO dirRow, DishesDTO disRow, IngredientsDTO ingRow)
         {
             Categories = new CategoriesVM(catRow);
             Directions = new DirectionsVM(dirRow);
             Dishes = new DishesVM(disRow);
-            Gallery = new GalleryVM(galRow);
             Ingredients = new IngredientsVM(ingRow);
         }
        
         public CategoriesVM Categories { get; set; }
         public DirectionsVM Directions { get; set; }
         public DishesVM Dishes { get; set; }
-        public GalleryVM Gallery { get; set; }
         public IngredientsVM Ingredients { get; set; }
 
-        public IEnumerable<System.Web.Mvc.SelectListItem> CategoriesList { get; set; }
         public IEnumerable<System.Web.Mvc.SelectListItem> LevelList { get; set; }
     }
 }
