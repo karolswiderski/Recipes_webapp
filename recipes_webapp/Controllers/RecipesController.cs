@@ -19,7 +19,7 @@ namespace recipes_webapp.Controllers
             return View();
         }
 
-        // GET: Recipes/Details
+        // GET: Recipes/Details/id
         public ActionResult Details(int id)
         {
             DishesVM recipeVM;

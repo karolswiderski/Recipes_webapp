@@ -1,151 +1,195 @@
-﻿a, a:hover, a:focus {
-    text-decoration: none;
+﻿/*#region details page config*/
+
+#details-main-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: grid;
+    grid-gap: 1rem;
+    padding: 1rem;
+    font-size: 16px;
+}
+
+    #details-main-container p {
+        margin: 0;
+        padding: 0;
+    }
+
+/*#endregion */
+#details-lefttop-box {
+}
+
+#details-righttop-box {
+    border: 1px solid lightgray;
+}
+
+#details-leftbottom-box {
+    border: 1px solid lightgray;
+}
+
+#details-rightbottom-box {
+    border: 1px solid lightgray;
+}
+
+.cards {
+    width: 100%;
+    height: 750px;
+}
+
+/*#region top left container - basic information about dish and recipe*/
+
+#lefttop-basic-text-information-box {
+    width: 100%;
+    height: 70%;
+}
+
+#lefttop-basic-icon-information-box {
+    width: 100%;
+    height: 30%;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: auto;
+    grid-template-rows: max-content;
+    border-bottom: 1px solid lightgray;
+}
+
+/*#region text information*/
+
+.text-information-box {
+}
+
+#path-box {
+    width: 100%;
+    height: 10%;
+    padding-left: 1%;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.path-text {
+    color: #1d7f1a;
+    font-weight: bold;
+}
+
+.path-text:hover {
+}
+
+#author-box {
+    width: 100%;
+    height: 15%;
+    padding-left: 2%;
+    font-size: 115%;
+    display: table;
+    font-weight: bold;
+    font-family: 'Unica One', cursive;
+}
+
+    #author-box p {
+        vertical-align: bottom;
+        display: table-cell;
+    }
+
+#author-box-link {
+    color: #0d0042;
+}
+
+    #author-box-link:hover {
+        color: #6a8b3c;
+    }
+
+    #title-box {
+        width: 100%;
+        height: auto;
+        min-height: 10%;
+        margin-top: 0.5%;
+        max-height: 32%;
+        padding-left: 2%;
+        font-size: 300%;
+        color: #FF6F61;
+        font-family: 'Marck Script', cursive;
+    }
+
+#description-box {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: auto;
+    min-height: 20%;
+    max-height: 40%;
+    padding: 5% 5%;
+    margin-top: 2.5%;
+    font-size: 140%;
+    border-left: 1rem solid #FF6F61;
+    font-family: 'Magra', sans-serif;
     color: black;
 }
 
+/*#endregion */
 
+/*#region icon information*/
 
-#details-body {
-    width: 100%;
-    height: 100%;
-}
-
-#about-this {
-    width: 100%;
-    height: auto;
-}
-
-#other {
-    clear: both;
-    width: 100%;
-    height: 100%;
-    padding-top: 2em;
-}
-
-#other-text {
-    width: auto;
-    font-size: 2em;
-    font-family: 'Quicksand', sans-serif;
-    color: white;
-    margin: 2em auto;
+.icon-box {
     text-align: center;
-    background-color: #63A669;
-    letter-spacing: 0.1em;
+    color: black;
+    padding-top: 5%;
+    margin: 0 5%;
+    font-family: 'Alegreya Sans SC', sans-serif;
 }
 
-
-
-    #image-box {
-        float: left;
-        width: 70%;
-        height: 45vw;
-        box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
-    }
-
-#image {
-    width: 100%;
-    height: 41vw;
+.icon:hover {
+    font-size: 450%;
 }
 
+#time-icon-icon-box {
 
-#icon-box {
-    width: 100%;
-    height: 4vw;
-    line-height: 4vw;
-    background-color: #63A669;
-    font-family: 'Quicksand', sans-serif;
+}
+
+#servings-icon-box {
+
+}
+
+#level-icon-box {
+
+}
+
+.icon-box-top {
+}
+
+.icon-box-bottom {
+    font-size: 130%;
+    margin-top: 2%;
 }
 
 .icon {
-    float: left;
-    width: 20%;
-    height: 100%;
-    text-align: center;
-    color: white;
-    font-size: 2vw;
+    font-size: 400%;
+    color: #FF6F61;
+    transition: font-size 0.3s;
 }
 
-    .icon:hover {
-        font-size: 2.1vw;
+/*#endregion */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*#region top right container - food photos / photo slider */
+/*#endregion */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*#region bottom left container - ingredients list */
+/*#endregion */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*#region bottom right container - directions list */
+/*#endregion */
+@media (min-width: 850px) {
+    #details-main-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-.icon-last {
-    float: left;
-    width: 20%;
-    height: 100%;
-    text-align: center;
-    color: white;
-    font-size: 2vw;
-}
-
-#information-box {
-    float: left;
-    width: 30%;
-    height: 45vw;
-    font-family: 'Quicksand', sans-serif;
-}
-
-#dish-box {
-    width: 100%;
-    height: auto;
-}
-
-#path {
-    width: auto;
-    height: auto;
-    margin: 5% 5%;
-    font-size: 1.2em;
-}
-
-    #path a {
-        color: rgba(106, 139, 60, 1);
-        font-family: 'Poppins', sans-serif;
-        font-weight: bold;
+    #lefttop-basic-icon-information-box {
+        grid-template-columns: repeat(4, 1fr);
     }
-
-#author {
-    width: 94%;
-    height: auto;
-    font-size: 1.5em;
-    margin: 8% 4% 0 2%;
-    padding: 2% 2% 0 2%;
-    font-family: 'Poppins', sans-serif;
 }
 
-    #author a {
-        color: rgba(106, 139, 60, 1);
-        font-weight: bold;
+@media (max-width: 849px) {
+    #lefttop-basic-icon-information-box {
+        grid-template-columns: repeat(2, 1fr);
     }
-
-    #name {
-        width: 94%;
-        height: auto;
-        margin: 0 4% 1% 2%;
-        font-size: 2.5em;
-        padding: 1% 2% 1% 2%;
-        font-family: 'Poppins', sans-serif;
+    #details-lefttop-box {
+        height: 1000px;
     }
-
-#description {
-    width: 94%;
-    height: auto;
-    margin: 5% 4% 1% 2%;
-    font-size: 1.4em;
-    color: black;
-    padding: 0 2% 2% 2%;
-    font-family: 'Poppins', sans-serif;
-}
-
-#ingredients-box {
-    width: 100%;
-    height: auto;
-    background-color: #f5f9f5;
-    padding-bottom: 5%;
-    border-left: 1px solid lightgray;
-}
-
-#steps-box {
-    width: 70%;
-    height: auto;
-    float: left;
 }
