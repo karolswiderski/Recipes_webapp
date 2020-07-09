@@ -40,16 +40,17 @@ namespace recipes_webapp.Controllers
         [HttpGet]
         public ActionResult PhotoSlider(int id)
         {
-            /*
-            GalleryVM galleryVM;
+            DishesVM dish = new DishesVM();
 
             using (Db db = new Db())
             {
-                GalleryDTO galleryDTO = db.Gallery.Find(id);
-                galleryVM = new GalleryVM(galleryDTO);
+                DishesDTO dto = db.Dishes.Find(id);
+                dish = new DishesVM(dto);
+                dish.MyGallery = Directory.EnumerateFiles(Server.MapPath("~/Content/Images/Uploads/Recipes/" + id + "/Gallery")).Select(fn => Path.GetFileName(fn));
+
             }
-            */
-            return PartialView();
+
+            return PartialView(dish);
             
         }
 

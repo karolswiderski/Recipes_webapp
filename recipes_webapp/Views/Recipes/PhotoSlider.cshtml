@@ -1,25 +1,62 @@
-﻿@model recipes_webapp.Models.ViewModels.Dishes.GalleryVM
+﻿@model recipes_webapp.Models.ViewModels.Dishes.DishesVM
 
 <link href="~/Content/StyleSheets/Recipes/PhotoSliderCSS.css" rel="stylesheet" />
 <script src="~/Scripts/MyScripts/Recipes/Photo-Slider.js"></script>
 
+<link href="~/Content/jquery.fancybox.css" rel="stylesheet" />
+
+<link href="~/Scripts/dropzone/basic.css" rel="stylesheet" />
+
+<link href="~/Scripts/dropzone/dropzone.css" rel="stylesheet" />
+
 <div id="big-photos">
-    <div class="big" id="photo1">
-        <img src="~/Content/Images/img1.jpg" alt="photo 1" />
+    @section scripts{
+        <script src="~/Scripts/jquery.fancybox.js"></script>
+        <script src="~/Scripts/dropzone/dropzone.js"></script>
+        <script>
+
+        $(function () {
+
+            //** fancybox
+
+            $(".fancybox").fancybox();
+        });
+        // dropzone js:
+        Dropzone.options.dropzoneForm = {
+            acceptedFiles: "image/*",
+            init: function () {
+                this.on("complete", function (file) {
+                    if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
+                        location.reload();
+                    }
+                });
+
+                this.on("sending", function (file, xhr, formData) {
+                    formData.append("id", @Model.Id_Dish);
+                });
+            }
+            };
+
+            //usuwanie:
+
+            $(function () {
+
+                $(".delete").click(function () {
+                    if (!confirm("Potwierdzasz usunięcie wybranej pozycji?")) return false;
+                });
+            });
+        </script>
+}
+@foreach (var image in Model.MyGallery)
+{
+    <div style="display:inline-block">
+        <a class="fancybox" rel="gallery1" href="/Content/Images/Uploads/Recipes/@Model.Id_Dish/Gallery/@image">
+            <img src="/Content/Images/Uploads/Recipes/@Model.Id_Dish/Thumbs/@image" alt="photo 1" />
+        </a>
     </div>
-    <div class="big" id="photo2"> 
-        <img src="~/Content/Images/img2.jpg" alt="photo 2" />
-    </div>
-    <div class="big" id="photo3">
-        <img src="~/Content/Images/img3.jpg" alt="photo 3" />
-    </div>
-    <div class="big" id="photo4">
-        <img src="~/Content/Images/img4.jpg" alt="photo 4" />
-    </div>
-    <div class="big" id="photo5">
-        <img src="~/Content/Images/img5.jpg" alt="photo 5" />
-    </div>
-    <i class="prev 	fas fa-angle-left" onclick="showSlides(1, false)"></i>
-    <i class="next fas fa-angle-right" onclick="showSlides(1, true)"></i>
+}
+
+<i class="prev 	fas fa-angle-left" onclick="showSlides(1, false)"></i>
+<i class="next fas fa-angle-right" onclick="showSlides(1, true)"></i>
 </div>
 

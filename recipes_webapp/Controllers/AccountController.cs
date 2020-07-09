@@ -15,7 +15,8 @@ namespace recipes_webapp.Controllers
         // GET: Account
         public ActionResult Index()
         {
-            return Redirect("~/Account/My?mode=1");
+            //return Redirect("~/Account/My?mode=1");
+            return Redirect("~/Recipes/AddNew");
         }
 
         // GET: Account/Login
