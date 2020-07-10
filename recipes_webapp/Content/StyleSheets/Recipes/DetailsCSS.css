@@ -17,23 +17,25 @@
 
 /*#endregion */
 #details-lefttop-box {
+    height: 750px;
 }
 
 #details-righttop-box {
-    border: 1px solid lightgray;
+    height: auto;
 }
 
 #details-leftbottom-box {
     border: 1px solid lightgray;
+    height: 750px;
 }
 
 #details-rightbottom-box {
     border: 1px solid lightgray;
+    height: 750px;
 }
 
 .cards {
     width: 100%;
-    height: 750px;
 }
 
 /*#region top left container - basic information about dish and recipe*/
@@ -166,8 +168,27 @@
 }
 
 /*#endregion */
+/*#endregion */
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 /*#region top right container - food photos / photo slider */
+
+#righttop-big-photo-box {
+    width: 100%;
+    margin: 0 auto;
+    display: table;
+}
+
+.dish-photo {
+    width: 100%;
+    height: auto;
+    max-height: 850px;
+    margin: 0 auto;
+    display: none;
+    vertical-align: middle;
+}
+
 /*#endregion */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*#region bottom left container - ingredients list */
@@ -175,7 +196,7 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*#region bottom right container - directions list */
 /*#endregion */
-@media (min-width: 850px) {
+@media (min-width: 1200px) {
     #details-main-container {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -185,7 +206,7 @@
     }
 }
 
-@media (max-width: 849px) {
+@media (max-width: 1199px) {
     #lefttop-basic-icon-information-box {
         grid-template-columns: repeat(2, 1fr);
     }

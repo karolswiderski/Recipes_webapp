@@ -31,6 +31,9 @@ namespace recipes_webapp.Controllers
                 DishesDTO recipeDTO = db.Dishes.Find(id);
                 recipeVM = new DishesVM(recipeDTO);
                 TempData["categoryName"] = db.Categories.Where(x => x.Id_Category == recipeVM.Id_Category).Select(x => x.Name).SingleOrDefault();
+                recipeVM.MyGallery = Directory.EnumerateFiles(Server.MapPath("~/Content/Images/Uploads/Recipes/" + id + "/Gallery")).Select(fn => Path.GetFileName(fn));
+                TempData["bigPhoto"] = recipeVM.MyGallery.First();
+
             }
 
 
@@ -41,13 +44,25 @@ namespace recipes_webapp.Controllers
         public ActionResult PhotoSlider(int id)
         {
             DishesVM dish = new DishesVM();
+            List<string> idList = new List<string>();
 
             using (Db db = new Db())
             {
                 DishesDTO dto = db.Dishes.Find(id);
                 dish = new DishesVM(dto);
                 dish.MyGallery = Directory.EnumerateFiles(Server.MapPath("~/Content/Images/Uploads/Recipes/" + id + "/Gallery")).Select(fn => Path.GetFileName(fn));
-
+                if (dish.MyGallery.Count() > 0)
+                {
+                    int i = 1;
+                    foreach (var item in dish.MyGallery)
+                    {
+                        idList.Add("photo"+i);
+                        i++;
+                    }
+                }
+                else { 
+                
+                }
             }
 
             return PartialView(dish);

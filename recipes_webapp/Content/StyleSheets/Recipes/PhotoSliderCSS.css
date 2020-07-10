@@ -1,30 +1,4 @@
-﻿
-#big-photos {
-    width:100%;
-    height:100%;
-}
-
-.big {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-    .big img {
-        width: 100%;
-        height: 100%;
-    }
-
-#photo1 {
-    display: block;
-}
-
-#photo2, #photo3, #photo4, #photo5 {
-    display: none;
-}
-
-
-.prev,
+﻿.prev,
 .next {
     cursor: pointer;
     position: fixed;
@@ -34,13 +8,15 @@
     margin-top: -50px;
     color: white;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 3em;
     border-radius: 0 3px 3px 0;
 }
 
 .next {
-    right: 30%;
+    right: 0.5%;
 }
+
+
 
     .prev:hover,
     .next:hover {

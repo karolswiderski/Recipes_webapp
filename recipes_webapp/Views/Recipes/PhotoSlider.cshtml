@@ -9,54 +9,14 @@
 
 <link href="~/Scripts/dropzone/dropzone.css" rel="stylesheet" />
 
-<div id="big-photos">
-    @section scripts{
-        <script src="~/Scripts/jquery.fancybox.js"></script>
-        <script src="~/Scripts/dropzone/dropzone.js"></script>
-        <script>
 
-        $(function () {
+<div id="righttop-big-photo-box">
 
-            //** fancybox
-
-            $(".fancybox").fancybox();
-        });
-        // dropzone js:
-        Dropzone.options.dropzoneForm = {
-            acceptedFiles: "image/*",
-            init: function () {
-                this.on("complete", function (file) {
-                    if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-                        location.reload();
-                    }
-                });
-
-                this.on("sending", function (file, xhr, formData) {
-                    formData.append("id", @Model.Id_Dish);
-                });
-            }
-            };
-
-            //usuwanie:
-
-            $(function () {
-
-                $(".delete").click(function () {
-                    if (!confirm("Potwierdzasz usunięcie wybranej pozycji?")) return false;
-                });
-            });
-        </script>
-}
-@foreach (var image in Model.MyGallery)
-{
-    <div style="display:inline-block">
-        <a class="fancybox" rel="gallery1" href="/Content/Images/Uploads/Recipes/@Model.Id_Dish/Gallery/@image">
-            <img src="/Content/Images/Uploads/Recipes/@Model.Id_Dish/Thumbs/@image" alt="photo 1" />
-        </a>
-    </div>
-}
-
-<i class="prev 	fas fa-angle-left" onclick="showSlides(1, false)"></i>
-<i class="next fas fa-angle-right" onclick="showSlides(1, true)"></i>
+    @for (int i = 0; i < Model.MyGallery.Count(); i++)
+    {
+        <img class="dish-photo" src="/Content/Images/Uploads/Recipes/@Model.Id_Dish/Gallery/@Model.MyGallery.ElementAt(i)" id="photo_@i" />
+    }
+    <i class="prev 	fas fa-angle-left" onclick="showSlides(1, false)"></i>
+    <i class="next fas fa-angle-right" onclick="showSlides(1, true)"></i>
+    <script>showSlides(1, true);</script>
 </div>
-

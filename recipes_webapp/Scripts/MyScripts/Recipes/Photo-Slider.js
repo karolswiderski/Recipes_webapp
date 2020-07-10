@@ -3,7 +3,7 @@
 
 function showSlides(x, flag) {
 
-    document.getElementById("photo" + index).style.display = "none";
+    document.getElementById("photo_" + index).style.display = "none";
 
     if (flag == true) {
         if (index > 0 && index < 5) {
@@ -19,5 +19,5 @@ function showSlides(x, flag) {
         }
     }
 
-    document.getElementById("photo" + index).style.display = "block";
+    document.getElementById("photo_" + index).style.display = "table-cell";
 }
