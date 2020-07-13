@@ -1,4 +1,4 @@
-﻿#header-text {
+﻿#ingredients-header-text {
     width: 100%;
     height: auto;
     letter-spacing: 0.1em;
@@ -20,6 +20,7 @@
     background-color: #ecf4ec;
     box-shadow: 0 1px 6px rgba(0,0,0, .35);
     border-left: 1rem solid #FF6F61;
+    margin-bottom: 2em;
 }
 
     #ingredients-list p {

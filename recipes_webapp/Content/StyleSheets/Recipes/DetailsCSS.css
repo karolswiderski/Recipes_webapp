@@ -25,12 +25,11 @@
 }
 
 #details-leftbottom-box {
-    height: 750px;
+    height: auto;
 }
 
 #details-rightbottom-box {
-    border: 1px solid lightgray;
-    height: 750px;
+    height: auto;
 }
 
 .cards {

@@ -80,6 +80,6 @@
         @Html.Action("Ingredients", "Recipes", new { id = Model.Id_Ingredient })
     </div>
     <div id="details-rightbottom-box" class="cards">
-        .
+        @Html.Action("Directions", "Recipes", new { id = Model.Id_Direction })
     </div>
 </div>

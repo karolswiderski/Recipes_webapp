@@ -1,32 +1,41 @@
-﻿#dir-box {
-    margin: 0 2em 2em 2em;
-}
-
-.first {
-    font-size: 1.5em;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    padding-bottom:0.2em;
-}
-
-    .second {
-        font-size: 1.3em;
-        font-family: 'Quicksand', sans-serif;
-        font-weight: bold;
-        padding-left: 0.5em;
-        padding-bottom: 1em;
-        padding-top: 0.5em;
-    }
-
-
-#text-dir {
-    width: 80%;
+﻿#directions-title {
+    width: 100%;
     height: auto;
-    font-size: 2em;
-    padding-left: 1em;
-    padding-top: 3em;
-    margin-bottom: 1em;
-    font-family: 'Poppins', sans-serif;
     letter-spacing: 0.1em;
-    border-bottom: 3px solid #63A669;
+    font-size: 140%;
+    font-family: 'Magra', sans-serif;
+    color: black;
+    font-size: 250%;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+#directons-steps-box {
+    width: 100%;
+    height: auto;
+}
+
+.directions-single-step-box {
+    width: 100%;
+    height: auto;
+    margin-bottom: 3em;
+}
+
+.directions-step-title {
+    font-size: 150%;
+    font-weight: bold;
+    font-family: 'Poppins', cursive;
+    padding-bottom: 0.2em;
+    padding-left: 3%;
+    border-bottom: 1px solid #FF6F61;
+}
+
+.directions-step-content {
+    font-size: 115%;
+    font-family: 'Quicksand', sans-serif;
+    width: 95%;
+    font-weight: bold;
+    margin: 2% 5% 2% 0;
+    padding: 2% 2%;
+    border-left: 1rem solid #FF6F61;
 }

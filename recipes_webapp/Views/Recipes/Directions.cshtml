@@ -2,116 +2,134 @@
 <link href="~/Content/StyleSheets/Recipes/DirectionsCSS.css" rel="stylesheet" />
 
 
-<p id="text-dir" class="underline--magical">SPOSÓB PRZYGOTOWANIA</p>
-<div id="dir-box">
-    @if (Model.Step_1_Content != null)
+<div id="directions-title">Sposób przygotowania potrawy: </div>
+
+<div id="directons-steps-box">
+    @if (Model.Step_1_Content != "")
     {
-        <b class="first underline--magical">
-            KROK 1
-        </b>
-        <br />
-        <p class="second">
-            @Html.DisplayFor(model => model.Step_1_Content)
-        </p>
+        <div class="directions-single-step-box">
+            <b class="directions-step-title">
+                KROK 1
+            </b>
+            <div class="directions-step-content">
+                @Html.DisplayFor(model => model.Step_1_Content)
+            </div>
+        </div>
+    }
+    @if (Model.Step_2_Content != "")
+    {
+        <div class="directions-single-step-box">
+            <b class="directions-step-title">
+                KROK 2
+            </b>
+            <div class="directions-step-content">
+                @Html.DisplayFor(model => model.Step_2_Content)
+            </div>
+        </div>
     }
 
-    @if (Model.Step_2_Content != null)
+    @if (Model.Step_3_Content != "")
     {
-        <b class="first underline--magical">
-            KROK 2 
-        </b>
-        <br />
-        <p class="second">
-            @Html.DisplayFor(model => model.Step_2_Content)
-        </p>
+
+        <div class="directions-single-step-box">
+            <b class="directions-step-title">
+                KROK 3
+            </b>
+            <div class="directions-step-content">
+                @Html.DisplayFor(model => model.Step_3_Content)
+            </div>
+        </div>
     }
 
-    @if (Model.Step_3_Content != null)
+    @if (Model.Step_4_Content != "")
     {
-        <b class="first underline--magical">
-            KROK 3
-        </b>
-        <br />
-        <p class="second">
-            @Html.DisplayFor(model => model.Step_3_Content)
-        </p>
+
+        <div class="directions-single-step-box">
+            <b class="directions-step-title">
+                KROK 4
+            </b>
+            <div class="directions-step-content">
+                @Html.DisplayFor(model => model.Step_4_Content)
+            </div>
+        </div>
     }
 
-    @if (Model.Step_4_Content != null)
+    @if (Model.Step_5_Content != "")
     {
-        <b class="first underline--magical">
-            KROK 4
-        </b>
-        <br />
-        <p class="second">
-            @Html.DisplayFor(model => model.Step_4_Content)
-        </p>
+
+        <div class="directions-single-step-box">
+            <b class="directions-step-title">
+                KROK 5
+            </b>
+            <div class="directions-step-content">
+                @Html.DisplayFor(model => model.Step_5_Content)
+            </div>
+        </div>
     }
 
-    @if (Model.Step_5_Content != null)
+    @if (Model.Step_6_Content != "")
     {
-        <b class="first underline--magical">
-            KROK 5
-        </b>
-        <br />
-        <p class="second">
-            @Html.DisplayFor(model => model.Step_5_Content)
-        </p>
+
+        <div class="directions-single-step-box">
+            <b class="directions-step-title">
+                KROK 6
+            </b>
+            <div class="directions-step-content">
+                @Html.DisplayFor(model => model.Step_6_Content)
+            </div>
+        </div>
     }
 
-    @if (Model.Step_6_Content != null)
+    @if (Model.Step_7_Content != "")
     {
-        <b class="first underline--magical">
-            KROK 6
-        </b>
-        <br />
-        <p class="second">
-            @Html.DisplayFor(model => model.Step_6_Content)
-        </p>
+
+        <div class="directions-single-step-box">
+            <b class="directions-step-title">
+                KROK 7
+            </b>
+            <div class="directions-step-content">
+                @Html.DisplayFor(model => model.Step_7_Content)
+            </div>
+        </div>
     }
 
-    @if (Model.Step_7_Content != null)
+    @if (Model.Step_8_Content != "")
     {
-        <b class="first underline--magical">
-            KROK 7
-        </b>
-        <br />
-        <p class="second">
-            @Html.DisplayFor(model => model.Step_7_Content)
-        </p>
+
+        <div class="directions-single-step-box">
+            <b class="directions-step-title">
+                KROK 8
+            </b>
+            <div class="directions-step-content">
+                @Html.DisplayFor(model => model.Step_8_Content)
+            </div>
+        </div>
     }
 
-    @if (Model.Step_8_Content != null)
+    @if (Model.Step_9_Content != "")
     {
-        <b class="first underline--magical">
-            KROK 8
-        </b>
-        <br />
-        <p class="second">
-            @Html.DisplayFor(model => model.Step_8_Content)
-        </p>
+
+        <div class="directions-single-step-box">
+            <b class="directions-step-title">
+                KROK 9
+            </b>
+            <div class="directions-step-content">
+                @Html.DisplayFor(model => model.Step_9_Content)
+            </div>
+        </div>
     }
 
-    @if (Model.Step_9_Content != null)
+    @if (Model.Step_10_Content != "")
     {
-        <b class="first underline--magical">
-            KROK 9
-        </b>
-        <br />
-        <p class="second">
-            @Html.DisplayFor(model => model.Step_9_Content)
-        </p>
-    }
 
-    @if (Model.Step_10_Content != null)
-    {
-        <b class="first underline--magical">
-            KROK 10
-        </b>
-        <br />
-        <p class="second">
-            @Html.DisplayFor(model => model.Step_10_Content)
-        </p>
+        <div class="directions-single-step-box">
+            <b class="directions-step-title">
+                KROK 10
+            </b>
+            <div class="directions-step-content">
+                @Html.DisplayFor(model => model.Step_10_Content)
+            </div>
+        </div>
     }
 
 </div>
