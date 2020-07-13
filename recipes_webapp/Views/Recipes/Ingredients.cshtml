@@ -1,83 +1,83 @@
 ﻿@model recipes_webapp.Models.ViewModels.Dishes.IngredientsVM
 <link href="~/Content/StyleSheets/Recipes/IngredientsCSS.css" rel="stylesheet" />
 
-<div id="header-text">LISTA SKŁADNIKÓW </div>
+<div id="header-text"> Lista potrzebnych składników: </div>
 
 <div id="ingredients-list">
 
-    @if (Model.Ingredient_1 != null)
+    @if (Model.Ingredient_1 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_1) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_1) </p>
     }
 
-    @if (Model.Ingredient_2 != null)
+    @if (Model.Ingredient_2 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_2) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_2) </p>
     }
 
-    @if (Model.Ingredient_3 != null)
+    @if (Model.Ingredient_3 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_3) </p>
-    }
-     
-    @if (Model.Ingredient_4 != null)
-    {
-        <p> + @Html.DisplayFor(model => model.Ingredient_4) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_3) </p>
     }
 
-    @if (Model.Ingredient_5 != null)
+    @if (Model.Ingredient_4 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_5) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_4) </p>
     }
 
-    @if (Model.Ingredient_6 != null)
+    @if (Model.Ingredient_5 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_6) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_5) </p>
     }
 
-    @if (Model.Ingredient_7 != null)
+    @if (Model.Ingredient_6 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_7) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_6) </p>
     }
 
-    @if (Model.Ingredient_8 != null)
+    @if (Model.Ingredient_7 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_8) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_7) </p>
     }
 
-    @if (Model.Ingredient_9 != null)
+    @if (Model.Ingredient_8 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_9) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_8) </p>
     }
 
-    @if (Model.Ingredient_10 != null)
+    @if (Model.Ingredient_9 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_10) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_9) </p>
     }
 
-    @if (Model.Ingredient_11 != null)
+    @if (Model.Ingredient_10 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_11) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_10) </p>
     }
 
-    @if (Model.Ingredient_12 != null)
+    @if (Model.Ingredient_11 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_12) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_11) </p>
     }
 
-    @if (Model.Ingredient_13 != null)
+    @if (Model.Ingredient_12 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_13) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_12) </p>
     }
 
-    @if (Model.Ingredient_14 != null)
+    @if (Model.Ingredient_13 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_14) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_13) </p>
     }
 
-    @if (Model.Ingredient_15 != null)
+    @if (Model.Ingredient_14 != "")
     {
-        <p> + @Html.DisplayFor(model => model.Ingredient_15) </p>
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_14) </p>
+    }
+
+    @if (Model.Ingredient_15 != "")
+    {
+        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_15) </p>
     }
 
 

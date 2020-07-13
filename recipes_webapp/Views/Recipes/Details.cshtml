@@ -77,7 +77,7 @@
         @Html.Action("PhotoSlider", "Recipes", new { id = Model.Id_Dish })
     </div>
     <div id="details-leftbottom-box" class="cards">
-        .
+        @Html.Action("Ingredients", "Recipes", new { id = Model.Id_Ingredient })
     </div>
     <div id="details-rightbottom-box" class="cards">
         .
