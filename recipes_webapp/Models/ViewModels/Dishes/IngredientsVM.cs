@@ -1,4 +1,5 @@
 ﻿using recipes_webapp.Models.Data;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace recipes_webapp.Models.ViewModels.Dishes
@@ -43,5 +44,7 @@ namespace recipes_webapp.Models.ViewModels.Dishes
         public string Ingredient_13 { get; set; }
         public string Ingredient_14 { get; set; }
         public string Ingredient_15 { get; set; }
+
+        public IEnumerable<string> IngredientsList { get; set; }
     }
 }

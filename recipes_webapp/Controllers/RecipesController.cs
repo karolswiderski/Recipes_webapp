@@ -75,11 +75,28 @@ namespace recipes_webapp.Controllers
             //List<string> ingredientsList;
             IngredientsVM ingredientsVM;
             IngredientsDTO ingredientsDTO;
+            List<string> ingredientsContent = new List<string>();
 
             using (Db db = new Db())
             {
                 ingredientsDTO = db.Ingredients.Where(x => x.Id_Ingredient == id).FirstOrDefault();
                 ingredientsVM = new IngredientsVM(ingredientsDTO);
+                if (ingredientsVM.Ingredient_1 != "") ingredientsContent.Add(ingredientsVM.Ingredient_1);
+                if (ingredientsVM.Ingredient_2 != "") ingredientsContent.Add(ingredientsVM.Ingredient_2);
+                if (ingredientsVM.Ingredient_3 != "") ingredientsContent.Add(ingredientsVM.Ingredient_3);
+                if (ingredientsVM.Ingredient_4 != "") ingredientsContent.Add(ingredientsVM.Ingredient_4);
+                if (ingredientsVM.Ingredient_5 != "") ingredientsContent.Add(ingredientsVM.Ingredient_5);
+                if (ingredientsVM.Ingredient_6 != "") ingredientsContent.Add(ingredientsVM.Ingredient_6);
+                if (ingredientsVM.Ingredient_7 != "") ingredientsContent.Add(ingredientsVM.Ingredient_7);
+                if (ingredientsVM.Ingredient_8 != "") ingredientsContent.Add(ingredientsVM.Ingredient_8);
+                if (ingredientsVM.Ingredient_9 != "") ingredientsContent.Add(ingredientsVM.Ingredient_9);
+                if (ingredientsVM.Ingredient_10 != "") ingredientsContent.Add(ingredientsVM.Ingredient_10);
+                if (ingredientsVM.Ingredient_11 != "") ingredientsContent.Add(ingredientsVM.Ingredient_11);
+                if (ingredientsVM.Ingredient_12 != "") ingredientsContent.Add(ingredientsVM.Ingredient_12);
+                if (ingredientsVM.Ingredient_13 != "") ingredientsContent.Add(ingredientsVM.Ingredient_13);
+                if (ingredientsVM.Ingredient_14 != "") ingredientsContent.Add(ingredientsVM.Ingredient_14);
+                if (ingredientsVM.Ingredient_15 != "") ingredientsContent.Add(ingredientsVM.Ingredient_15);
+                ingredientsVM.IngredientsList = ingredientsContent;
             }
 
             return PartialView(ingredientsVM);
@@ -90,11 +107,22 @@ namespace recipes_webapp.Controllers
         {
             DirectionsVM directionsVM;
             DirectionsDTO directionsDTO;
-
+            List<string> stepsContent = new List<string>();
             using (Db db = new Db())
             {
                 directionsDTO = db.Directions.Find(id);
                 directionsVM = new DirectionsVM(directionsDTO);
+                if (directionsVM.Step_1_Content != "") stepsContent.Add(directionsVM.Step_1_Content);
+                if (directionsVM.Step_2_Content != "") stepsContent.Add(directionsVM.Step_2_Content);
+                if (directionsVM.Step_3_Content != "") stepsContent.Add(directionsVM.Step_3_Content);
+                if (directionsVM.Step_4_Content != "") stepsContent.Add(directionsVM.Step_4_Content);
+                if (directionsVM.Step_5_Content != "") stepsContent.Add(directionsVM.Step_5_Content);
+                if (directionsVM.Step_6_Content != "") stepsContent.Add(directionsVM.Step_6_Content);
+                if (directionsVM.Step_7_Content != "") stepsContent.Add(directionsVM.Step_7_Content);
+                if (directionsVM.Step_8_Content != "") stepsContent.Add(directionsVM.Step_8_Content);
+                if (directionsVM.Step_9_Content != "") stepsContent.Add(directionsVM.Step_9_Content);
+                if (directionsVM.Step_10_Content != "") stepsContent.Add(directionsVM.Step_10_Content);
+                directionsVM.DirectionsList = stepsContent;
             }
 
             return PartialView(directionsVM);

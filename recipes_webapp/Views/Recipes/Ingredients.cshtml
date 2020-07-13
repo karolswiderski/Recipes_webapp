@@ -4,82 +4,13 @@
 <div id="ingredients-header-text"> Lista potrzebnych składników: </div>
 
 <div id="ingredients-list">
-
-    @if (Model.Ingredient_1 != "")
+    @for (int i = 1; i < Model.IngredientsList.Count(); i++)
     {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_1) </p>
+        if (Model.IngredientsList.ElementAt(i) != "")
+        {
+            <p> <a class="plus-element">+</a> &nbsp; @Model.IngredientsList.ElementAt(i) </p>
+        }
     }
-
-    @if (Model.Ingredient_2 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_2) </p>
-    }
-
-    @if (Model.Ingredient_3 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_3) </p>
-    }
-
-    @if (Model.Ingredient_4 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_4) </p>
-    }
-
-    @if (Model.Ingredient_5 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_5) </p>
-    }
-
-    @if (Model.Ingredient_6 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_6) </p>
-    }
-
-    @if (Model.Ingredient_7 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_7) </p>
-    }
-
-    @if (Model.Ingredient_8 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_8) </p>
-    }
-
-    @if (Model.Ingredient_9 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_9) </p>
-    }
-
-    @if (Model.Ingredient_10 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_10) </p>
-    }
-
-    @if (Model.Ingredient_11 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_11) </p>
-    }
-
-    @if (Model.Ingredient_12 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_12) </p>
-    }
-
-    @if (Model.Ingredient_13 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_13) </p>
-    }
-
-    @if (Model.Ingredient_14 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_14) </p>
-    }
-
-    @if (Model.Ingredient_15 != "")
-    {
-        <p> <a class="plus-element">+</a> &nbsp; @Html.DisplayFor(model => model.Ingredient_15) </p>
-    }
-
 
     <div id="download-list">
         <a href="#"> pobierz listę *PDF </a>

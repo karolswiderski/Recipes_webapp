@@ -1,4 +1,5 @@
 ﻿using recipes_webapp.Models.Data;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace recipes_webapp.Models.ViewModels.Dishes
@@ -34,5 +35,7 @@ namespace recipes_webapp.Models.ViewModels.Dishes
         public string Step_8_Content { get; set; }
         public string Step_9_Content { get; set; }
         public string Step_10_Content { get; set; }
+
+        public IEnumerable<string> DirectionsList { get; set; }
     }
 }
