@@ -4,18 +4,18 @@
 
 @foreach (var item in Model)
 {
-    <div class="article-box">
+    <div class="article-box rating-hover">
         <a href="@Url.Action("Details", "Articles", new { id = item.Id_Article})">
-            <div class="art-photoo">
-                <img class="artimg11" src="~/Content/Images/img5.jpg" />
-                <div class="dataaddedd">
+            <div class="recipe-article-photo">
+                <img class="rating-photo" src="~/Content/Images/img5.jpg" />
+                <div class="information-about">
                     <p>kliknij tutaj żeby przeczytać</p>
                     <br /><br />
                     <p>@item.Date_Added.ToString("dd/MM/yyyy") | @item.Rating <i style="font-size:80%" class="fa fa-heart" aria-hidden="true"></i></p>
                 </div>
             </div>
         </a>
-        <div class="art-titlee">
+        <div class="rating-title">
             <p>  @item.Title.ToUpper() </p>
         </div>
     </div>

@@ -42,9 +42,9 @@
             </div>
             <div id="author-box" class="text-information-box"><p><a href="#" id="author-box-link">Tomasz Nowak</a></p></div>
             <div id="title-box" class="text-information-box"><p>@Model.Name</p></div>
-            <div id="description-box" class="text-information-box"><p>@Model.Description</p></div>
+            <div id="description-box" class="text-information-box">@Model.Description</div>
+            <div id="date-box" class="text-information-box">przepis dodano: @Model.Date_Added.ToString("dd.MM.yyyy")</div>
         </div>
-
         <div id="lefttop-basic-icon-information-box">
             <div id="level-icon-box" class="icon-box">
                 <div class="icon-box-top">

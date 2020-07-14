@@ -111,10 +111,8 @@
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    height: auto;
-    min-height: 20%;
-    max-height: 40%;
-    padding: 5% 5%;
+    height: 38%;
+    padding: 1% 5%;
     margin-top: 2.5%;
     font-size: 140%;
     border-left: 1rem solid #FF6F61;
@@ -122,21 +120,34 @@
     color: black;
 }
 
+#date-box {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: right;
+    height: auto;
+    height: 2%;
+    padding-right: 5%;
+    font-size: 100%;
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+}
+
 /*#endregion */
-
 /*#region icon information*/
-
 .icon-box {
     text-align: center;
     color: black;
     padding-top: 5%;
     margin: 0 5%;
     font-family: 'Alegreya Sans SC', sans-serif;
+    box-shadow: 0 1px 6px rgba(0,0,0, .35);
+    transition: background-color 0.3s;
 }
 
-.icon:hover {
-    font-size: 450%;
-}
+    .icon-box:hover {
+        background-color: rgba(8, 6, 2, 0.08);
+    }
 
 #time-icon-icon-box {
 
@@ -161,7 +172,6 @@
 .icon {
     font-size: 400%;
     color: #FF6F61;
-    transition: font-size 0.3s;
 }
 
 /*#endregion */

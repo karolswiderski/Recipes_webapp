@@ -3,6 +3,7 @@ using recipes_webapp.Models.ViewModels.Account;
 using recipes_webapp.Models.ViewModels.Dishes;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -63,7 +64,7 @@ namespace recipes_webapp.Controllers
                     if (name == "byuserid") DishesList = db.Dishes.Where(x => x.Id_Author == userId).ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
                     else if (name == "following")
                     {
-                        List <int> followingList = db.Recipe_Followers.Where(x => x.Follower_Id == userId && x.Its_Still == true).ToArray().Select(x => x.Recipe_Id).ToList();
+                        List<int> followingList = db.Recipe_Followers.Where(x => x.Follower_Id == userId && x.Its_Still == true).ToArray().Select(x => x.Recipe_Id).ToList();
                         foreach (var item in followingList)
                         {
                             DishesDTO dish = new DishesDTO();
@@ -74,13 +75,17 @@ namespace recipes_webapp.Controllers
                 }
                 else
                 {
-                    if (name == "all") DishesList = db.Dishes.ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
+                    if (name == "all") DishesList = db.Dishes.ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).Take(6).ToList(); 
                     else if (name != "all" && name != "byuserid")
                     {
                         CategoriesDTO category = db.Categories.FirstOrDefault(x => x.Name == name);
                         TempData["test"] = "test";
                         DishesList = db.Dishes.Where(x => x.Id_Category == category.Id_Category).ToArray().Select(x => new DishesVM(x)).OrderBy(x => x.Rating).ToList();
                     }
+                }
+                foreach (var item in DishesList)
+                {
+                    item.MyGallery = Directory.EnumerateFiles(Server.MapPath("~/Content/Images/Uploads/Recipes/" + item.Id_Dish + "/Gallery")).Select(fn => Path.GetFileName(fn));
                 }
             }
 

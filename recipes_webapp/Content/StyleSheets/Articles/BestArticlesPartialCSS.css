@@ -1,4 +1,36 @@
-﻿.article-box {
+﻿/*#region recipes only*/
+
+.rating {
+    width: 100%;
+    height: auto;
+    margin-top: auto;
+}
+
+.rating-list {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    list-style: none;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.rating-single-recipe {
+    display: inline-block;
+    width: 25em;
+    height: 30em;
+    margin: 2em;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/*#endregion */
+
+/*#region articles only*/
+
+.article-box {
     width: 80%;
     margin: 0 auto;
     height: 13vw;
@@ -6,14 +38,17 @@
     margin-top: 2em;
 }
 
+/*#endregion */
 
-.art-photoo {
+/*#region articles & recipes part of the common*/
+
+.recipe-article-photo {
     width: 100%;
     height: 80%;
     display: block;
 }
 
-    .art-photoo img {
+    .recipe-article-photo img {
         width: 100%;
         height: 100%;
         display: block;
@@ -21,7 +56,7 @@
         backface-visibility: hidden;
     }
 
-.dataaddedd {
+.information-about {
     transition: .5s ease;
     opacity: 0;
     transform: translate(-5%, -70%);
@@ -37,20 +72,19 @@
     color: black;
 }
 
-
-.article-box:hover .artimg11 {
+.rating-hover:hover .rating-photo {
     opacity: 0.2;
 }
 
-.article-box:hover .dataaddedd {
+.rating-hover:hover .information-about {
     opacity: 1;
 }
 
-.article-box:hover .art-titlee {
+.rating-hover:hover .rating-title {
     background-color: rgba(58, 64, 64, 1);
 }
 
-.art-titlee {
+.rating-title {
     width: 100%;
     height: 20%;
     border-top: 1px solid lightgray;
@@ -62,10 +96,9 @@
     display: table;
     transition: .5s ease;
     color: white;
-
 }
 
-    .art-titlee p {
+    .rating-title p {
         width: auto;
         margin-left: auto;
         margin-right: auto;
@@ -76,6 +109,10 @@
     }
 
 
-.article-box a, .article-box a:hover, .article-box a:focus {
+.rating-hover a, .rating-hover a:hover, .rating-hover a:focus {
     text-decoration: none;
 }
+
+/*#endregion */
+
+

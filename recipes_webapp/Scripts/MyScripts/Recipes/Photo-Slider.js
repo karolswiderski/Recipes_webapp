@@ -1,4 +1,4 @@
-﻿var index = 1;
+﻿var index = 0;
 
 
 function showSlides(x, flag) {
